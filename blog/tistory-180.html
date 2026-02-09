@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3.2 耳?댄겕 ?덉빟 ?섏씠吏? 援ш? ?ㅽ봽?덈뱶?쒗듃 ?곕룞 | Blog</title>
-  <meta name="description" content="1. 臾몄젣 ?뺤쓽?댁쟾??Formspree瑜??쒖슜??怨좉컼 ?덉빟 ?뺣낫瑜?硫붿씪濡?諛쏆븘遊ㅻ떎.硫붿씪 ?섏떊 ?먯껜?????묐룞?덉?留? ?ㅼ젣濡??덉빟 紐⑸줉??愿由ы븯?ㅻ㈃寃곌뎅 ?섎굹??蹂듭궗??Excel?대굹 Google Sheets??遺숈뿬?ｋ뒗 怨쇱젙???꾩슂?덈떎. ?대윴 ?섏옉?낆? 鍮꾪슚?⑥쟻?닿퀬, ?덉빟 嫄댁닔媛 留롮븘吏덉닔濡??ㅼ닔媛 諛쒖깮??媛?μ꽦???믪븘吏꾨떎. 洹몃옒???대쾲?먮뒗 ?쇱뿉 ?낅젰???곗씠?곌? ?ㅼ떆媛꾩쑝濡?Google ?ㅽ봽?덈뱶?쒗듃????λ릺?꾨줉 ?먮룞?뷀빐蹂닿퀬???쒕떎. ?대? ?꾪빐 蹂꾨룄???쒕쾭 ?놁씠??媛?ν븯?꾨줉 Google Apps Script瑜??ъ슜??HTML ?쇨낵 Google Sheets瑜?吏곸젒 ?곌껐?대낫湲곕줈 ?덈떎.2. 紐⑺몴?뱁럹?댁??먯꽌 ?낅젰?섎뒗 ?뺣낫瑜?援ш? ?ㅽ봽?덈뱶?쒗듃????λ릺?꾨줉 ?ㅼ젙蹂꾨룄???쒕쾭??諛깆뿏???놁씠 ?꾧뎄???쎄쾶 ?곕씪?????덈뒗 援ъ“濡?留뚮뱾.." />
+  <title>3.2 케이크 예약 페이지와 구글 스프레드시트 연동 | Blog</title>
+  <meta name="description" content="1. 문제 정의이전에 Formspree를 활용해 고객 예약 정보를 메일로 받아봤다.메일 수신 자체는 잘 작동했지만, 실제로 예약 목록을 관리하려면결국 하나씩 복사해 Excel이나 Google Sheets에 붙여넣는 과정이 필요했다. 이런 수작업은 비효율적이고, 예약 건수가 많아질수록 실수가 발생할 가능성도 높아진다. 그래서 이번에는 폼에 입력된 데이터가 실시간으로 Google 스프레드시트에 저장되도록 자동화해보고자 한다. 이를 위해 별도의 서버 없이도 가능하도록 Google Apps Script를 사용해 HTML 폼과 Google Sheets를 직접 연결해보기로 했다.2. 목표웹페이지에서 입력하는 정보를 구글 스프레드시트에 저장되도록 설정별도의 서버나 백엔드 없이 누구나 쉽게 따라할 수 있는 구조로 만들.." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
 <body>
   <div class="bg-grid"></div>
   <header class="nav">
-    <a class="logo" href="../index.html">Wonjin Choi</a>
+    <a class="logo" href="../index.html">최원진</a>
     <nav>
       <a href="../index.html">Home</a>
       <a href="./index.html">Blog</a>
@@ -23,34 +23,34 @@
   <main>
     <section class="blog-hero">
       <p class="eyebrow">Writing</p>
-      <h1>3.2 耳?댄겕 ?덉빟 ?섏씠吏? 援ш? ?ㅽ봽?덈뱶?쒗듃 ?곕룞</h1>
+      <h1>3.2 케이크 예약 페이지와 구글 스프레드시트 연동</h1>
       <div class="post-meta">
         <span>2025-05-05</span>
-        <span class="post-badge">?곗씠?곕텇??/span>
+        <span class="post-badge">데이터분석</span>
       </div>
     </section>
 
     <article class="post-body card">
-      <h1>1. 臾몄젣 ?뺤쓽</h1>
-<p>?댁쟾??Formspree瑜??쒖슜??怨좉컼 ?덉빟 ?뺣낫瑜?硫붿씪濡?諛쏆븘遊ㅻ떎.硫붿씪 ?섏떊 ?먯껜?????묐룞?덉?留? ?ㅼ젣濡??덉빟 紐⑸줉??愿由ы븯?ㅻ㈃<br/>寃곌뎅 ?섎굹??蹂듭궗??Excel?대굹 Google Sheets??遺숈뿬?ｋ뒗 怨쇱젙???꾩슂?덈떎. ?대윴 ?섏옉?낆? 鍮꾪슚?⑥쟻?닿퀬, ?덉빟 嫄댁닔媛 留롮븘吏덉닔濡??ㅼ닔媛 諛쒖깮??媛?μ꽦???믪븘吏꾨떎. 洹몃옒???대쾲?먮뒗 ?쇱뿉 ?낅젰???곗씠?곌? ?ㅼ떆媛꾩쑝濡?Google ?ㅽ봽?덈뱶?쒗듃????λ릺?꾨줉 ?먮룞?뷀빐蹂닿퀬???쒕떎. ?대? ?꾪빐 蹂꾨룄???쒕쾭 ?놁씠??媛?ν븯?꾨줉 Google Apps Script瑜??ъ슜??HTML ?쇨낵 Google Sheets瑜?吏곸젒 ?곌껐?대낫湲곕줈 ?덈떎.</p>
-<h1>2. 紐⑺몴</h1>
-<p>?뱁럹?댁??먯꽌 ?낅젰?섎뒗 ?뺣낫瑜?援ш? ?ㅽ봽?덈뱶?쒗듃????λ릺?꾨줉 ?ㅼ젙</p>
-<p>蹂꾨룄???쒕쾭??諛깆뿏???놁씠 ?꾧뎄???쎄쾶 ?곕씪?????덈뒗 援ъ“濡?留뚮뱾湲?/p>
-<h1>3. 吏꾪뻾</h1>
-<h2>3.1 ?ㅽ봽?덈뱶?쒗듃 以鍮?/h2>
+      <h1>1. 문제 정의</h1>
+<p>이전에 Formspree를 활용해 고객 예약 정보를 메일로 받아봤다.메일 수신 자체는 잘 작동했지만, 실제로 예약 목록을 관리하려면<br/>결국 하나씩 복사해 Excel이나 Google Sheets에 붙여넣는 과정이 필요했다. 이런 수작업은 비효율적이고, 예약 건수가 많아질수록 실수가 발생할 가능성도 높아진다. 그래서 이번에는 폼에 입력된 데이터가 실시간으로 Google 스프레드시트에 저장되도록 자동화해보고자 한다. 이를 위해 별도의 서버 없이도 가능하도록 Google Apps Script를 사용해 HTML 폼과 Google Sheets를 직접 연결해보기로 했다.</p>
+<h1>2. 목표</h1>
+<p>웹페이지에서 입력하는 정보를 구글 스프레드시트에 저장되도록 설정</p>
+<p>별도의 서버나 백엔드 없이 누구나 쉽게 따라할 수 있는 구조로 만들기</p>
+<h1>3. 진행</h1>
+<h2>3.1 스프레드시트 준비</h2>
 <ol>
-<li>Google Sheets ?닿린(<a href="https://docs.google.com/spreadsheets">https://docs.google.com/spreadsheets</a>)</li>
-<li>??臾몄꽌 留뚮뱾湲?/li>
-<li>泥?踰덉㎏ ?됱뿉 ?꾨옒泥섎읆 ?ㅻ뜑 ?낅젰:<br/>?대쫫 | ?곕씫泥?| ?섎졊??| 耳?댄겕 醫낅쪟 | ?붿껌?ы빆 | ?쒖텧?쒓컖</li>
+<li>Google Sheets 열기(<a href="https://docs.google.com/spreadsheets">https://docs.google.com/spreadsheets</a>)</li>
+<li>새 문서 만들기</li>
+<li>첫 번째 행에 아래처럼 헤더 입력:<br/>이름 | 연락처 | 수령일 | 케이크 종류 | 요청사항 | 제출시각</li>
 </ol>
-<h2>3.2 App Script ?묒꽦</h2>
-<p>(1) ?ㅽ겕由쏀듃 ?닿린</p>
+<h2>3.2 App Script 작성</h2>
+<p>(1) 스크립트 열기</p>
 <ul>
-<li>(?쒗듃?먯꽌 ?곷떒 硫붾돱) ?뺤옣 ?꾨줈洹몃옩 &gt; Apps Script ?대┃</li>
+<li>(시트에서 상단 메뉴) 확장 프로그램 &gt; Apps Script 클릭</li>
 </ul>
-<p>(2)  ?꾨옒 肄붾뱶 蹂듭궗?댁꽌 遺숈뿬?ｊ린</p>
+<p>(2)  아래 코드 복사해서 붙여넣기</p>
 <pre><code>function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("?쒗듃1");
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("시트1");
   const now = new Date();
 
   sheet.appendRow([
@@ -62,65 +62,64 @@
     now
   ]);
 
-  return ContentService.createTextOutput("?깃났");
-}</code></pre><p>(3) ???깆쑝濡?諛고룷</p>
+  return ContentService.createTextOutput("성공");
+}</code></pre><p>(3) 웹 앱으로 배포</p>
 <ul>
-<li>諛고룷 &gt; ???깆쑝濡?諛고룷 ?대┃</li>
-<li>??踰꾩쟾 ?대쫫: ?? v1</li>
-<li>?≪꽭??沅뚰븳 ???쒕え???ъ슜?먥앸줈 ?ㅼ젙</li>
-<li>諛고룷 ???섏삤??URL 蹂듭궗 ??HTML ?쇱뿉????二쇱냼濡??곗씠?곕? 蹂대깂</li>
+<li>배포 &gt; 웹 앱으로 배포 클릭</li>
+<li>새 버전 이름: 예) v1</li>
+<li>액세스 권한 → “모든 사용자”로 설정</li>
+<li>배포 후 나오는 URL 복사 → HTML 폼에서 이 주소로 데이터를 보냄</li>
 </ul>
-<h2>3.3 HTML ???곌껐</h2>
-<p>(1) <form> ?쒓렇 - <form id="cakeForm">留??섏젙?섏뿀??/form></form></p>
+<h2>3.3 HTML 폼 연결</h2>
+<p>(1) <form> 태그 - <form id="cakeForm">만 수정되었음</form></form></p>
 <pre><code>&lt;form id="cakeForm"&gt;
-  &lt;input type="text" name="name" placeholder="?대쫫" required&gt;
-  &lt;input type="text" name="phone" placeholder="?곕씫泥? required&gt;
+  &lt;input type="text" name="name" placeholder="이름" required&gt;
+  &lt;input type="text" name="phone" placeholder="연락처" required&gt;
   &lt;input type="date" name="pickup_date" required&gt;
   &lt;select name="cake_type"&gt;
-    &lt;option&gt;?뚮씪??耳?댄겕&lt;/option&gt;
-    &lt;option&gt;珥덉퐫 ?щ쾭 耳?댄겕&lt;/option&gt;
-    &lt;option&gt;?멸린 ?앺겕由?耳?댄겕&lt;/option&gt;
+    &lt;option&gt;플라워 케이크&lt;/option&gt;
+    &lt;option&gt;초코 러버 케이크&lt;/option&gt;
+    &lt;option&gt;딸기 생크림 케이크&lt;/option&gt;
   &lt;/select&gt;
-  &lt;textarea name="requests" placeholder="異붽? ?붿껌?ы빆"&gt;&lt;/textarea&gt;
-  &lt;input type="submit" value="?덉빟?섍린"&gt;
-&lt;/form&gt;</code></pre><p>(2) body ?? ???섎떒??異붽? 諛?scriptURL???꾧퉴 蹂듭궗??Apps Script 二쇱냼瑜?洹몃?濡?遺숈뿬?ｊ린</p>
+  &lt;textarea name="requests" placeholder="추가 요청사항"&gt;&lt;/textarea&gt;
+  &lt;input type="submit" value="예약하기"&gt;
+&lt;/form&gt;</code></pre><p>(2) body 위, 폼 하단에 추가 및 scriptURL에 아까 복사한 Apps Script 주소를 그대로 붙여넣기</p>
 <pre><code>&lt;script&gt;
   document.getElementById('cakeForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const form = e.target;
     const data = new FormData(form);
-    const scriptURL = "蹂듭궗??Apps Script ?뱀빋 URL???ш린???ｊ린";
+    const scriptURL = "복사한 Apps Script 웹앱 URL을 여기에 넣기";
 
     fetch(scriptURL, {
       method: 'POST',
       body: data
     }).then(response =&gt; {
-      alert("?덉빟???묒닔?섏뿀?듬땲??");
+      alert("예약이 접수되었습니다!");
       form.reset();
     }).catch(error =&gt; {
-      alert("臾몄젣媛 諛쒖깮?덉뒿?덈떎.");
+      alert("문제가 발생했습니다.");
       console.error("Error!", error.message);
     });
   });
-&lt;/script&gt;</code></pre><h1>4. 寃곌낵 ?뺤씤</h1>
-<p>?ㅼ쓬怨?媛숈씠 ?ъ슜?먭? ?낅젰???뺣낫媛 援ш? ?쒗듃???곕룞?섎뒗 寃껋쓣 ?뺤씤</p>
+&lt;/script&gt;</code></pre><h1>4. 결과 확인</h1>
+<p>다음과 같이 사용자가 입력한 정보가 구글 시트에 연동되는 것을 확인</p>
 <p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-height="207" data-origin-width="966"><span data-phocus="https://blog.kakaocdn.net/dna/qRDN2/btsNJW39ese/AAAAAAAAAAAAAAAAAAAAAGds0-P8C3WreJzjGBRpKLsNlkI0_fmIt3PHIwsvVYGs/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=aAPUci2k%2Bn3sk1L8Ca%2F3FGEGMXs%3D" data-url="https://blog.kakaocdn.net/dna/qRDN2/btsNJW39ese/AAAAAAAAAAAAAAAAAAAAAGds0-P8C3WreJzjGBRpKLsNlkI0_fmIt3PHIwsvVYGs/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=aAPUci2k%2Bn3sk1L8Ca%2F3FGEGMXs%3D"><img data-origin-height="207" data-origin-width="966" height="207" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/qRDN2/btsNJW39ese/AAAAAAAAAAAAAAAAAAAAAGds0-P8C3WreJzjGBRpKLsNlkI0_fmIt3PHIwsvVYGs/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=aAPUci2k%2Bn3sk1L8Ca%2F3FGEGMXs%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FqRDN2%2FbtsNJW39ese%2FAAAAAAAAAAAAAAAAAAAAAGds0-P8C3WreJzjGBRpKLsNlkI0_fmIt3PHIwsvVYGs%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DaAPUci2k%252Bn3sk1L8Ca%252F3FGEGMXs%253D" width="966"/></span></figure>
 </p>
-<h1>5. 寃곕줎</h1>
-<p>Google ?ㅽ봽?덈뱶?쒗듃 ?곕룞? 媛꾨떒?섏?留??ㅼ쓬怨?媛숈? 媛뺣젰???μ젏???덈떎.</p>
+<h1>5. 결론</h1>
+<p>Google 스프레드시트 연동은 간단하지만 다음과 같은 강력한 장점이 있다.</p>
 <ul>
-<li>蹂꾨룄???쒕쾭 ?놁씠??援ы쁽 媛?ν빐 鍮꾩슜 遺?댁씠 ?꾪? ?녿떎</li>
-<li>蹂듭옟???곗씠?곕쿋?댁뒪 ?ㅼ젙 ?놁씠?????곗씠?곕? 諛붾줈 ?쒗듃????ν븷 ???덈떎</li>
-<li>?덉빟 ?댁뿭, 怨좉컼 ?뺣낫, ?ㅻЦ 寃곌낵 ?깆쓣 ?ㅼ떆媛꾩쑝濡??섏쭛?섍퀬 ?뺣━?????덉뼱 ?⑥닚 ?섏쭛???섏뼱 ?곗씠?곕줈???쒖슜?????덈뒗 湲곕컲??留뚮뱾?댁???/li>
+<li>별도의 서버 없이도 구현 가능해 비용 부담이 전혀 없다</li>
+<li>복잡한 데이터베이스 설정 없이도 폼 데이터를 바로 시트에 저장할 수 있다</li>
+<li>예약 내역, 고객 정보, 설문 결과 등을 실시간으로 수집하고 정리할 수 있어 단순 수집을 넘어 데이터로서 활용할 수 있는 기반을 만들어준다</li>
 </ul>
-<p>?먰븳, ?쇰떒 ??踰??곕룞?대몢硫??댄썑?먮뒗 ?섏젙 ?놁씠 怨꾩냽 ?먮룞?쇰줈 湲곕줉?섎?濡? ?뚭퇋紐??꾨줈?앺듃??1???댁쁺 ?섍꼍?먯꽌 ?뱁엳 ?ㅼ슜?곸씤 諛⑹떇?대떎. ?욎쑝濡쒕뒗 ???곗씠?곕? 諛뷀깢?쇰줈 ?덉빟 ?댁뿭???꾪꽣留곹븯嫄곕굹 ?쒓컖?뷀븯??湲곕뒫源뚯? ?뺤옣?대낵 ???덈떎.</p>
+<p>또한, 일단 한 번 연동해두면 이후에는 수정 없이 계속 자동으로 기록되므로, 소규모 프로젝트나 1인 운영 환경에서 특히 실용적인 방식이다. 앞으로는 이 데이터를 바탕으로 예약 내역을 필터링하거나 시각화하는 기능까지 확장해볼 수 있다.</p>
     </article>
   </main>
 
   <footer class="footer">
-    <span>짤 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
   </footer>
 </body>
 </html>
-

@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2. 吏???앹꽦(洹쇱냽?꾩닔) | Blog</title>
-  <meta name="description" content="1. 臾몄젣 ?뺤쓽?뚯궗 ?몄궗 ?곗씠?곕? 蹂대떎蹂대땲, 洹쇱냽?꾩닔媛 ?됯퇏媛?以묒떖?쇰줈 ?뺣━?섏뼱 ?덈뒗 嫄??뺤씤?섍쾶 ?먮떎. 泥섏쓬???⑥닚???섏튂泥섎읆 蹂댁?吏留? ?먯꽭???ㅼ뿬?ㅻ낫??理쒓렐 ?낆궗?먭? 留롮쓣?섎줉 ?됯퇏媛믪씠 ??븘吏怨? 議곗쭅 ?꾩껜媛 留덉튂 遺덉븞?뺥빐 蹂댁씪 ?섎룄 ?덇쿋?ㅻ뒗 ?앷컖???ㅼ뿀???ㅼ젣濡쒕뒗 ?ㅻ옖 湲곌컙 洹쇱냽 以묒씤 援ъ꽦?먮룄 留롪퀬, 遺?쒕퀎濡?遺꾩쐞湲곕굹 ?뱀꽦???ㅻⅨ???대윴 留λ씫 ?놁씠 ?⑥씪 ?섏튂留?蹂닿쾶 ?섎㈃ 議곗쭅??????ㅽ빐???ъ?媛 ?앷릿?? ?レ옄???뺥솗?섏?留? ?뚮줈???꾩껜瑜??ㅻ챸?댁＜吏 紐삵븯湲??뚮Ц?대떎. 洹몃옒??&#x27;?대뼸寃??섎㈃ 議곌툑 ??怨듭젙?섍퀬, 議곗쭅???곹깭瑜???蹂댁뿬以????덉쓣源?&#x27; ?섎뒗 怨좊????앷꼈怨? ?⑥닚 ?됯퇏???꾨땶 ?ㅼ뼇??諛⑹떇?쇰줈 洹쇱냽?꾩닔瑜?諛붾씪蹂????덈뒗 吏?쒕? ?ㅺ퀎?대낫怨좎옄 ?쒕떎.2. 紐⑺몴?대쾲 蹂닿퀬?쒖쓽 紐⑺몴??洹쇱냽?꾩닔 吏?쒕? .." />
+  <title>2. 지표 생성(근속년수) | Blog</title>
+  <meta name="description" content="1. 문제 정의회사 인사 데이터를 보다보니, 근속년수가 평균값 중심으로 정리되어 있는 걸 확인하게 됐다. 처음엔 단순한 수치처럼 보였지만, 자세히 들여다보니 최근 입사자가 많을수록 평균값이 낮아지고, 조직 전체가 마치 불안정해 보일 수도 있겠다는 생각이 들었다.실제로는 오랜 기간 근속 중인 구성원도 많고, 부서별로 분위기나 특성이 다른데 이런 맥락 없이 단일 수치만 보게 되면 조직에 대해 오해할 여지가 생긴다. 숫자는 정확하지만, 때로는 전체를 설명해주지 못하기 때문이다. 그래서 &#x27;어떻게 하면 조금 더 공정하고, 조직의 상태를 잘 보여줄 수 있을까?&#x27; 하는 고민이 생겼고, 단순 평균이 아닌 다양한 방식으로 근속년수를 바라볼 수 있는 지표를 설계해보고자 한다.2. 목표이번 보고서의 목표는 근속년수 지표를 .." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
 <body>
   <div class="bg-grid"></div>
   <header class="nav">
-    <a class="logo" href="../index.html">Wonjin Choi</a>
+    <a class="logo" href="../index.html">최원진</a>
     <nav>
       <a href="../index.html">Home</a>
       <a href="./index.html">Blog</a>
@@ -23,109 +23,108 @@
   <main>
     <section class="blog-hero">
       <p class="eyebrow">Writing</p>
-      <h1>2. 吏???앹꽦(洹쇱냽?꾩닔)</h1>
+      <h1>2. 지표 생성(근속년수)</h1>
       <div class="post-meta">
         <span>2025-04-07</span>
-        <span class="post-badge">?곗씠?곕텇??/span>
+        <span class="post-badge">데이터분석</span>
       </div>
     </section>
 
     <article class="post-body card">
-      <p><figure class="imageblock alignCenter" data-filename="edited_edited_ChatGPT Image 2025??4??7???ㅽ썑 08_50_40.png" data-ke-mobilestyle="widthOrigin" data-origin-height="384" data-origin-width="256"><span data-phocus="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D" data-url="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D"><img data-filename="edited_edited_ChatGPT Image 2025??4??7???ㅽ썑 08_50_40.png" data-origin-height="384" data-origin-width="256" height="384" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fl5B5g%2FbtsNchz7vdI%2FAAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DQNQPeaH53iKJ%252BPVr0yn2jUjLXvA%253D" width="256"/></span></figure>
+      <p><figure class="imageblock alignCenter" data-filename="edited_edited_ChatGPT Image 2025년 4월 7일 오후 08_50_40.png" data-ke-mobilestyle="widthOrigin" data-origin-height="384" data-origin-width="256"><span data-phocus="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D" data-url="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D"><img data-filename="edited_edited_ChatGPT Image 2025년 4월 7일 오후 08_50_40.png" data-origin-height="384" data-origin-width="256" height="384" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fl5B5g%2FbtsNchz7vdI%2FAAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DQNQPeaH53iKJ%252BPVr0yn2jUjLXvA%253D" width="256"/></span></figure>
 </p>
-<h1>1. 臾몄젣 ?뺤쓽</h1>
-<p data-ke-size="size16">?뚯궗 ?몄궗 ?곗씠?곕? 蹂대떎蹂대땲, 洹쇱냽?꾩닔媛 ?됯퇏媛?以묒떖?쇰줈 ?뺣━?섏뼱 ?덈뒗 嫄??뺤씤?섍쾶 ?먮떎. 泥섏쓬???⑥닚???섏튂泥섎읆 蹂댁?吏留? ?먯꽭???ㅼ뿬?ㅻ낫??理쒓렐 ?낆궗?먭? 留롮쓣?섎줉 ?됯퇏媛믪씠 ??븘吏怨? 議곗쭅 ?꾩껜媛 留덉튂 遺덉븞?뺥빐 蹂댁씪 ?섎룄 ?덇쿋?ㅻ뒗 ?앷컖???ㅼ뿀??</p>
-<p data-ke-size="size16">?ㅼ젣濡쒕뒗 ?ㅻ옖 湲곌컙 洹쇱냽 以묒씤 援ъ꽦?먮룄 留롪퀬, 遺?쒕퀎濡?遺꾩쐞湲곕굹 ?뱀꽦???ㅻⅨ???대윴 留λ씫 ?놁씠 ?⑥씪 ?섏튂留?蹂닿쾶 ?섎㈃ 議곗쭅??????ㅽ빐???ъ?媛 ?앷릿?? ?レ옄???뺥솗?섏?留? ?뚮줈???꾩껜瑜??ㅻ챸?댁＜吏 紐삵븯湲??뚮Ц?대떎. 洹몃옒??'?대뼸寃??섎㈃ 議곌툑 ??怨듭젙?섍퀬, 議곗쭅???곹깭瑜???蹂댁뿬以????덉쓣源?' ?섎뒗 怨좊????앷꼈怨? ?⑥닚 ?됯퇏???꾨땶 ?ㅼ뼇??諛⑹떇?쇰줈 洹쇱냽?꾩닔瑜?諛붾씪蹂????덈뒗 吏?쒕? ?ㅺ퀎?대낫怨좎옄 ?쒕떎.</p>
-<h1>2. 紐⑺몴</h1>
-<p data-ke-size="size16">?대쾲 蹂닿퀬?쒖쓽 紐⑺몴??洹쇱냽?꾩닔 吏?쒕? 醫 ??怨듭젙?섍퀬 洹좏삎 ?덇쾶 蹂댁뿬二쇰뒗 諛⑸쾿??李얜뒗 ???덈떎. ?뱀젙 ?쒖젏???몃젰 援ъ꽦?대굹 ?몃? ?붿씤(?? ?洹쒕え 梨꾩슜, 議곗쭅 媛쒗렪 ?????곕씪 吏?쒓? ?꾩슂 ?댁긽?쇰줈 蹂?숇릺嫄곕굹 ?ㅽ빐瑜??????덇린 ?뚮Ц?? 議곗쭅???ㅼ젣 紐⑥뒿???????댁븘?????덈뒗 蹂댁셿 吏?쒕뱾???④퍡 ?쒖븞?섍퀬???쒕떎.</p>
-<p data-ke-size="size16">?됯퇏媛??섎굹濡?紐⑤뱺 嫄??ㅻ챸?섍린蹂대떎?? ?ㅼ뼇??愿?먯쓣 ?뷀빐 援ъ꽦?먭낵 議곗쭅???뱀꽦??洹쇱냽?꾩닔瑜??뺤씤?섎젮??紐⑹쟻??留욊퀬 ?뺥솗?섍쾶 ?꾨떖?????덈뒗 湲곗???留뚮뱾?대낫???쒕떎.</p>
-<h1>3. 吏???ㅺ퀎 諛⑺뼢</h1>
-<p data-ke-size="size16">洹쇱냽?꾩닔瑜??꾨꼍?섍쾶 ?ㅻ챸?댁＜?????섎굹??吏?쒕뒗 ?녿떎怨??앷컖?쒕떎. 議곗쭅? 怨꾩냽 蹂?뷀븯怨? ?쒓린留덈떎 ?몃젰 援ъ“???щ씪吏湲??뚮Ц??br/>?대뼡 ?섎굹???섏튂濡?紐⑤뱺 ?곹솴???ㅻ챸?섎뒗 嫄??대졄?? 洹몃옒???대쾲 ?묒뾽?먯꽌???⑥씪 吏?쒕? 怨좎쭛?섍린蹂대떎, ?щ윭 愿?먯뿉??洹쇱냽?꾩닔瑜??섎닠 蹂닿퀬, 媛곴컖???뱀꽦怨??λ떒?먯쓣 ?댄빐?대낫???쒕떎. ?덈? ?ㅼ뼱, ?됯퇏 洹쇱냽?꾩닔??怨꾩궛???쎄퀬 ?듭닕?섏?留? ?좎엯??留롮븘吏?寃쎌슦 ?꾩껜 ?섏튂瑜??쒓끝?????덈떎. 諛섎㈃, 以묒쐞媛믪? ?꾩껜 援ъ“??以묒떖??????蹂댁뿬以????덉?留? ?몃??곸씤 援ъ꽦 蹂?붾? ?ъ갑?섍릿 ?대졄??</p>
-<p data-ke-size="size16">?댁쿂??媛?吏?쒓? 蹂댁뿬二쇰뒗 洹몃┝???ㅻⅤ湲??뚮Ц???곹솴??留욌뒗 吏?쒕? 議고빀???ъ슜?섎뒗 寃껋씠 媛???꾩떎?곸씤 ?묎렐?대씪怨??앷컖?쒕떎. ?댄썑 遺꾩꽍?먯꽌???대윴 愿?먯뿉???ㅼ뼇??洹쇱냽 吏?쒕? ?댄렣蹂닿퀬,?대뼡 議고빀??議곗쭅???곹깭瑜?媛?????ㅻ챸?댁쨪 ???덉쓣吏瑜?怨좊??대낫怨좎옄 ?쒕떎.</p>
-<h1>4-1. 紐⑥쭛???뺤쓽: 洹쇱냽?꾩닔 吏???ㅺ퀎??異쒕컻??/h1>
-<p data-ke-size="size16">洹쇱냽?꾩닔 吏?쒕? ?ㅺ퀎?섍린 ?꾪빐?쒕뒗 癒쇱? ?꾧뎄瑜??ы븿?쒖폒 怨꾩궛??寃껋씤媛?????湲곗????꾩슂?섎떎. 媛숈? 怨꾩궛 諛⑹떇?대씪?? ??곸뿉 ?곕씪 ?섏튂媛 ?щ씪吏怨??댁꽍???꾩쟾???щ씪吏????덇린 ?뚮Ц?대떎. ?대쾲 遺꾩꽍?먯꽌???ㅼ뼇???쒕굹由ъ삤瑜?怨좊젮???꾨옒? 媛숈? 紐⑥쭛??援ъ꽦???뺤쓽?대낫?섎떎.</p>
-<h2 data-ke-size="size26">1. ?꾩옱 ?ъ쭅?먮쭔 ?ы븿</h2>
-<p data-ke-size="size16">湲곗????꾩옱, ?댁궗?섏? ?딄퀬 ?ъ쭅 以묒씤 吏곸썝留??ы븿<br/>?μ젏: ?꾩옱 議곗쭅???곹깭瑜?媛????蹂댁뿬以?br/>?⑥젏: 怨쇨굅 援ъ꽦?먮뱾???댄깉瑜좎씠???κ린 異붿꽭??諛섏쁺?섏? ?딆쓬</p>
-<h2 data-ke-size="size26">2. ?댁궗???ы븿 ?꾩껜 吏곸썝 湲곗?</h2>
-<p data-ke-size="size16">怨쇨굅遺???꾩옱源뚯? ?낆궗?덈뜕 紐⑤뱺 吏곸썝???ы븿 (?댁궗???ы븿)<br/>?댁궗?먯쓽 洹쇱냽湲곌컙? ?댁궗?쇨퉴吏濡?怨꾩궛<br/>?μ젏: ?꾨컲?곸씤 議곗쭅 ?좎??? ?몃젰???좎엯-?댄깉源뚯? 諛섏쁺 媛??br/>?⑥젏: ?꾩옱??議곗쭅 ?덉젙?깃낵??議곌툑 嫄곕━媛먯씠 ?덉쓬</p>
-<h2 data-ke-size="size26">3. 理쒓렐 1???대궡 ?낆궗???쒖쇅</h2>
-<p data-ke-size="size16">?꾩쭅 異⑸텇??洹쇱냽湲곌컙???볦? 紐삵븳 吏묐떒???쒖쇅, 蹂댄넻 6媛쒖썡 ?먮뒗 1???대궡 ?낆궗?먮? ?꾩떆 ?꾪꽣留?br/>?μ젏: 吏???쒓끝??以꾩씠怨? ?ㅼ쭏?곸씤 援ъ꽦??以묒떖??遺꾩꽍 媛??br/>?⑥젏: ?몄쐞?곸쑝濡??뱀젙 洹몃９???쒖쇅?쒕떎???먯뿉???뺤콉?곸쑝濡?議곗떖?댁빞 ???섎룄 ?덉쓬, ?쒖쇅?섎뒗 湲곗? ?좎젙???대젮?</p>
-<h2 data-ke-size="size26">4. ?뺣━</h2>
-<p data-ke-size="size16">洹쇱냽 吏?쒕? ?ㅺ퀎???뚮뒗 ?쒖??쒖쓽 紐⑹쟻?앹뿉 ?곕씪 紐⑥쭛?⑥쓣 ?좎뿰?섍쾶 ?좏깮?섎뒗 寃껋씠 以묒슂?섎떎. ?덈? ?ㅼ뼱, ?꾩옱 議곗쭅???덉젙???뚯븙??紐⑹쟻?대씪硫??ъ쭅??湲곗????곸젅?섍퀬, ?몃젰 ?좎? 諛??댄깉 遺꾩꽍??紐⑹쟻?대씪硫??댁궗???ы븿 諛⑹떇?????좊━?섎떎.</p>
-<h1>4.2 ??쒓컪 ?뺤쓽</h1>
-<p data-ke-size="size16">洹쇱냽?꾩닔瑜??붿빟????媛??留롮씠 ?ъ슜?섎뒗 諛⑹떇? ?섎??쒓컪?숈씠?? ??쒓컪? 議곗쭅 ?꾩껜??寃쏀뼢???쒕늿??蹂댁뿬二쇰뒗 ???④낵?곸씠吏留? ?곗씠?곗쓽 遺꾪룷???뱀꽦???곕씪 ?댁꽍???щ씪吏????덇린 ?뚮Ц???щ윭 吏?쒕? ?④퍡 蹂닿퀬 蹂댁셿?곸쑝濡??댁꽍???꾩슂媛 ?덈떎.</p>
-<h2 data-ke-size="size26">1. ?됯퇏 洹쇱냽?꾩닔 (Mean)</h2>
-<p data-ke-size="size16">怨꾩궛: 紐⑤뱺 洹쇱냽?꾩닔????첨 ?몄썝 ??br/>?? 3.1?? 3.8????/p>
-<h3 data-ke-size="size23">?μ젏</h3>
+<h1>1. 문제 정의</h1>
+<p data-ke-size="size16">회사 인사 데이터를 보다보니, 근속년수가 평균값 중심으로 정리되어 있는 걸 확인하게 됐다. 처음엔 단순한 수치처럼 보였지만, 자세히 들여다보니 최근 입사자가 많을수록 평균값이 낮아지고, 조직 전체가 마치 불안정해 보일 수도 있겠다는 생각이 들었다.</p>
+<p data-ke-size="size16">실제로는 오랜 기간 근속 중인 구성원도 많고, 부서별로 분위기나 특성이 다른데 이런 맥락 없이 단일 수치만 보게 되면 조직에 대해 오해할 여지가 생긴다. 숫자는 정확하지만, 때로는 전체를 설명해주지 못하기 때문이다. 그래서 '어떻게 하면 조금 더 공정하고, 조직의 상태를 잘 보여줄 수 있을까?' 하는 고민이 생겼고, 단순 평균이 아닌 다양한 방식으로 근속년수를 바라볼 수 있는 지표를 설계해보고자 한다.</p>
+<h1>2. 목표</h1>
+<p data-ke-size="size16">이번 보고서의 목표는 근속년수 지표를 좀 더 공정하고 균형 있게 보여주는 방법을 찾는 데 있다. 특정 시점의 인력 구성이나 외부 요인(예: 대규모 채용, 조직 개편 등)에 따라 지표가 필요 이상으로 변동되거나 오해를 살 수 있기 때문에, 조직의 실제 모습을 더 잘 담아낼 수 있는 보완 지표들을 함께 제안하고자 한다.</p>
+<p data-ke-size="size16">평균값 하나로 모든 걸 설명하기보다는, 다양한 관점을 더해 구성원과 조직의 특성을 근속년수를 확인하려는 목적에 맞고 정확하게 전달할 수 있는 기준을 만들어보려 한다.</p>
+<h1>3. 지표 설계 방향</h1>
+<p data-ke-size="size16">근속년수를 완벽하게 설명해주는 단 하나의 지표는 없다고 생각한다. 조직은 계속 변화하고, 시기마다 인력 구조도 달라지기 때문에<br/>어떤 하나의 수치로 모든 상황을 설명하는 건 어렵다. 그래서 이번 작업에서는 단일 지표를 고집하기보다, 여러 관점에서 근속년수를 나눠 보고, 각각의 특성과 장단점을 이해해보려 한다. 예를 들어, 평균 근속년수는 계산이 쉽고 익숙하지만, 신입이 많아질 경우 전체 수치를 왜곡할 수 있다. 반면, 중위값은 전체 구조의 중심을 더 잘 보여줄 수 있지만, 세부적인 구성 변화를 포착하긴 어렵다.</p>
+<p data-ke-size="size16">이처럼 각 지표가 보여주는 그림이 다르기 때문에,상황에 맞는 지표를 조합해 사용하는 것이 가장 현실적인 접근이라고 생각한다. 이후 분석에서는 이런 관점에서 다양한 근속 지표를 살펴보고,어떤 조합이 조직의 상태를 가장 잘 설명해줄 수 있을지를 고민해보고자 한다.</p>
+<h1>4-1. 모집단 정의: 근속년수 지표 설계의 출발점</h1>
+<p data-ke-size="size16">근속년수 지표를 설계하기 위해서는 먼저 누구를 포함시켜 계산할 것인가에 대한 기준이 필요하다. 같은 계산 방식이라도, 대상에 따라 수치가 달라지고 해석도 완전히 달라질 수 있기 때문이다. 이번 분석에서는 다양한 시나리오를 고려해 아래와 같은 모집단 구성을 정의해보았다.</p>
+<h2 data-ke-size="size26">1. 현재 재직자만 포함</h2>
+<p data-ke-size="size16">기준일 현재, 퇴사하지 않고 재직 중인 직원만 포함<br/>장점: 현재 조직의 상태를 가장 잘 보여줌<br/>단점: 과거 구성원들의 이탈률이나 장기 추세는 반영되지 않음</p>
+<h2 data-ke-size="size26">2. 퇴사자 포함 전체 직원 기준</h2>
+<p data-ke-size="size16">과거부터 현재까지 입사했던 모든 직원을 포함 (퇴사자 포함)<br/>퇴사자의 근속기간은 퇴사일까지로 계산<br/>장점: 전반적인 조직 유지력, 인력의 유입-이탈까지 반영 가능<br/>단점: 현재의 조직 안정성과는 조금 거리감이 있음</p>
+<h2 data-ke-size="size26">3. 최근 1년 이내 입사자 제외</h2>
+<p data-ke-size="size16">아직 충분한 근속기간을 쌓지 못한 집단을 제외, 보통 6개월 또는 1년 이내 입사자를 임시 필터링<br/>장점: 지표 왜곡을 줄이고, 실질적인 구성원 중심의 분석 가능<br/>단점: 인위적으로 특정 그룹을 제외한다는 점에서 정책적으로 조심해야 할 수도 있음, 제외하는 기준 선정의 어려움</p>
+<h2 data-ke-size="size26">4. 정리</h2>
+<p data-ke-size="size16">근속 지표를 설계할 때는 “지표의 목적”에 따라 모집단을 유연하게 선택하는 것이 중요하다. 예를 들어, 현재 조직의 안정성 파악이 목적이라면 재직자 기준이 적절하고, 인력 유지 및 이탈 분석이 목적이라면 퇴사자 포함 방식이 더 유리하다.</p>
+<h1>4.2 대표값 정의</h1>
+<p data-ke-size="size16">근속년수를 요약할 때 가장 많이 사용하는 방식은 ‘대표값’이다. 대표값은 조직 전체의 경향을 한눈에 보여주는 데 효과적이지만, 데이터의 분포나 특성에 따라 해석이 달라질 수 있기 때문에 여러 지표를 함께 보고 보완적으로 해석할 필요가 있다.</p>
+<h2 data-ke-size="size26">1. 평균 근속년수 (Mean)</h2>
+<p data-ke-size="size16">계산: 모든 근속년수의 합 ÷ 인원 수<br/>예: 3.1년, 3.8년 등</p>
+<h3 data-ke-size="size23">장점</h3>
 <ul data-ke-list-type="disc" style="list-style-type: disc;">
-<li>怨꾩궛??媛꾨떒?섍퀬 媛???듭닕??吏??/li>
-<li>??쒕낫?? 蹂닿퀬?????ㅻТ???먯＜ ?ъ슜</li>
+<li>계산이 간단하고 가장 익숙한 지표</li>
+<li>대시보드, 보고서 등 실무에 자주 사용</li>
 </ul>
-<h3 data-ke-size="size23">?⑥젏</h3>
+<h3 data-ke-size="size23">단점</h3>
 <ul data-ke-list-type="disc" style="list-style-type: disc;">
-<li>洹밸떒媛믪뿉 誘쇨컧 (?좎엯 ?嫄??낆궗, ?κ린 洹쇱냽???뚯닔 ??</li>
-<li>?쒓린???몃젰 援ъ꽦 蹂?붿뿉 ?곕씪 ?쒓끝?????덉쓬</li>
+<li>극단값에 민감 (신입 대거 입사, 장기 근속자 소수 등)</li>
+<li>시기나 인력 구성 변화에 따라 왜곡될 수 있음</li>
 </ul>
-<h2 data-ke-size="size26">2. 以묒븰媛?洹쇱냽?꾩닔 (Median)</h2>
-<p data-ke-size="size16">怨꾩궛: 洹쇱냽?꾩닔瑜??쒖꽌?濡??뺣젹 ??以묒븰媛?br/>?? 3.1?? 4.0????/p>
-<h3 data-ke-size="size23">?μ젏</h3>
+<h2 data-ke-size="size26">2. 중앙값 근속년수 (Median)</h2>
+<p data-ke-size="size16">계산: 근속년수를 순서대로 정렬 후 중앙값<br/>예: 3.1년, 4.0년 등</p>
+<h3 data-ke-size="size23">장점</h3>
 <ul data-ke-list-type="disc" style="list-style-type: disc;">
-<li>?됯퇏蹂대떎 洹밸떒媛믪뿉 ???곹뼢諛쏆쓬</li>
-<li>?꾩옱 援ъ꽦?먯쓽 ?꾨컲?곸씤 以묒떖????諛섏쁺?⑤떒??/li>
-<li>怨꾩궛?대굹 ?ㅻ챸???ㅼ냼 吏곴??곸씠吏 ?딆쓣 ???덉쓬</li>
-<li>遺꾪룷媛 ?묒そ?쇰줈 ?ш쾶 移섏슦移?寃쎌슦 ?댁꽍???쒗븳??/li>
+<li>평균보다 극단값에 덜 영향받음</li>
+<li>현재 구성원의 전반적인 중심을 잘 반영함단점</li>
+<li>계산이나 설명이 다소 직관적이지 않을 수 있음</li>
+<li>분포가 양쪽으로 크게 치우친 경우 해석이 제한적</li>
 </ul>
-<h2 data-ke-size="size26">3. 理쒕뙎媛?/h2>
-<p data-ke-size="size16">理쒖옣 洹쇱냽?? 議곗쭅 ???ㅻ옒???듭떖 ?몃젰 ?뚯븙 媛??/p>
-<h2 data-ke-size="size26">4. 洹쇱냽 ?몄감</h2>
-<p data-ke-size="size16">?됯퇏? 媛숈????쒖そ? ??3?? ?ㅻⅨ ?쒖そ? 1??10?꾧퉴吏 ?ㅼ뼇?????덉쓬<br/>議곗쭅 ??洹쇱냽 ?곕졊????ㅼ뼇???먮뒗 遺덇퇏??吏꾨떒 媛??br/>?덉떆 : 洹쇱냽 ?몄감(?쒖??몄감), 理쒕?/理쒖냼 李⑥씠 ??/p>
-<h1>4.3 洹쇱냽 遺꾪룷</h1>
-<p data-ke-size="size16">??쒓컪(?됯퇏, 以묒븰媛???? 議곗쭅???꾩껜?곸씤 寃쏀뼢??鍮좊Ⅴ寃?蹂댁뿬二쇱?留? 援ъ꽦?먯쓽 ?ㅼ뼇?깆쓣 諛섏쁺?섍린???쒓퀎媛 ?덈떎. 洹몃옒??洹쇱냽?꾩닔瑜?援ш컙蹂꾨줈 ?섎늻??遺꾪룷瑜?蹂대뒗 諛⑹떇???④낵?곸씤 蹂댁셿 吏?쒓? ?????덈떎. ?꾨옒 ?덉떆 泥섎읆 援ш컙?쇰줈 ?섎닃 ???덈떎.</p>
-<p data-ke-size="size16">혻</p>
+<h2 data-ke-size="size26">3. 최댓값</h2>
+<p data-ke-size="size16">최장 근속자: 조직 내 오래된 핵심 인력 파악 가능</p>
+<h2 data-ke-size="size26">4. 근속 편차</h2>
+<p data-ke-size="size16">평균은 같은데 한쪽은 다 3년, 다른 한쪽은 1년~10년까지 다양할 수 있음<br/>조직 내 근속 연령대의 다양성 또는 불균형 진단 가능<br/>예시 : 근속 편차(표준편차), 최대/최소 차이 등</p>
+<h1>4.3 근속 분포</h1>
+<p data-ke-size="size16">대표값(평균, 중앙값 등)은 조직의 전체적인 경향을 빠르게 보여주지만, 구성원의 다양성을 반영하기엔 한계가 있다. 그래서 근속년수를 구간별로 나누어 분포를 보는 방식이 효과적인 보완 지표가 될 수 있다. 아래 예시 처럼 구간으로 나눌 수 있다.</p>
+<p data-ke-size="size16"> </p>
 <p><figure class="imageblock alignLeft" data-ke-mobilestyle="widthOrigin" data-origin-height="114" data-origin-width="207"><span data-phocus="https://blog.kakaocdn.net/dna/bbkzo2/btsNbM1DjxI/AAAAAAAAAAAAAAAAAAAAAKlE0S_F26Iw58VaEBwTeC0-J1S7LsaE4VMyvPTgC-Ge/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pcCNsG%2Fuc8462iqzblVcHRyaRIs%3D" data-url="https://blog.kakaocdn.net/dna/bbkzo2/btsNbM1DjxI/AAAAAAAAAAAAAAAAAAAAAKlE0S_F26Iw58VaEBwTeC0-J1S7LsaE4VMyvPTgC-Ge/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pcCNsG%2Fuc8462iqzblVcHRyaRIs%3D"><img data-origin-height="114" data-origin-width="207" height="114" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/bbkzo2/btsNbM1DjxI/AAAAAAAAAAAAAAAAAAAAAKlE0S_F26Iw58VaEBwTeC0-J1S7LsaE4VMyvPTgC-Ge/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pcCNsG%2Fuc8462iqzblVcHRyaRIs%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fbbkzo2%2FbtsNbM1DjxI%2FAAAAAAAAAAAAAAAAAAAAAKlE0S_F26Iw58VaEBwTeC0-J1S7LsaE4VMyvPTgC-Ge%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DpcCNsG%252Fuc8462iqzblVcHRyaRIs%253D" width="207"/></span></figure>
 </p>
-<p data-ke-size="size16">?대윭??遺꾪룷??議곗쭅???깆옣 ?④퀎, 援ъ꽦?먯쓽 寃쏀뿕 ?섏?, ?댁쭅瑜??깆쓣 醫낇빀?곸쑝濡??댁꽍?섎뒗 ???꾩????쒕떎.</p>
-<h3 data-ke-size="size23">?μ젏</h3>
+<p data-ke-size="size16">이러한 분포는 조직의 성장 단계, 구성원의 경험 수준, 이직률 등을 종합적으로 해석하는 데 도움이 된다.</p>
+<h3 data-ke-size="size23">장점</h3>
 <ul data-ke-list-type="disc" style="list-style-type: disc;">
-<li>?⑥씪 ?섏튂蹂대떎 議곗쭅??援ъ“瑜??쒓컖?곸쑝濡??뚯븙 媛??/li>
-<li>?좎엯 鍮꾩쨷, ???援ъ꽦, ?κ린 洹쇱냽??議댁옱 ?щ? ?깆쓣 ?쎄쾶 ?뚯븙</li>
-<li>遺??吏곷Т蹂꾨줈 鍮꾧탳?섎㈃ ?뱀꽦 李⑥씠 遺꾩꽍 媛??/li>
+<li>단일 수치보다 조직의 구조를 시각적으로 파악 가능</li>
+<li>신입 비중, 팀원 구성, 장기 근속자 존재 여부 등을 쉽게 파악</li>
+<li>부서/직무별로 비교하면 특성 차이 분석 가능</li>
 </ul>
-<h3 data-ke-size="size23">?⑥젏</h3>
+<h3 data-ke-size="size23">단점</h3>
 <ul data-ke-list-type="disc" style="list-style-type: disc;">
-<li>援ш컙 ?뺤쓽???곕씪 ?댁꽍???щ씪吏????덉쓬 (?? 3??湲곗? vs 5??湲곗?)</li>
-<li>?ㅼ냼 蹂듭옟??蹂댁씪 ???덉뼱 ?ㅻ챸怨??쒓컖?붽? ?④퍡 ?꾩슂</li>
+<li>구간 정의에 따라 해석이 달라질 수 있음 (예: 3년 기준 vs 5년 기준)</li>
+<li>다소 복잡해 보일 수 있어 설명과 시각화가 함께 필요</li>
 </ul>
-<h2 data-ke-size="size26">?쒖슜 諛⑹븞</h2>
+<h2 data-ke-size="size26">활용 방안</h2>
 <ul data-ke-list-type="disc" style="list-style-type: disc;">
-<li>?꾩껜 遺꾪룷? ?④퍡 ??쒓컪??蹂묐젹濡??쒓났?섎㈃ ?ㅻ챸?μ씠 媛뺥솕??/li>
-<li>議곗쭅 由ы룷?? 梨꾩슜 ?꾨왂, ?댁쭅 遺꾩꽍 ?깆뿉 ?좎슜</li>
-<li>HR ??쒕낫?쒖뿉???ㅽ깮 諛?李⑦듃 ?먮뒗 ?쇰씪誘몃뱶 李⑦듃 ?뺥깭濡??쒓컖?????④낵??/li>
+<li>전체 분포와 함께 대표값을 병렬로 제공하면 설명력이 강화됨</li>
+<li>조직 리포트, 채용 전략, 이직 분석 등에 유용</li>
+<li>HR 대시보드에서 스택 바 차트 또는 피라미드 차트 형태로 시각화 시 효과적</li>
 </ul>
-<h1>4.4 ?뱀젙 紐⑹쟻??吏??/h1>
-<p data-ke-size="size16">洹쇱냽?꾩닔瑜?湲곗??쇰줈 ?쇱젙 湲곌컙 ?댁긽(?먮뒗 ?댄븯) ?ъ쭅??援ъ꽦?먯쓽 鍮꾩쑉??援ы븯硫? 議곗쭅 ?댁뿉 寃쏀뿕 ?덈뒗 ?몃젰???쇰쭏???먮━ ?↔퀬 ?덈뒗吏 ?뚯븙?????덈떎. 蹂댄넻 3???댁긽, 5???댄븯 ??湲곗????ㅼ젙???쒖슜?쒕떎. 援ш컙?쇰줈 ?앹꽦???섎룄 ?덈떎.</p>
-<h2 data-ke-size="size26">吏???뺤쓽 ?덉떆</h2>
+<h1>4.4 특정 목적의 지표</h1>
+<p data-ke-size="size16">근속년수를 기준으로 일정 기간 이상(또는 이하) 재직한 구성원의 비율을 구하면, 조직 내에 경험 있는 인력이 얼마나 자리 잡고 있는지 파악할 수 있다. 보통 3년 이상, 5년 이하 등 기준을 설정해 활용한다. 구간으로 생성할 수도 있다.</p>
+<h2 data-ke-size="size26">지표 정의 예시</h2>
 <ol data-ke-list-type="decimal" style="list-style-type: decimal;">
-<li>3???댁긽 洹쇱냽??鍮꾩쑉 = (3???댁긽 洹쇱냽???몄썝 / ?꾩껜 ?ъ쭅 ?몄썝) 횞 100</li>
-<li>5???댄븯 洹쇱냽??鍮꾩쑉 = (5???댄븯 洹쇱냽???몄썝 / ?꾩껜 ?ъ쭅 ?몄썝) 횞 100</li>
+<li>3년 이상 근속자 비율 = (3년 이상 근속한 인원 / 전체 재직 인원) × 100</li>
+<li>5년 이하 근속자 비율 = (5년 이하 근속한 인원 / 전체 재직 인원) × 100</li>
 </ol>
-<h2 data-ke-size="size26">異붽?濡?媛?ν븳 吏??/h2>
-<p data-ke-size="size16">理쒓렐 ?낆궗??鍮꾩쨷, 愿由ъ옄??洹쇱냽?꾩닔 ??/p>
-<h1>5. 寃곌낵</h1>
-<p data-ke-size="size16">?ㅼ뼇??諛⑹떇?쇰줈 洹쇱냽?꾩닔瑜??섎늻???댄렣蹂?寃곌낵, ?⑥씪 吏?쒕쭔?쇰줈 議곗쭅???곹깭瑜??먮떒?섍린???쒓퀎媛 ?덈떎???먯씠 遺꾨챸?섍쾶 ?쒕윭?щ떎. ??쒓컪???됯퇏 洹쇱냽?꾩닔??怨꾩궛??媛꾨떒?섍퀬 ?듭닕?섏?留? ?좎엯?ъ썝???嫄??낆궗?섍굅???뱀젙 ?쒖젏???몃젰 援ъ“媛 ?ш쾶 諛붾뚮뒗 寃쎌슦,<br/>議곗쭅???ㅼ젣 紐⑥뒿怨쇰뒗 ?ㅻⅤ寃?蹂댁씪 ???덉뿀??</p>
-<p data-ke-size="size16">諛섎㈃, 以묒쐞媛믪씠??洹쇱냽 援ш컙蹂?遺꾪룷, ?쇱젙 湲곗? ?댁긽???κ린 洹쇱냽??鍮꾩쑉???④퍡 ?댄렣蹂대㈃ 議곗쭅 ?댁쓽 寃쏀뿕 ?섏?, ?덉젙?? 洹몃━怨??몃젰 援ъ“???ㅼ뼇?깆쓣 醫 ??紐낇솗?섍쾶 ?뚯븙?????덉뿀?? ?뱁엳 洹쇱냽 援ш컙蹂꾨줈 ?몄썝???섎늻??蹂대뒗 諛⑹떇?, ?좎엯 ?몃젰???좎엯 ?먮쫫怨?議곗쭅??以묎컙쨌?κ린 ?몃젰 ?좎? ?곹솴???④퍡 ?댁꽍?????덇쾶 ?댁＜?덈떎.</p>
-<p data-ke-size="size16">?먰븳, 理쒓렐 ?낆궗??鍮꾩쨷?대굹 ?댁궗???ы븿 ?щ?, 遺꾩꽍 ?쒖젏???곕씪 吏?쒖쓽 ?섎?媛 ?щ씪吏????덇린 ?뚮Ц?? 吏?쒕? ?ъ슜???뚮뒗 洹?紐⑹쟻怨?留λ씫??留욌뒗 紐⑥쭛?④낵 怨꾩궛 諛⑹떇??紐낇솗???뺤쓽?섎뒗 寃껋씠 以묒슂?섎떎???먮룄 ?뺤씤?????덉뿀??</p>
-<p data-ke-size="size16">醫낇빀?섎㈃, 洹쇱냽?꾩닔???⑥닚 ?섏튂 ?댁긽???댁꽍???꾩슂??吏?쒖씠硫? 蹂듭닔??吏?쒕? ?④퍡 蹂닿퀬 ?곹솴??留욊쾶 議고빀?섎뒗 寃껋씠 議곗쭅??蹂대떎 怨듭젙?섍퀬 ?뺥솗?섍쾶 ?댄빐?섎뒗 ???꾩????????덈떎.</p>
-<h1>6. 寃곕줎</h1>
-<p data-ke-size="size16">洹쇱냽?꾩닔??議곗쭅???덉젙?깃낵 ?몃젰 援ъ“瑜??댄빐?섎뒗 ??以묒슂??吏?쒖씠吏留? ?⑥닚???됯퇏媛??섎굹濡??ㅻ챸?섍린?먮뒗 ?쒓퀎媛 ?덈떎. ?대쾲 遺꾩꽍???듯빐 洹쇱냽?꾩닔瑜??ㅼ뼇??愿?먯뿉???섎늻?대낫怨??댁꽍?섎뒗 怨쇱젙???꾩슂?섎떎???먯쓣 ?뺤씤?????덉뿀??</p>
-<p data-ke-size="size16">議곗쭅???ㅼ젣 紐⑥뒿??蹂대떎 ?뺥솗?섍쾶 諛섏쁺?섎젮硫? 以묒쐞媛? 洹쇱냽 援ш컙 遺꾪룷, ?κ린 洹쇱냽??鍮꾩쑉, 理쒓렐 ?낆궗??鍮꾩쨷 ?깆쓣 ?④퍡 怨좊젮???ㅼ링?곸씤 吏??援ъ꽦???꾩슂?섎떎. ?먰븳 吏?쒕? ?댁꽍???뚮뒗 紐⑥쭛?⑥쓽 ?뺤쓽? ?쒖젏??紐낇솗???섍퀬, ?ъ슜 紐⑹쟻??留욌뒗 諛⑹떇?쇰줈 怨꾩궛?섍퀬 ?쒖슜?섎뒗 湲곗????ъ쟾???뺥빐?먮뒗 寃껋씠 以묒슂?섎떎.</p>
-<p data-ke-size="size16">?꾨꼍??吏?쒕뒗 ?놁?留? 怨듭젙??吏?쒕뒗 留뚮뱾 ???덈떎. ?대쾲 遺꾩꽍??議곗쭅???곹깭瑜?蹂대떎 ?뺥솗???댄빐?섍퀬, 援ъ꽦?먮뱾怨쇱쓽 ?뚰넻?먯꽌???좊ː?????덈뒗 ?곗씠??湲곕컲 ?ㅻ챸??媛?ν븯?꾨줉 ?뺣뒗 ?섎굹??湲곗????섍린瑜?諛붾???</p>
+<h2 data-ke-size="size26">추가로 가능한 지표</h2>
+<p data-ke-size="size16">최근 입사자 비중, 관리자의 근속년수 등</p>
+<h1>5. 결과</h1>
+<p data-ke-size="size16">다양한 방식으로 근속년수를 나누어 살펴본 결과, 단일 지표만으로 조직의 상태를 판단하기엔 한계가 있다는 점이 분명하게 드러났다. 대표값인 평균 근속년수는 계산이 간단하고 익숙하지만, 신입사원이 대거 입사하거나 특정 시점에 인력 구조가 크게 바뀌는 경우,<br/>조직의 실제 모습과는 다르게 보일 수 있었다.</p>
+<p data-ke-size="size16">반면, 중위값이나 근속 구간별 분포, 일정 기준 이상의 장기 근속자 비율을 함께 살펴보면 조직 내의 경험 수준, 안정성, 그리고 인력 구조의 다양성을 좀 더 명확하게 파악할 수 있었다. 특히 근속 구간별로 인원을 나누어 보는 방식은, 신입 인력의 유입 흐름과 조직의 중간·장기 인력 유지 상황을 함께 해석할 수 있게 해주었다.</p>
+<p data-ke-size="size16">또한, 최근 입사자 비중이나 퇴사자 포함 여부, 분석 시점에 따라 지표의 의미가 달라질 수 있기 때문에, 지표를 사용할 때는 그 목적과 맥락에 맞는 모집단과 계산 방식을 명확히 정의하는 것이 중요하다는 점도 확인할 수 있었다.</p>
+<p data-ke-size="size16">종합하면, 근속년수는 단순 수치 이상의 해석이 필요한 지표이며, 복수의 지표를 함께 보고 상황에 맞게 조합하는 것이 조직을 보다 공정하고 정확하게 이해하는 데 도움이 될 수 있다.</p>
+<h1>6. 결론</h1>
+<p data-ke-size="size16">근속년수는 조직의 안정성과 인력 구조를 이해하는 데 중요한 지표이지만, 단순한 평균값 하나로 설명하기에는 한계가 있다. 이번 분석을 통해 근속년수를 다양한 관점에서 나누어보고 해석하는 과정이 필요하다는 점을 확인할 수 있었다.</p>
+<p data-ke-size="size16">조직의 실제 모습을 보다 정확하게 반영하려면, 중위값, 근속 구간 분포, 장기 근속자 비율, 최근 입사자 비중 등을 함께 고려한 다층적인 지표 구성이 필요하다. 또한 지표를 해석할 때는 모집단의 정의와 시점을 명확히 하고, 사용 목적에 맞는 방식으로 계산하고 활용하는 기준을 사전에 정해두는 것이 중요하다.</p>
+<p data-ke-size="size16">완벽한 지표는 없지만, 공정한 지표는 만들 수 있다. 이번 분석이 조직의 상태를 보다 정확히 이해하고, 구성원들과의 소통에서도 신뢰할 수 있는 데이터 기반 설명이 가능하도록 돕는 하나의 기준이 되기를 바란다.</p>
     </article>
   </main>
 
   <footer class="footer">
-    <span>짤 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
   </footer>
 </body>
 </html>
-
