@@ -1,0 +1,15 @@
+*.docx
+*.DOCX
+
+# Local temp/output
+_tmp_docx/
+_resume_text.txt
+
+# Source files not needed for static site hosting
+posts/
+build_blog.py
+import_tistory.py
+
+# Python cache
+__pycache__/
+*.pyc

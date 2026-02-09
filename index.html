@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>최원진 | Data Scientist Portfolio</title>
+  <meta name="description" content="데이터 기반 문제정의부터 모델링·실험·시각화까지 전 주기를 수행하는 데이터 사이언티스트 최원진의 포트폴리오." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div id="top"></div>
+  <header class="nav">
+    <div class="logo">Wonjin Choi</div>
+    <nav>
+      <a href="#top">Home</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero compact">
+      <div class="hero-left">
+        <p class="eyebrow">Data Scientist · Applied Statistics</p>
+        <h1>최원진</h1>
+        <p class="hero-desc">
+          데이터 기반 문제 정의와 통계적 사고로, 현장에서 작동하는 모델을 설계합니다.<br />
+          스마트팩토리·물류·스마트팜 도메인에서 시계열/이미지/로그/자연어 데이터를 활용한
+          분석과 모델링을 수행해왔고,<br />
+          문제 정의-데이터 수집–모델링–실험–적용까지 전 주기를 직접 다룹니다.
+        </p>
+        <div class="mini-contact">
+          <a href="mailto:choiwonjin55@gmail.com">choiwonjin55@gmail.com</a>
+          <span>·</span>
+          <a href="blog/index.html">Blog</a>
+          <span>·</span>
+          <a href="https://www.linkedin.com/in/%EC%9B%90%EC%A7%84-%EC%B5%9C-aa72bb204/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>문제 정의 → 가설 → 실험 → 운영으로 이어지는 END-TO-END 프로젝트</p>
+      </div>
+      <div class="grid projects">
+        <article class="card">
+          <h3>스마트팩토리 설비 고장 예측 모델</h3>
+          <p class="period">2022.10 - 2024.07</p>
+          <ul>
+            <li>센서 변동성 패턴을 활용해 고장 선행 지표 모델링</li>
+            <li>고장 전 1~2개월 패턴 정량 분석 및 임계값 설계</li>
+            <li>예측 모델 적용 후 주요 설비 1년 이상 무중단 운행</li>
+          </ul>
+          <div class="tags">
+            <span>Time Series</span><span>Anomaly Detection</span><span>Predictive Maintenance</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>이미지 Object Detection 기반 물류 이상탐지</h3>
+          <p class="period">2025.05 - 2025.12</p>
+          <ul>
+            <li>YOLO 기반 반송물 위치·형태 검출로 중복/불량 탐지</li>
+            <li>BCR의 사각지대 보완, OCR 추가로 Deck 인식 안정성 향상</li>
+            <li>적용 후 배송 오류 95% 이상 감소, 자동화 물류 시스템의 안정성 향상</li>
+          </ul>
+          <div class="tags">
+            <span>Computer Vision</span><span>YOLO</span><span>Orin nano</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>RAG 기반 사내 전용 LLM 챗봇</h3>
+          <p class="period">2024.08 - 2025.04</p>
+          <ul>
+            <li>사내 문서 Q&A 챗봇으로 문의 대응 효율화</li>
+            <li>VectorDB + LangChain 기반 RAG 파이프라인 구축</li>
+            <li>모델 크기/성능 균형 조정으로 2초 내 응답 확보</li>
+          </ul>
+          <div class="tags">
+            <span>RAG</span><span>LLM</span><span>VectorDB</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>실제 문제를 데이터로 풀어내고 운영 개선까지 이끈 경험</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>SFA · Data Scientist</h3>
+            <p class="period">2022.10 - 재직 중</p>
+            <ul>
+              <li>설비 로그 기반 고장 탐지 모델로 1년 이상 무중단 운영 달성</li>
+              <li>Object Detection 기반 이미지 이상탐지로 물류 오배송 95% 감소</li>
+              <li>오픈소스 LLM 기반 사내 지식 검색 챗봇 개발</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>팜한농 · Data Scientist</h3>
+            <p class="period">2021.05 - 2022.05</p>
+            <ul>
+              <li>딸기 질병 예측 로지스틱 회귀 모델 개발 및 위험도 시각화</li>
+              <li>68만 건 규모 멀티모달 질병 데이터셋 구축·검증</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-title">
+        <h2>Skills & Credentials</h2>
+        <p>현장 문제 해결을 위한 실무 스택</p>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Technical Stack</h3>
+          <p>Python (PyTorch, OpenCV, LangChain, Transformers)</p>
+          <p>R, SQL</p>
+        </div>
+        <div class="card">
+          <h3>Certification & Language</h3>
+          <ul>
+            <li>빅데이터 분석기사</li>
+            <li>데이터분석 준전문가 (ADsP)</li>
+            <li>SQLD</li>
+            <li>OPIc IH (English) </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Education</h2>
+        <p>응용 통계학 기반의 데이터 분석과 모델링</p>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>한양대학교 · 석사 (응용 통계학)</h3>
+          <p class="period">2019.03 - 2021.02</p>
+          <p>석사 논문: GA-PARSIMONY를 도입한 MMORPG 게임 사용자 이탈 분석</p>
+        </div>
+        <div class="card">
+          <h3>세종대학교 · 학사 (응용 통계학)</h3>
+          <p class="period">2013.03 - 2019.02</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+      </div>
+      <div class="card contact-card">
+        <div>
+          <h3>최원진</h3>
+          <p>Data Scientist</p>
+        </div>
+        <div class="contact-note">
+          <p>010-9372-8759</p>
+          <p>choiwonjin55@gmail.com</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

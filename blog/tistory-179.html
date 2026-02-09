@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3.1 케이크 예약 페이지 만들기 | Blog</title>
+  <meta name="description" content="1. 문제 정의소규모의 가게의 케이크 예약을 몇번해보니, 대부분은 카카오톡이나 문자 메시지로 예약을 받고 있었다. 내가 직접 케이크를 판매할 예정은 아니었지만, 이런 방식은 고객들의 정보를 체계적으로 정리하거나 저장하기 어렵다는 생각이 들었다. 물론 구글 폼을 사용하는 방법도 있었지만, 나는 예약 시스템을 브랜드 이미지에 어울리는 형태로 직접 만들어보고 싶었다. 특히 수제 케이크처럼 주문 수량이 제한된 제품의 경우, 예약 내역을 시각적으로 정리하고, 이미지와 함께 고객에게 전달하는 경험 자체가 중요하다고 판단했다. 그래서 ‘누구나 쉽게 예약할 수 있으면서도, 내가 정리하기 쉬운 시스템을 어떻게 만들 수 있을까?’에 대한 고민이 생겼고, 직접 코딩을 통해 작은 웹페이지부터 시작해보기로 했다.2. 목표이 프.." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="nav">
+    <div class="logo">Wonjin Choi</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <p class="eyebrow">Writing</p>
+      <h1>3.1 케이크 예약 페이지 만들기</h1>
+      <div class="post-meta">
+        <span>2025-05-01</span>
+        <span class="post-badge">데이터분석</span>
+      </div>
+    </section>
+
+    <article class="post-body card">
+      <h2 data-ke-size="size26">1. 문제 정의</h2>
+<p data-ke-size="size16">소규모의 가게의 케이크 예약을 몇번해보니, 대부분은 <b>카카오톡이나 문자 메시지로 예약</b>을 받고 있었다. 내가 직접 케이크를 판매할 예정은 아니었지만, 이런 방식은 고객들의 정보를 체계적으로 정리하거나 저장하기 어렵다는 생각이 들었다. 물론 구글 폼을 사용하는 방법도 있었지만, 나는 예약 시스템을 브랜드 이미지에 어울리는 형태로 직접 만들어보고 싶었다. 특히 수제 케이크처럼 주문 수량이 제한된 제품의 경우, 예약 내역을 시각적으로 정리하고, 이미지와 함께 고객에게 전달하는 경험 자체가 중요하다고 판단했다. 그래서 ‘누구나 쉽게 예약할 수 있으면서도, 내가 정리하기 쉬운 시스템을 어떻게 만들 수 있을까?’에 대한 고민이 생겼고, 직접 코딩을 통해 작은 웹페이지부터 시작해보기로 했다.</p>
+<h2 data-ke-size="size26">2. 목표</h2>
+<p data-ke-size="size16">이 프로젝트의 목표는 고객이 수제 케이크를 손쉽게 예약할 수 있도록 <b>간단한 웹 기반 예약 시스템을 구축하는 것</b>이었다. 특히, 다음 세 가지 조건을 충족하고자 했다.</p>
+<ul data-ke-list-type="disc" style="list-style-type: disc;">
+<li>예약 정보가 나에게 직접 전달될 것</li>
+<li>따뜻하고 감성적인 브랜드 이미지를 전달할 수 있을 것</li>
+<li>수제 케이크 종류별로 소개와 사진을 제공할 수 있을 것</li>
+<li><b>고객의 정보를 편리하게 정리할 수 있을 것</b></li>
+</ul>
+<p data-ke-size="size16">처음부터 대단한 웹 시스템을 만드는 것보다, 실질적으로 <b>운영 가능한 수준의 구조</b>를 구축하는 데 집중했다.</p>
+<h2 data-ke-size="size26">3. 구조 설계 방향</h2>
+<h3 data-ke-size="size23">3.1 정적 페이지 기반</h3>
+<p data-ke-size="size16"><b>GitHub Pages</b>를 활용해 정적 HTML 기반의 웹사이트를 배포했다. 이는 별도의 서버나 비용 없이도 웹페이지를 공개할 수 있어 소규모 1인 창업자에게 적합하다고 판단했다.</p>
+<h3 data-ke-size="size23">3.2 예약 폼 구조</h3>
+<p data-ke-size="size16">예약 기능은 <b>Formspree</b>와 연동하여 구축했다. 고객이 이름, 수령일, 케이크 종류, 요청사항 등을 입력하면 <b>나에게 메일로 전송되도록 설정</b>했다. 서버를 직접 만들지 않고도 예약 기능을 실현할 수 있는 점이 큰 장점이었다. 월마다 50건씩 무료로 사용되고 실제로 사용한다면 유로로 (월 20~30달러) 사용해도 될 만큼 편하게 적용할 수 있었다.</p>
+<h3 data-ke-size="size23">3.3 콘텐츠 구성</h3>
+<ul data-ke-list-type="disc" style="list-style-type: disc;">
+<li>케이크 소개: 플라워/초코/딸기 생크림 케이크</li>
+<li>이미지 삽입: 실제 제작을 이미지로 표현해 고객 신뢰 확보</li>
+<li>예약하기: 입력 폼을 통해 주문 접수</li>
+<li>운영정보: 오픈시간, 위치, 문의처 안내</li>
+</ul>
+<h2 data-ke-size="size26">4. 시각 디자인 개선</h2>
+<p data-ke-size="size16">단순한 HTML 코드만으로는 브랜드 이미지가 살아나지 않았다. 그래서 <b>직접 CSS를 적용해 감성적인 색상, 여백, 버튼 디자인 등을 수정</b>했고, 케이크마다 어울리는 이미지도 생성하여 삽입했다.</p>
+<ul data-ke-list-type="disc" style="list-style-type: disc;">
+<li>전체 배경은 부드러운 크림 톤으로 설정</li>
+<li>버튼은 따뜻한 오렌지 계열로 강조</li>
+<li>태그를 통해 제품별 사진 삽입</li>
+<li>폼 요소에 여백과 테두리를 주어 가독성 확보</li>
+</ul>
+<h2 data-ke-size="size26">5. 결과</h2>
+<p data-ke-size="size16">단순한 페이지였지만, 다음과 같은 성과가 있었다:</p>
+<ul data-ke-list-type="disc" style="list-style-type: disc;">
+<li>별도의 비용 없이 예약 페이지 구축</li>
+<li>GitHub, Formspree, VS Code 등 도구 사용에 대한 실전 이해</li>
+<li>케이크 종류별 설명과 이미지를 함께 보여줌으로써 고객이 필요한 정보 추가</li>
+<li>예약 정보가 메일로 직접 도착해 수기 정리 불필요</li>
+</ul>
+<p data-ke-size="size16">무엇보다도, <b>‘운영 가능한 수준의 웹사이트를 스스로 만들 수 있다’는 성취감</b> 을 얻을 수 있었다.</p>
+<h2 data-ke-size="size26">6. 결론</h2>
+<p data-ke-size="size16">이번 작업은 "수제 케이크 예약 페이지 제작"이라는 소박한 목표를 넘어서 <b>작은 웹 프로젝트를 처음부터 끝까지 구성하고 운영까지 이어본 경험</b>이 됐다. 꼭 서버를 구축하거나 복잡한 시스템을 짜지 않아도, 기존의 도구들을 조합해 현실적인 서비스를 만들 수 있다는 점에서 다른 소규모 창업자에게도 도움이 될 수 있다고 생각한다. 추가로 한다면 DB와 연계하여 예약자의 데이터를 더 효율적으로 담고싶다.</p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16">별첨 : 작성했던 코드와 예시 이미지 </p>
+<p><figure class="fileblock" data-ke-align="alignCenter"><a class="" href="https://blog.kakaocdn.net/dna/cpXIqI/btsNGCkoHj4/AAAAAAAAAAAAAAAAAAAAANbIbcsKQ2s8YY43VR6wTRKij_QfQPZrzBCpWUxHe1n1/index.html?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=VVvSo3CHZx7sFWLkVHXMkxBB8Jw%3D&amp;attach=1&amp;knm=tfile.html">
+<div class="image"></div>
+<div class="desc"><div class="filename"><span class="name">index.html</span></div>
+<div class="size">0.00MB</div>
+</div>
+</a></figure>
+</p>
+<p data-ke-size="size16"> </p>
+<p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-height="920" data-origin-width="422"><span data-phocus="https://blog.kakaocdn.net/dna/dvGT1a/btsNIh6TAy6/AAAAAAAAAAAAAAAAAAAAACSxKv4XAjwGRaqQ1l5WvZtZG3vbMmd8DWd65vTTiKBS/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=rWWj59KydtRdTiciM5uC4ZZstcg%3D" data-url="https://blog.kakaocdn.net/dna/dvGT1a/btsNIh6TAy6/AAAAAAAAAAAAAAAAAAAAACSxKv4XAjwGRaqQ1l5WvZtZG3vbMmd8DWd65vTTiKBS/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=rWWj59KydtRdTiciM5uC4ZZstcg%3D"><img data-origin-height="920" data-origin-width="422" height="920" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/dvGT1a/btsNIh6TAy6/AAAAAAAAAAAAAAAAAAAAACSxKv4XAjwGRaqQ1l5WvZtZG3vbMmd8DWd65vTTiKBS/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=rWWj59KydtRdTiciM5uC4ZZstcg%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FdvGT1a%2FbtsNIh6TAy6%2FAAAAAAAAAAAAAAAAAAAAACSxKv4XAjwGRaqQ1l5WvZtZG3vbMmd8DWd65vTTiKBS%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DrWWj59KydtRdTiciM5uC4ZZstcg%253D" width="422"/></span></figure>
+</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+  </footer>
+</body>
+</html>

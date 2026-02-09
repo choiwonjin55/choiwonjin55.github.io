@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EXAONE 사용 후기 | Blog</title>
+  <meta name="description" content="LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다.  예제 코드가 잘 되어있으니 바로 쓸 수 있었다.  참고 사항- 개인 계정의 토큰으로 로그인이 필요했다. 실행 결과 (서버컴으로 할때는 되었는데, 예시를 보여줄려고 집컴으로 했더니 안된다..ㅠ)내가 서버컴으로 했을때의 경험을 이야기하면,1. 말을 잘 생성한다는 느낌을 받았다. 2. 같은 질문을 입력하면 똑같은 대답이 나온다.- chatgpt같은 다른 LLM 모델과 다른 이질적인 느낌이 들었다. - 질문에 마침표 몇개만 추가해도 비슷하지만 다른 결과가 나옴-(추가) 아마도 LLM 캐시로 인해서 같은 답이 나오는 것 같음3. 할루시네이션을 막기위해 노력한 것은 보임- 특정 잘못된 질문을 해봐도 사실과 거짓을 잘 분류해서 알려줌- 그.." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="nav">
+    <div class="logo">Wonjin Choi</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <p class="eyebrow">Writing</p>
+      <h1>EXAONE 사용 후기</h1>
+      <div class="post-meta">
+        <span>2024-08-13</span>
+        <span class="post-badge">AI</span>
+      </div>
+    </section>
+
+    <article class="post-body card">
+      <!-- System - START -->
+<!-- System - END -->
+<div class="contents_style"><p data-ke-size="size16">LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다.</p>
+<p data-ke-size="size16"> </p>
+<p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-height="730" data-origin-width="1304"><span data-phocus="https://blog.kakaocdn.net/dna/c5D9QE/btsI3dITehj/AAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pK4yjRsyL2X4YjpGrFh0X%2Fi4RYo%3D" data-url="https://blog.kakaocdn.net/dna/c5D9QE/btsI3dITehj/AAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pK4yjRsyL2X4YjpGrFh0X%2Fi4RYo%3D"><img data-origin-height="730" data-origin-width="1304" height="730" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/c5D9QE/btsI3dITehj/AAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pK4yjRsyL2X4YjpGrFh0X%2Fi4RYo%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fc5D9QE%2FbtsI3dITehj%2FAAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DpK4yjRsyL2X4YjpGrFh0X%252Fi4RYo%253D" width="1304"/></span></figure>
+</p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16">예제 코드가 잘 되어있으니 바로 쓸 수 있었다. </p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size14">참고 사항</p>
+<p data-ke-size="size14">- 개인 계정의 토큰으로 로그인이 필요했다.</p>
+<p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-height="88" data-origin-width="296"><span data-phocus="https://blog.kakaocdn.net/dna/csFCYi/btsI4oQeqUW/AAAAAAAAAAAAAAAAAAAAAA_mIfXj7BUv-JXQxNQcTKN7u3NXXTH5k-3HN2foRDhn/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=d4ufeMG3fAk8jjfOHD9XOdaU8nk%3D" data-url="https://blog.kakaocdn.net/dna/csFCYi/btsI4oQeqUW/AAAAAAAAAAAAAAAAAAAAAA_mIfXj7BUv-JXQxNQcTKN7u3NXXTH5k-3HN2foRDhn/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=d4ufeMG3fAk8jjfOHD9XOdaU8nk%3D"><img data-origin-height="88" data-origin-width="296" height="88" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/csFCYi/btsI4oQeqUW/AAAAAAAAAAAAAAAAAAAAAA_mIfXj7BUv-JXQxNQcTKN7u3NXXTH5k-3HN2foRDhn/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=d4ufeMG3fAk8jjfOHD9XOdaU8nk%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcsFCYi%2FbtsI4oQeqUW%2FAAAAAAAAAAAAAAAAAAAAAA_mIfXj7BUv-JXQxNQcTKN7u3NXXTH5k-3HN2foRDhn%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3Dd4ufeMG3fAk8jjfOHD9XOdaU8nk%253D" width="296"/></span></figure>
+<figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-height="778" data-origin-width="668"><span data-phocus="https://blog.kakaocdn.net/dna/b2ew3J/btsI4TPYk0s/AAAAAAAAAAAAAAAAAAAAAI6fibBk-6nXkHfe2vCqfL13lNq2EbgduWtf659rCht9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=23%2BY2eMs9Tszi6Bb4xeFRAu6ik0%3D" data-url="https://blog.kakaocdn.net/dna/b2ew3J/btsI4TPYk0s/AAAAAAAAAAAAAAAAAAAAAI6fibBk-6nXkHfe2vCqfL13lNq2EbgduWtf659rCht9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=23%2BY2eMs9Tszi6Bb4xeFRAu6ik0%3D"><img data-origin-height="778" data-origin-width="668" height="778" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/b2ew3J/btsI4TPYk0s/AAAAAAAAAAAAAAAAAAAAAI6fibBk-6nXkHfe2vCqfL13lNq2EbgduWtf659rCht9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=23%2BY2eMs9Tszi6Bb4xeFRAu6ik0%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb2ew3J%2FbtsI4TPYk0s%2FAAAAAAAAAAAAAAAAAAAAAI6fibBk-6nXkHfe2vCqfL13lNq2EbgduWtf659rCht9%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3D23%252BY2eMs9Tszi6Bb4xeFRAu6ik0%253D" width="668"/></span></figure>
+</p>
+<p data-ke-size="size16"> </p>
+<h3 data-ke-size="size23">실행 결과 </h3>
+<p data-ke-size="size16">(서버컴으로 할때는 되었는데, 예시를 보여줄려고 집컴으로 했더니 안된다..ㅠ)</p>
+<p data-ke-size="size16">내가 서버컴으로 했을때의 경험을 이야기하면,</p>
+<p data-ke-size="size16">1. 말을 잘 생성한다는 느낌을 받았다. </p>
+<p data-ke-size="size16">2. 같은 질문을 입력하면 똑같은 대답이 나온다.</p>
+<p data-ke-size="size16">- chatgpt같은 다른 LLM 모델과 다른 이질적인 느낌이 들었다. </p>
+<p data-ke-size="size16">- 질문에 마침표 몇개만 추가해도 비슷하지만 다른 결과가 나옴</p>
+<p data-ke-size="size16">-(추가) 아마도 LLM 캐시로 인해서 같은 답이 나오는 것 같음</p>
+<p data-ke-size="size16">3. 할루시네이션을 막기위해 노력한 것은 보임</p>
+<p data-ke-size="size16">- 특정 잘못된 질문을 해봐도 사실과 거짓을 잘 분류해서 알려줌</p>
+<p data-ke-size="size16">- 그러나 어떤 사건이 발생한 연도를 물어보았을때는 잘 틀리기도 함</p>
+<p data-ke-size="size16"> </p>
+<h3 data-ke-size="size23">종합 평가</h3>
+<p data-ke-size="size16">말을 생성하는 기본적인 성능에는 만족감을 느낌. </p>
+<p data-ke-size="size16">그러나 아직 chatgpt를 대신할 수 있다는 생각은 들지않았음</p></div>
+<!-- System - START -->
+<!-- System - END -->
+<div class="container_postbtn #post_button_group">
+<div class="postbtn_like">
+<div class="wrap_btn" data-tistory-react-app="Reaction" id="reaction-152"></div><div class="wrap_btn wrap_btn_share"><button aria-expanded="false" class="btn_post sns_btn btn_share" data-blog-title="돌돌" data-description="LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다.  예제 코드가 잘 되어있으니 바로 쓸 수 있었다.  참고 사항- 개인 계정의 토큰으로 로그인이 필요했다. 실행 결과 (서버컴으로 할때는 되었는데, 예시를 보여줄려고 집컴으로 했더니 안된다..ㅠ)내가 서버컴으로 했을때의 경험을 이야기하면,1. 말을 잘 생성한다는 느낌을 받았다. 2. 같은 질문을 입력하면 똑같은 대답이 나온다.- chatgpt같은 다른 LLM 모델과 다른 이질적인 느낌이 들었다. - 질문에 마침표 몇개만 추가해도 비슷하지만 다른 결과가 나옴-(추가) 아마도 LLM 캐시로 인해서 같은 답이 나오는 것 같음3. 할루시네이션을 막기위해 노력한 것은 보임- 특정 잘못된 질문을 해봐도 사실과 거짓을 잘 분류해서 알려줌- 그.." data-pc-url="https://changgeun-sql.tistory.com/152" data-profile-image="https://tistory1.daumcdn.net/tistory/5354706/attach/da5774a6e9ab43d69b54bb24dd127826" data-profile-name="돌돌55" data-relative-pc-url="/152" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fc5D9QE%2FbtsI3dITehj%2FAAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DpK4yjRsyL2X4YjpGrFh0X%252Fi4RYo%253D" data-title="EXAONE 사용 후기" type="button"><span class="ico_postbtn ico_share">공유하기</span></button>
+<div class="layer_post" id="tistorySnsLayer"></div>
+</div><div class="wrap_btn wrap_btn_etc" data-category-visibility="public" data-entry-id="152" data-entry-visibility="public"><button aria-expanded="false" class="btn_post btn_etc2" type="button"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+<div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="5354706" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭" data-url="https://changgeun-sql.tistory.com/152" type="button"><em class="txt_state"></em><strong class="txt_tool_id">돌돌</strong><span class="img_common_tistory ico_check_type1"></span></button> <div class="postbtn_ccl" data-ccl-derive="1" data-ccl-type="6">
+<a class="link_ccl" href="https://creativecommons.org/licenses/by-nc/4.0/deed.ko" rel="license" target="_blank">
+<span class="bundle_ccl">
+<span class="ico_postbtn ico_ccl1">저작자표시</span> <span class="ico_postbtn ico_ccl2">비영리</span>
+</span>
+<span class="screen_out">(새창열림)</span>
+</a>
+</div>
+<!--
+            <rdf:RDF xmlns="https://web.resource.org/cc/" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <Work rdf:about="">
+                    <license rdf:resource="https://creativecommons.org/licenses/by-nc/4.0/deed.ko" />
+                </Work>
+                <License rdf:about="https://creativecommons.org/licenses/by-nc/4.0/deed.ko">
+                    <permits rdf:resource="https://web.resource.org/cc/Reproduction"/>
+                    <permits rdf:resource="https://web.resource.org/cc/Distribution"/>
+                    <requires rdf:resource="https://web.resource.org/cc/Notice"/>
+                    <requires rdf:resource="https://web.resource.org/cc/Attribution"/>
+                    <permits rdf:resource="https://web.resource.org/cc/DerivativeWorks"/>
+<prohibits rdf:resource="https://web.resource.org/cc/CommercialUse"/>
+
+                </License>
+            </rdf:RDF>
+            --> <div data-tistory-react-app="SupportButton"></div>
+</div>
+<!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+<h4>'<a href="/category/AI%28LLM%29">AI(LLM)</a>' 카테고리의 다른 글</h4>
+<table>
+<tr>
+<th><a href="/166">LMStudio로 오픈소스 LLM 시작하기</a>  <span>(0)</span></th>
+<td>2025.01.12</td>
+</tr>
+<tr>
+<th><a href="/159">알리바바 큐원(Qwen) 2.5: 새로운 오픈소스 LLM</a>  <span>(0)</span></th>
+<td>2024.12.15</td>
+</tr>
+<tr>
+<th><a href="/158">라마 3.3 출시: 3.1, 3.2와의 차이점과 새로운 가능성</a>  <span>(0)</span></th>
+<td>2024.12.15</td>
+</tr>
+<tr>
+<th><a href="/156">ChatGPT o1: 새로운 AI 모델의 등장과 그 의미</a>  <span>(2)</span></th>
+<td>2024.10.14</td>
+</tr>
+<tr>
+<th><a href="/154">LLama 3.2의 출시: 가정용 PC에서도 가능해진 LLM</a>  <span>(0)</span></th>
+<td>2024.09.30</td>
+</tr>
+</table>
+</div>
+<!-- PostListinCategory - END -->
+    </article>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5. 데이터에 흐름을 더해주는 시계열 데이터 | Blog</title>
+  <meta name="description" content="서론시계열 데이터는 다른 데이터와 달리 시간이라는 요소가 반드시 함께 포함된 데이터다. 단순히 값 하나만 놓고 보는 것이 아니라, 언제 발생했는지가 함께 주어지기 때문에 데이터에 흐름이 생긴다. 나는 데이터를 볼 때 시계열 데이터를 선호하는 편인데, 그 이유는 이 시간의 흐름 덕분에 데이터를 해석하고 생각해볼 수 있는 여지가 훨씬 많아지기 때문이다. 1. 비교할 수 있다 데이터 값이 높다거나 낮다고 말하려면 반드시 기준점이 필요하다. 나의 달리기 속도가 빠른지 느린지를 판단하려면, 다른 사람의 달리기 속도와 비교해야 하는 것처럼 말이다. 시계열 데이터는 그 기준점을 자연스럽게 제공해준다. 이전 시점과 현재 시점, 혹은 다음 시점의 데이터와 비교하면서 값이 증가했는지 감소했는지를 판단할 수 있다. 단순한 .." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="nav">
+    <div class="logo">Wonjin Choi</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-hero">
+      <p class="eyebrow">Writing</p>
+      <h1>5. 데이터에 흐름을 더해주는 시계열 데이터</h1>
+      <div class="post-meta">
+        <span>2025-12-21</span>
+        <span class="post-badge">AI</span>
+      </div>
+    </section>
+
+    <article class="post-body card">
+      <h2 data-ke-size="size26">서론</h2>
+<p data-ke-size="size16">시계열 데이터는 다른 데이터와 달리 시간이라는 요소가 반드시 함께 포함된 데이터다. 단순히 값 하나만 놓고 보는 것이 아니라, 언제 발생했는지가 함께 주어지기 때문에 데이터에 흐름이 생긴다. 나는 데이터를 볼 때 시계열 데이터를 선호하는 편인데, 그 이유는 이 시간의 흐름 덕분에 데이터를 해석하고 생각해볼 수 있는 여지가 훨씬 많아지기 때문이다.</p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16">1. 비교할 수 있다 <br/>데이터 값이 높다거나 낮다고 말하려면 반드시 기준점이 필요하다. 나의 달리기 속도가 빠른지 느린지를 판단하려면, 다른 사람의 달리기 속도와 비교해야 하는 것처럼 말이다. 시계열 데이터는 그 기준점을 자연스럽게 제공해준다. 이전 시점과 현재 시점, 혹은 다음 시점의 데이터와 비교하면서 값이 증가했는지 감소했는지를 판단할 수 있다. 단순한 숫자 하나가 아니라, 시간에 따른 상대적인 변화 속에서 의미를 갖게 된다.</p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16">2. 추세를 확인할 수 있다 <br/>시계열 데이터의 또 다른 매력은 추세를 볼 수 있다는 점이다. 분기, 반기, 연도 등 시간 단위를 다양하게 나누어 더 깊이 있는 데이터를 만들어볼 수도 있고, 반대로 월 단위 데이터를 연 단위로 합쳐 더 긴 시계열로 바라볼 수도 있다. 이렇게 시간의 스케일을 조절하다 보면 단기적인 변동과 장기적인 흐름을 구분해서 볼 수 있고, 단순한 변동인지 구조적인 변화인지도 고민해볼 수 있다.</p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16">3. 특성을 고려해서 반영할 수 있다 <br/>어떤 수치를 높다거나 낮다고 판단할 때, 다른 대상과의 단순 비교가 항상 적절한 것은 아니다. 예를 들어 물가 수준은 나라별로 경제 상황이 다르기 때문에 직접적인 비교가 어렵다. 개발도상국과 선진국은 애초에 출발선이 다르고, 조건도 다르기 때문이다. 달리기 속도 역시 나이, 키, 몸무게 같은 개인의 특성에 따라 기준이 달라질 수 있다. <br/>하지만 시계열 데이터에서는 같은 대상의 시간에 따른 변화를 볼 수 있다. 연도가 바뀌면서 얼마나 변했는지, 특정 시점을 기준으로 어떤 변화가 나타났는지를 살펴보면 그 시절과 지금의 차이를 자연스럽게 이해할 수 있다. 이런 변화의 누적은 현재를 설명해줄 뿐 아니라, 앞으로 어떤 방향으로 흘러갈지도 조심스럽게 유추해볼 수 있는 단서가 된다. 그래서 시계열 데이터는 단순한 과거 기록을 넘어, 해석과 예측의 출발점이 된다고 생각한다.</p>
+<p data-ke-size="size16"> </p>
+<h2 data-ke-size="size26">마무리</h2>
+<p data-ke-size="size16">결국 시계열 데이터의 가장 큰 장점은 값 자체보다 변화에 집중할 수 있다는 점이다. 특정 시점의 숫자가 크냐 작으냐보다, 시간이 지나면서 어떻게 달라졌는지, 어떤 속도로 변했는지를 볼 수 있다. 비교가 가능해지고, 추세가 드러나며, 같은 대상 안에서의 변화이기 때문에 조건 차이로 인한 왜곡도 줄일 수 있다. 그래서 시계열 데이터는 과거를 설명하는 데서 그치지 않고, 현재를 이해하고 미래를 상상하게 만드는 데이터라고 생각한다.</p>
+<p data-ke-size="size16"> </p>
+<p data-ke-size="size16"> </p>
+<h4 data-ke-size="size20">참고 자료</h4>
+<p data-ke-size="size16">아래 기사를 읽으면서 시계열 데이터에 대한 생각을 해보았습니다. 데이터를 어느정도의 강도와 속도로 생각할 수 있는 시간이었습니다.</p>
+<p data-ke-size="size16"><a href="https://www.nytimes.com/2025/12/20/business/dealbook/charts-2025-economy.html" rel="noopener noreferrer" target="_blank">https://www.nytimes.com/2025/12/20/business/dealbook/charts-2025-economy.html</a></p>
+<p data-ke-size="size16">(The new york times, From A.I. to Tariffs, 14 Charts That Explain 2025)</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+  </footer>
+</body>
+</html>
