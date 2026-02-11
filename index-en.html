@@ -1,10 +1,10 @@
-﻿<!doctype html>
-<html lang="ko">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>최원진 | Data Scientist Portfolio</title>
-  <meta name="description" content="데이터 기반 문제정의부터 모델링·실험·시각화까지 전 주기를 수행하는 데이터 사이언티스트 최원진의 포트폴리오." />
+  <title>Wonjin Choi | Data Scientist Portfolio</title>
+  <meta name="description" content="Portfolio of Wonjin Choi, a data scientist who delivers end-to-end work from problem framing to modeling, experimentation, and deployment." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -14,11 +14,11 @@
   <div class="bg-grid"></div>
   <div id="top"></div>
   <header class="nav">
-    <a class="logo" href="./index.html">최원진</a>
+    <a class="logo" href="./index-en.html">Wonjin Choi</a>
     <nav>
       <a href="#top">Home</a>
       <a href="blog/index.html">Blog</a>
-      <a href="index-en.html">EN</a>
+      <a href="index.html">KR</a>
     </nav>
   </header>
 
@@ -26,19 +26,16 @@
     <section class="hero compact">
       <div class="hero-left">
         <p class="eyebrow">Data Scientist · Applied Statistics</p>
-        <h1>최원진</h1>
+        <h1>Wonjin Choi</h1>
         <p class="hero-desc">
-          데이터 기반 문제 정의와 통계적 사고로, 현장에서 작동하는 모델을 설계합니다.<br />
-          스마트팩토리·물류·스마트팜 도메인에서 시계열/이미지/로그/자연어 데이터를 활용한
-          분석과 모델링을 수행해왔고,<br />
-          문제 정의-데이터 수집–모델링–실험–적용까지 전 주기를 직접 다룹니다.
+          I design practical models grounded in data-driven problem framing and statistical thinking.<br />
+          Across smart factory, logistics, and smart farming domains, I have worked with time series, image, log, and text data<br />
+          through the full lifecycle: problem definition, data collection, modeling, experimentation, and deployment.
         </p>
         <div class="mini-contact">
           <a href="mailto:choiwonjin55@gmail.com">choiwonjin55@gmail.com</a>
           <span>·</span>
           <a href="blog/index.html">Blog</a>
-          <span>·</span>
-          <a href="https://www.youtube.com/@wonjinchoi55" target="_blank" rel="noreferrer">YouTube</a>
           <span>·</span>
           <a href="https://www.linkedin.com/in/%EC%9B%90%EC%A7%84-%EC%B5%9C-aa72bb204/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
@@ -48,40 +45,40 @@
     <section id="projects" class="section">
       <div class="section-title">
         <h2>Projects</h2>
-        <p>문제 정의 → 가설 → 실험 → 운영으로 이어지는 END-TO-END 프로젝트</p>
+        <p>End-to-end projects from problem framing to hypothesis, experimentation, and production impact</p>
       </div>
       <div class="grid projects">
         <article class="card">
-          <h3>스마트팩토리 설비 고장 예측 모델</h3>
+          <h3>Predictive Maintenance Model for Smart Factory Equipment</h3>
           <p class="period">2022.10 - 2024.07</p>
           <ul>
-            <li>센서 변동성 패턴을 활용해 고장 선행 지표 모델링</li>
-            <li>고장 전 1~2개월 패턴 정량 분석 및 임계값 설계</li>
-            <li>예측 모델 적용 후 주요 설비 1년 이상 무중단 운행</li>
+            <li>Modeled leading indicators of failures using sensor volatility patterns</li>
+            <li>Quantified 1-2 month pre-failure signals and designed operational thresholds</li>
+            <li>Achieved over one year of uninterrupted operation on key equipment after deployment</li>
           </ul>
           <div class="tags">
             <span>Time Series</span><span>Anomaly Detection</span><span>Predictive Maintenance</span>
           </div>
         </article>
         <article class="card">
-          <h3>이미지 Object Detection 기반 물류 이상탐지</h3>
+          <h3>Logistics Anomaly Detection with Object Detection</h3>
           <p class="period">2025.05 - 2025.12</p>
           <ul>
-            <li>YOLO 기반 반송물 위치·형태 검출로 중복/불량 탐지</li>
-            <li>BCR의 사각지대 보완, OCR 추가로 Deck 인식 안정성 향상</li>
-            <li>적용 후 배송 오류 95% 이상 감소, 자동화 물류 시스템의 안정성 향상</li>
+            <li>Built a YOLO-based pipeline to detect duplicate and defective package handling states</li>
+            <li>Improved deck recognition stability with OCR and blind-spot compensation for BCR</li>
+            <li>Reduced shipping errors by over 95% and improved automation reliability</li>
           </ul>
           <div class="tags">
             <span>Computer Vision</span><span>YOLO</span><span>Orin nano</span>
           </div>
         </article>
         <article class="card">
-          <h3>RAG 기반 사내 전용 LLM 챗봇</h3>
+          <h3>Internal RAG-Based LLM Chatbot</h3>
           <p class="period">2024.08 - 2025.04</p>
           <ul>
-            <li>사내 문서 Q&A 챗봇으로 문의 대응 효율화</li>
-            <li>VectorDB + LangChain 기반 RAG 파이프라인 구축</li>
-            <li>모델 크기/성능 균형 조정으로 2초 내 응답 확보</li>
+            <li>Developed an internal document Q&A assistant to improve support efficiency</li>
+            <li>Implemented a VectorDB + LangChain based RAG pipeline</li>
+            <li>Optimized model size-performance tradeoff to deliver sub-2 second responses</li>
           </ul>
           <div class="tags">
             <span>RAG</span><span>LLM</span><span>VectorDB</span>
@@ -93,29 +90,29 @@
     <section id="experience" class="section">
       <div class="section-title">
         <h2>Experience</h2>
-        <p>실제 문제를 데이터로 풀어내고 운영 개선까지 이끈 경험</p>
+        <p>Experience turning real operational challenges into measurable outcomes with data</p>
       </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="dot"></div>
           <div class="content">
             <h3>SFA · Data Scientist</h3>
-            <p class="period">2022.10 - 재직 중</p>
+            <p class="period">2022.10 - Present</p>
             <ul>
-              <li>설비 로그 기반 고장 탐지 모델로 1년 이상 무중단 운영 달성</li>
-              <li>Object Detection 기반 이미지 이상탐지로 물류 오배송 95% 감소</li>
-              <li>오픈소스 LLM 기반 사내 지식 검색 챗봇 개발</li>
+              <li>Delivered one year of uninterrupted equipment operation with log-based failure detection</li>
+              <li>Reduced logistics misdelivery by 95% with object detection-based image anomaly detection</li>
+              <li>Built an internal knowledge retrieval chatbot with open-source LLMs</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
           <div class="dot"></div>
           <div class="content">
-            <h3>팜한농 · Data Scientist</h3>
+            <h3>FarmHannong · Data Scientist</h3>
             <p class="period">2021.05 - 2022.05</p>
             <ul>
-              <li>딸기 질병 예측 로지스틱 회귀 모델 개발 및 위험도 시각화</li>
-              <li>68만 건 규모 멀티모달 질병 데이터셋 구축·검증</li>
+              <li>Built a logistic regression model for strawberry disease prediction and risk visualization</li>
+              <li>Constructed and validated a 680k-scale multimodal disease dataset</li>
             </ul>
           </div>
         </div>
@@ -125,7 +122,7 @@
     <section id="skills" class="section">
       <div class="section-title">
         <h2>Skills & Credentials</h2>
-        <p>현장 문제 해결을 위한 실무 스택</p>
+        <p>Practical stack for solving production-grade problems</p>
       </div>
       <div class="grid two">
         <div class="card">
@@ -136,10 +133,10 @@
         <div class="card">
           <h3>Certification & Language</h3>
           <ul>
-            <li>빅데이터 분석기사</li>
-            <li>데이터분석 준전문가 (ADsP)</li>
+            <li>Engineer Big Data Analysis</li>
+            <li>ADsP (Advanced Data Analytics Semi-Professional)</li>
             <li>SQLD</li>
-            <li>OPIc IH (English) </li>
+            <li>OPIc IH (English)</li>
           </ul>
         </div>
       </div>
@@ -148,16 +145,16 @@
     <section class="section">
       <div class="section-title">
         <h2>Education</h2>
-        <p>응용 통계학 기반의 데이터 분석과 모델링</p>
+        <p>Academic foundation in applied statistics and data modeling</p>
       </div>
       <div class="grid two">
         <div class="card">
-          <h3>한양대학교 · 석사 (응용 통계학)</h3>
+          <h3>Hanyang University · M.S. in Applied Statistics</h3>
           <p class="period">2019.03 - 2021.02</p>
-          <p>석사 논문: GA-PARSIMONY를 도입한 MMORPG 게임 사용자 이탈 분석</p>
+          <p>Thesis: MMORPG User Churn Analysis with GA-PARSIMONY</p>
         </div>
         <div class="card">
-          <h3>세종대학교 · 학사 (응용 통계학)</h3>
+          <h3>Sejong University · B.S. in Applied Statistics</h3>
           <p class="period">2013.03 - 2019.02</p>
         </div>
       </div>
@@ -169,7 +166,7 @@
       </div>
       <div class="card contact-card">
         <div>
-          <h3>최원진</h3>
+          <h3>Wonjin Choi</h3>
           <p>Data Scientist</p>
         </div>
         <div class="contact-note">
