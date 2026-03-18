@@ -1,0 +1,4 @@
+interface:
+  display_name: "Import Tistory Posts"
+  short_description: "Import Tistory posts into markdown files for the blog pipeline."
+  default_prompt: "Use $tistory-import to sync Tistory posts into the local posts directory."

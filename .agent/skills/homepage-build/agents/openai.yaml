@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Homepage Blog"
+  short_description: "Build blog pages from posts and refresh the blog index."
+  default_prompt: "Use $homepage-build to regenerate blog pages from posts and update the blog index."

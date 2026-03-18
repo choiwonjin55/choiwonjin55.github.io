@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edit Homepage UI"
+  short_description: "Edit the homepage layout, styling, and content consistently."
+  default_prompt: "Use $homepage-edit to update the homepage layout, styles, or copy without breaking the site design."
