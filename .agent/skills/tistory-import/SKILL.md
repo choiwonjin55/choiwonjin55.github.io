@@ -21,8 +21,11 @@ The canonical import path is `import_tistory.py`.
 
 - Preserve the front matter fields expected by `build_blog.py`.
 - Keep the cutoff date logic aligned with the importer's current behavior.
+- Treat imports as destructive for existing `posts/*tistory-*.md`; `purge_existing()` removes prior imported files before writing new ones.
 - Do not hand-edit imported post bodies unless the imported HTML itself needs cleanup.
 - Prefer deterministic filename and slug handling so the build step stays stable.
+- The importer depends on `requests` and `bs4`, and it needs network access to fetch Tistory pages.
+- The current source blog and cutoff are defined in `import_tistory.py` by `BASE` and `CUTOFF_DATE`.
 
 ## When To Update The Script
 

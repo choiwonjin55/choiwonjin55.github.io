@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish Blog Post"
+  short_description: "Publish one post into blog HTML and update the index."
+  default_prompt: "Use $publish-blog-post to publish one markdown post into the blog output and refresh the index."

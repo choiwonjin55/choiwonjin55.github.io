@@ -39,3 +39,5 @@ After edits, confirm:
 - navigation links still point to the right pages
 - spacing and hierarchy remain readable on narrow screens
 - no blog-specific styling accidentally leaks into the homepage
+- `blog/index.html` and at least one generated `blog/*.html` page still render correctly, since they share `styles.css`
+- if useful, preview the site locally before finalizing changes
