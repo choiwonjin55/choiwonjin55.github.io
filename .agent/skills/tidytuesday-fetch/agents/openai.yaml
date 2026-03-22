@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fetch TidyTuesday Week"
+  short_description: "Download and profile the latest or chosen TidyTuesday dataset."
+  default_prompt: "Use $tidytuesday-fetch to download the latest released TidyTuesday week into data/tidytuesday/ and summarize its files."

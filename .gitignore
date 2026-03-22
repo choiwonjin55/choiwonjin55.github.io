@@ -6,9 +6,11 @@ _tmp_docx/
 _resume_text.txt
 
 # Source files not needed for static site hosting
-posts/
+posts/*
+!posts/*tidytuesday*.md
 build_blog.py
 import_tistory.py
+data/tidytuesday/
 
 # Python cache
 __pycache__/
