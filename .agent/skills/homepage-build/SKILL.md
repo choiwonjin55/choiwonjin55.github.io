@@ -20,7 +20,9 @@ The canonical build path is `build_blog.py`.
 ## Build Rules
 
 - Treat `posts/*.md` as the source of truth.
+- Keep `posts/*.md`, `build_blog.py`, and `import_tistory.py` tracked in git; do not rely on generated `blog/*.html` as the only persisted state.
 - Keep generated files in `blog/` out of manual drift unless the build script itself changes.
+- If `blog/index.html` or a post page disagrees with the source metadata, fix the source post first and then rebuild.
 - Remove legacy dated Tistory HTML files from `blog/` when the build script does so.
 - Preserve the site-wide header, footer, and typography used by the generated pages.
 
@@ -40,5 +42,7 @@ After changes, compare the regenerated output against the source post content an
 
 - every post file builds successfully
 - `blog/index.html` includes the newest posts first
+- source metadata and generated tag badges match
 - category filters still work
 - no unexpected files were deleted
+- the git diff includes both source-file changes and the regenerated `blog/` output when content changed

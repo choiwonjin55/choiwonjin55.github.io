@@ -20,6 +20,7 @@ The canonical import path is `import_tistory.py`.
 ## Import Rules
 
 - Preserve the front matter fields expected by `build_blog.py`.
+- Imported `posts/*tistory-*.md` files are source files and should stay tracked in git after review.
 - Keep the cutoff date logic aligned with the importer's current behavior.
 - Treat imports as destructive for existing `posts/*tistory-*.md`; `purge_existing()` removes prior imported files before writing new ones.
 - Do not hand-edit imported post bodies unless the imported HTML itself needs cleanup.
@@ -45,3 +46,4 @@ After import, check that:
 - front matter includes title, date, description, slug, category, tags, and format
 - the imported HTML content is intact enough for the build step
 - the next blog build renders the imported posts correctly
+- the resulting git diff contains the source `posts/` changes before any generated `blog/` output is committed
