@@ -3,6 +3,7 @@
 
 # Local temp/output
 _tmp_docx/
+_tmp_posts/
 _resume_text.txt
 
 # Large local analysis inputs that are not part of the published site
@@ -11,3 +12,4 @@ data/tidytuesday/
 # Python cache
 __pycache__/
 *.pyc
+*.docx
