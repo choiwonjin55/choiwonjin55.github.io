@@ -73,7 +73,7 @@ Rules:
 Use the bundled initializer before starting a new week:
 
 ```bash
-py -3 .agent/skills/tidytuesday-viz/scripts/init_viz.py data/tidytuesday/2026/2026-03-17-salmonid-mortality-data
+py -3 .agents/skills/tidytuesday-viz/scripts/init_viz.py data/tidytuesday/2026/2026-03-17-salmonid-mortality-data
 ```
 
 ## Toolchain Rule

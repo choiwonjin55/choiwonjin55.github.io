@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Homepage Blog"
+  short_description: "Validate posts, build blog pages, and refresh the index."
+  default_prompt: "Use $homepage-build to validate post sources, regenerate blog pages, and verify the blog index."

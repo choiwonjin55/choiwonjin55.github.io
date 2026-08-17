@@ -13,9 +13,26 @@ The canonical build path is `build_blog.py`.
 ## Workflow
 
 1. Read the source post(s) in `posts/`.
-2. Run or update `build_blog.py` if the generation rules need changes.
-3. Regenerate the blog output so every post page and `blog/index.html` match the current sources.
-4. Verify that generated slugs, categories, dates, and tag badges still look correct.
+2. Validate source metadata before building:
+
+   ```bash
+   python3 .agents/skills/homepage-build/scripts/check_posts.py
+   ```
+
+3. Run or update `build_blog.py` if the generation rules need changes.
+4. Regenerate the blog output:
+
+   ```bash
+   python3 build_blog.py
+   ```
+
+5. Validate source-to-output alignment:
+
+   ```bash
+   python3 .agents/skills/homepage-build/scripts/check_posts.py --generated
+   ```
+
+6. Verify that generated slugs, categories, dates, and tag badges still look correct.
 
 ## Build Rules
 
@@ -25,6 +42,8 @@ The canonical build path is `build_blog.py`.
 - If `blog/index.html` or a post page disagrees with the source metadata, fix the source post first and then rebuild.
 - Remove legacy dated Tistory HTML files from `blog/` when the build script does so.
 - Preserve the site-wide header, footer, and typography used by the generated pages.
+- Investigate generated HTML without a matching `posts/*.md` source before removing it; it may be an intentional standalone page.
+- Treat empty legacy categories and tags as warnings unless the task includes archive cleanup.
 
 ## When To Touch The Script
 
@@ -44,5 +63,7 @@ After changes, compare the regenerated output against the source post content an
 - `blog/index.html` includes the newest posts first
 - source metadata and generated tag badges match
 - category filters still work
+- `check_posts.py --generated` reports no errors
+- any orphan-page or empty-metadata warnings were reviewed deliberately
 - no unexpected files were deleted
 - the git diff includes both source-file changes and the regenerated `blog/` output when content changed

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Publish Blog Post"
+  short_description: "Emergency manual publishing when the build cannot run."
+  default_prompt: "Use $publish-blog-post only as an emergency fallback when build_blog.py cannot run."
+
+policy:
+  allow_implicit_invocation: false

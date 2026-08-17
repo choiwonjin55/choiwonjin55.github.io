@@ -53,15 +53,15 @@ Rules:
 Use the bundled script:
 
 ```bash
-py -3 .agent/skills/tidytuesday-fetch/scripts/fetch_latest.py
+py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py
 ```
 
 Common variants:
 
 ```bash
-py -3 .agent/skills/tidytuesday-fetch/scripts/fetch_latest.py --week 2026-03-17
-py -3 .agent/skills/tidytuesday-fetch/scripts/fetch_latest.py --target-date 2026-03-19
-py -3 .agent/skills/tidytuesday-fetch/scripts/fetch_latest.py --force
+py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --week 2026-03-17
+py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --target-date 2026-03-19
+py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --force
 ```
 
 ## What The Script Produces

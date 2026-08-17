@@ -1,6 +1,6 @@
 ---
 name: tidytuesday-post
-description: Draft and structure TidyTuesday visualization posts for this homepage project. Use when creating or revising a TidyTuesday article in posts/*.md, choosing title/date/slug/category/tags, deciding between markdown and format: html, and organizing the post so code, EDA, and chart output read cleanly in the current blog system.
+description: "Draft and structure TidyTuesday visualization posts for this homepage project. Use when creating or revising a TidyTuesday article in posts/*.md, choosing title/date/slug/category/tags, deciding between markdown and format: html, and organizing the post so code, EDA, and chart output read cleanly in the current blog system."
 ---
 
 # Write TidyTuesday Post

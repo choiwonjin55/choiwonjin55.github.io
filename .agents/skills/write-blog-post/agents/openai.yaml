@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Blog Post"
+  short_description: "Draft and revise Korean posts in the author's voice."
+  default_prompt: "Use $write-blog-post to turn my notes or draft into a Korean blog post while preserving my voice."

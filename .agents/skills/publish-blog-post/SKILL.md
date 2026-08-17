@@ -1,14 +1,22 @@
 ---
 name: publish-blog-post
-description: Publish a single blog post from posts/*.md into blog/*.html and update blog/index.html. Use when one new or edited post needs to be reflected manually, especially if the full build script cannot run.
+description: "Manually publish one posts/*.md source into blog/*.html and update blog/index.html as an emergency fallback. Use only when explicitly invoked and build_blog.py cannot run; do not use for normal publishing or when homepage-build is available."
 ---
 
 # Publish Blog Post
 
 ## Overview
 
-Use this skill when a single post needs to be reflected in the generated blog without rebuilding everything.
-The goal is to keep `posts/`, `blog/`, and `blog/index.html` aligned.
+Use this skill only as an emergency fallback when `build_blog.py` cannot run.
+For normal publishing, use `homepage-build` so generated output stays deterministic.
+
+## Preconditions
+
+Before editing generated HTML:
+
+1. Confirm that `build_blog.py` is unavailable or fails for an environment reason unrelated to the post.
+2. Stop and use `homepage-build` if the full build can run.
+3. Treat `posts/*.md` as the source of truth even during fallback publishing.
 
 ## Workflow
 
@@ -27,15 +35,9 @@ The goal is to keep `posts/`, `blog/`, and `blog/index.html` aligned.
 - If tags exist in front matter or source metadata, show them beside the title in the index and keep the order stable.
 - Do not patch only `blog/index.html` when the source metadata is wrong; update `posts/*.md` so the next rebuild preserves the change.
 - Prefer the build rules already used by `build_blog.py` when choosing slugs, dates, and categories.
-- If the full site build is available, use `homepage-build` instead of manual publishing.
+- Never use this fallback merely to save build time.
+- After the build environment is restored, run `homepage-build` and confirm it reproduces the manual result.
 - Treat `posts/*.md` and generated `blog/*.html` as a pair for review and commit.
-
-## When To Use
-
-- Add one new post to the blog index.
-- Reflect a changed markdown post in the generated blog.
-- Fix a single generated HTML page without touching unrelated posts.
-- Work around a missing Python runtime or unavailable build script.
 
 ## Verification
 
@@ -46,3 +48,4 @@ After publishing, confirm:
 - the post appears under the correct year
 - source metadata and rendered badges still match
 - category filters or counts still make sense
+- a later full build reproduces the same post page and index entry
