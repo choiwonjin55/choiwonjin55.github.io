@@ -18,6 +18,7 @@ TAG_RE = re.compile(r"<[^>]+>")
 DATE_FROM_STEM_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-")
 TITLE_PREFIX_RE = re.compile(r"^\s*\d+(?:\.\d+)*[\.)]?\s+")
 LEGACY_DATE_HTML_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-tistory-\d+\.html$")
+MARKDOWN_LINK_RE = re.compile(r"\[([^\]\n]+)\]\((https?://[^\s)]+)\)")
 
 
 def strip_html(text: str) -> str:
@@ -152,6 +153,23 @@ def slugify(value: str) -> str:
     return value or "post"
 
 
+def markdown_inline_to_html(text: str) -> str:
+    parts = []
+    cursor = 0
+
+    for match in MARKDOWN_LINK_RE.finditer(text):
+        parts.append(html.escape(text[cursor : match.start()]))
+        label = html.escape(match.group(1))
+        url = html.escape(match.group(2), quote=True)
+        parts.append(
+            f'<a href="{url}" target="_blank" rel="noopener noreferrer">{label}</a>'
+        )
+        cursor = match.end()
+
+    parts.append(html.escape(text[cursor:]))
+    return "".join(parts)
+
+
 def markdown_to_html(text: str) -> str:
     lines = text.splitlines()
     out = []
@@ -185,22 +203,22 @@ def markdown_to_html(text: str) -> str:
 
         if line.startswith("### "):
             close_list()
-            out.append(f"<h3>{html.escape(line[4:].strip())}</h3>")
+            out.append(f"<h3>{markdown_inline_to_html(line[4:].strip())}</h3>")
         elif line.startswith("## "):
             close_list()
-            out.append(f"<h2>{html.escape(line[3:].strip())}</h2>")
+            out.append(f"<h2>{markdown_inline_to_html(line[3:].strip())}</h2>")
         elif line.startswith("# "):
             close_list()
-            out.append(f"<h1>{html.escape(line[2:].strip())}</h1>")
+            out.append(f"<h1>{markdown_inline_to_html(line[2:].strip())}</h1>")
         elif line.strip().startswith("- "):
             if not in_list:
                 out.append("<ul>")
                 in_list = True
             item = line.strip()[2:]
-            out.append(f"<li>{html.escape(item)}</li>")
+            out.append(f"<li>{markdown_inline_to_html(item)}</li>")
         else:
             close_list()
-            out.append(f"<p>{html.escape(line.strip())}</p>")
+            out.append(f"<p>{markdown_inline_to_html(line.strip())}</p>")
 
     if in_code:
         out.append("</code></pre>")
@@ -371,8 +389,7 @@ def build_index(posts: list[dict[str, str]]) -> None:
                 {tag_badges}
               </div>
               <span class=\"post-date\">{date_html}</span>
-            </article>
-            """
+            </article>"""
         )
 
     body = "\n".join(items) or "<p class=\"post-empty\">아직 글이 없습니다. 첫 글을 작성해 보세요.</p>"
