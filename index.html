@@ -29,8 +29,8 @@
         <h1>최원진</h1>
         <p class="hero-desc">
           데이터의 맥락을 이해하고 가설을 검증해 운영 가능한 AI 시스템을 만듭니다.<br />
-          센서, 이미지, 로그, 자연어 데이터를 활용해 대규모 데이터 분석부터 모델 개발, 검증, 구현, 운영 적용까지 수행했고,<br />
-          정보분석 Agent를 통해 SQL 생성, 데이터 추출, 분석, 리포팅 workflow 자동화를 구현하고 있습니다.
+          센서, 이미지, 로그, 자연어 데이터를 다루며 데이터 분석부터 모델 개발과 운영 적용까지 경험해 왔습니다.<br />
+          현재는 AI Agent Workflow를 설계·구현하며, 사람이 하던 업무를 에이전트가 수행하도록 만들고 있습니다.
         </p>
         <div class="mini-contact">
           <a href="mailto:choiwonjin55@gmail.com">choiwonjin55@gmail.com</a>
@@ -49,43 +49,55 @@
     <section id="projects" class="section">
       <div class="section-title">
         <h2>Projects</h2>
-        <p>문제 정의, 가설 검증, 모델 개발, 운영 적용까지 직접 수행한 프로젝트</p>
+        <p>문제 정의, 가설 검증, 모델 개발, 운영 적용까지 직접 수행한 End to End 프로젝트</p>
       </div>
-      <div class="grid projects">
-        <article class="card">
-          <h3>정보분석 Agent</h3>
-          <p class="period">2026.02 - 진행 중</p>
-          <ul>
-            <li>운영 데이터 활용에 필요한 SQL 작성과 데이터 구조 이해 부담을 줄이기 위해 자연어 기반 분석 workflow 설계</li>
-            <li>자연어 요청을 SQL 생성, 데이터 조회, 분석 요약, 보고서 생성으로 이어지는 Agent 구조로 구현</li>
-            <li>SQL 실행·검증 하네스와 오류 모니터링 흐름을 구성해 신뢰 가능한 분석 결과 생성 환경 구축</li>
-          </ul>
-          <div class="tags">
-            <span>LLM Agent</span><span>Harness</span><span>SQL Workflow</span>
+      <div class="project-list">
+        <article class="card project-card">
+          <div class="project-summary">
+            <h3>업무 자동화를 위한 AI Agent Workflow</h3>
+            <p class="period">2026.02 - 진행 중</p>
+            <div class="tags">
+              <span>AI Agent</span><span>Workflow Design</span><span>Text-to-SQL</span><span>Software QA</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <ul>
+              <li>사람이 수행하던 업무 절차와 도구 사용 흐름을 AI Agent가 실행할 수 있는 워크플로우로 설계</li>
+              <li>요청에 따른 도구 실행과 단계별 결과 전달을 연결해 업무를 수행하는 AI Agent Workflow 구현</li>
+              <li>Text-to-SQL 기반 정보분석과 소프트웨어 QA에 적용해 <strong>업무 시간 90% 이상 단축</strong>하고, SQL 실행·검증 하네스와 오류 모니터링으로 분석 결과 검증</li>
+            </ul>
           </div>
         </article>
-        <article class="card">
-          <h3>이미지 Object Detection 기반 물류 이상탐지</h3>
-          <p class="period">2025.05 - 2025.12</p>
-          <ul>
-            <li>바코드가 보이지 않거나 반송물이 중앙에서 벗어나는 상황에서 반복되던 인식 오류를 문제로 정의</li>
-            <li>YOLO 기반 Object Detection으로 반송물의 위치, 형태, 탑승 상태를 실시간 판단하는 로직 개발</li>
-            <li>OCR 보조 인식과 운영 데이터 기반 iteration을 적용해 배송 오류를 95% 이상 감소</li>
-          </ul>
-          <div class="tags">
-            <span>Computer Vision</span><span>YOLO</span><span>OpenCV</span>
+        <article class="card project-card">
+          <div class="project-summary">
+            <h3>이미지 Object Detection 기반 물류 이상탐지</h3>
+            <p class="period">2025.05 - 2025.12</p>
+            <div class="tags">
+              <span>Computer Vision</span><span>YOLO</span><span>OpenCV</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <ul>
+              <li>바코드가 보이지 않거나 반송물이 중앙에서 벗어나는 상황에서 반복되던 인식 오류를 문제로 정의</li>
+              <li>YOLO 기반 Object Detection으로 반송물의 위치, 형태, 탑승 상태를 실시간 판단하는 로직 개발</li>
+              <li>OCR 보조 인식과 운영 데이터 기반 iteration을 적용해 <strong>배송 오류를 95% 이상 감소</strong></li>
+            </ul>
           </div>
         </article>
-        <article class="card">
-          <h3>스마트팩토리 설비 고장 예측 모델</h3>
-          <p class="period">2022.10 - 2024.07</p>
-          <ul>
-            <li>정적 관리선으로 포착하기 어려운 센서 수치의 급격한 변동을 고장 선행 지표로 정의</li>
-            <li>고장 전 2개월 내 변동 시점, 변동량, 고장 시점 간격을 분석해 예측 기준 도출</li>
-            <li>설비별 맞춤형 임계값과 실시간 변동 감지로 사전 점검을 유도하고 운영 안정성 개선</li>
-          </ul>
-          <div class="tags">
-            <span>Time Series</span><span>Anomaly Detection</span><span>Predictive Maintenance</span>
+        <article class="card project-card">
+          <div class="project-summary">
+            <h3>스마트팩토리 설비 고장 예측 모델</h3>
+            <p class="period">2022.10 - 2024.07</p>
+            <div class="tags">
+              <span>Time Series</span><span>Anomaly Detection</span><span>Predictive Maintenance</span>
+            </div>
+          </div>
+          <div class="project-details">
+            <ul>
+              <li>정적 관리선으로 포착하기 어려운 센서 수치의 급격한 변동을 고장 선행 지표로 정의</li>
+              <li>고장 전 2개월 내 변동 시점, 변동량, 고장 시점 간격을 분석해 예측 기준 도출</li>
+              <li>설비별 맞춤형 임계값과 실시간 변동 감지로 <strong>1년 이상의 무중단 운영</strong></li>
+            </ul>
           </div>
         </article>
       </div>
@@ -94,23 +106,20 @@
     <section id="experience" class="section">
       <div class="section-title">
         <h2>Experience</h2>
-        <p>산업 도메인의 데이터 문제를 운영 가능한 AI 시스템으로 전환한 경험</p>
       </div>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="dot"></div>
           <div class="content">
             <h3>SFA · Data Scientist / AI Engineer</h3>
             <p class="period">2022.10 - 재직 중</p>
             <ul>
-              <li>LLM 기반 정보분석 Agent를 개발해 자연어 요청의 SQL 생성, 데이터 추출, 분석, 리포팅 workflow 자동화</li>
+              <li>업무 흐름과 도구 활용을 연결하는 LLM 기반 AI Agent Workflow 설계·구현</li>
               <li>물류 라인 이미지 데이터 기반 Object Detection 이상탐지 시스템으로 배송 오류 95% 이상 감소</li>
               <li>스마트팩토리 설비 로그와 센서 변동성 기반 고장 탐지 모델로 예지 보전 모델 고도화</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="dot"></div>
           <div class="content">
             <h3>팜한농 · Data Scientist</h3>
             <p class="period">2021.05 - 2022.05</p>
@@ -126,12 +135,12 @@
     <section id="skills" class="section">
       <div class="section-title">
         <h2>Skills & Credentials</h2>
-        <p>생성형 AI, 머신러닝, 통계 분석을 현장 문제 해결로 연결하는 실무 스택</p>
+        <p>현장에서 발생하는 문제를 해결할 수 있는 실무 스택</p>
       </div>
       <div class="grid projects">
         <div class="card">
           <h3>LLM / Agent</h3>
-          <p>Ollama, Skills, LangChain, RAG, prompt/workflow design</p>
+          <p>Agent Workflow 설계·구현, 실행·검증 Harness, Ollama, Skills, LangChain, RAG</p>
         </div>
         <div class="card">
           <h3>Data / ML</h3>
@@ -185,7 +194,7 @@
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi. </span>
   </footer>
 
   <script src="app.js"></script>
