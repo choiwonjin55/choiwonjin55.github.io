@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>지표 생성(근속년수) | Blog</title>
   <meta name="description" content="1. 문제 정의회사 인사 데이터를 보다보니, 근속년수가 평균값 중심으로 정리되어 있는 걸 확인하게 됐다. 처음엔 단순한 수치처럼 보였지만, 자세히 들여다보니 최근 입사자가 많을수록 평균값이 낮아지고, 조직 전체가 마치 불안정해 보일 수도 있겠다는 생각이 들었다.실제로는 오랜 기간 근속 중인 구성원도 많고, 부서별로 분위기나 특성이 다른데 이런 맥락 없이 단일 수치만 보게 되면 조직에 대해 오해할 여지가 생긴다. 숫자는 정확하지만, 때로는 전체를 설명해주지 못하기 때문이다. 그래서 &#x27;어떻게 하면 조금 더 공정하고, 조직의 상태를 잘 보여줄 수 있을까?&#x27; 하는 고민이 생겼고, 단순 평균이 아닌 다양한 방식으로 근속년수를 바라볼 수 있는 지표를 설계해보고자 한다.2. 목표이번 보고서의 목표는 근속년수 지표를 .." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/tistory-176.html" />
+  <meta property="og:title" content="지표 생성(근속년수)" />
+  <meta property="og:description" content="1. 문제 정의회사 인사 데이터를 보다보니, 근속년수가 평균값 중심으로 정리되어 있는 걸 확인하게 됐다. 처음엔 단순한 수치처럼 보였지만, 자세히 들여다보니 최근 입사자가 많을수록 평균값이 낮아지고, 조직 전체가 마치 불안정해 보일 수도 있겠다는 생각이 들었다.실제로는 오랜 기간…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/tistory-176.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2025-04-07" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="지표 생성(근속년수)" />
+  <meta name="twitter:description" content="1. 문제 정의회사 인사 데이터를 보다보니, 근속년수가 평균값 중심으로 정리되어 있는 걸 확인하게 됐다. 처음엔 단순한 수치처럼 보였지만, 자세히 들여다보니 최근 입사자가 많을수록 평균값이 낮아지고, 조직 전체가 마치 불안정해 보일 수도 있겠다는 생각이 들었다.실제로는 오랜 기간…" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>지표 생성(근속년수)</h1>
       <div class="post-meta">
-        <span>2025-04-07</span>
+        <time datetime="2025-04-07">2025-04-07</time>
         <span class="post-badge">데이터분석</span>
       </div>
+
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <p><figure class="imageblock alignCenter" data-filename="edited_edited_ChatGPT Image 2025년 4월 7일 오후 08_50_40.png" data-ke-mobilestyle="widthOrigin" data-origin-height="384" data-origin-width="256"><span data-phocus="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D" data-url="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D"><img data-filename="edited_edited_ChatGPT Image 2025년 4월 7일 오후 08_50_40.png" data-origin-height="384" data-origin-width="256" height="384" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/l5B5g/btsNchz7vdI/AAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=QNQPeaH53iKJ%2BPVr0yn2jUjLXvA%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fl5B5g%2FbtsNchz7vdI%2FAAAAAAAAAAAAAAAAAAAAAFXZ-YgnrKU2Sk6gYYgWLvgvhuI2fFUD8-GSNzrPVsFI%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DQNQPeaH53iKJ%252BPVr0yn2jUjLXvA%253D" width="256"/></span></figure>
 </p>
 <h1>1. 문제 정의</h1>
@@ -121,10 +140,13 @@
 <p data-ke-size="size16">조직의 실제 모습을 보다 정확하게 반영하려면, 중위값, 근속 구간 분포, 장기 근속자 비율, 최근 입사자 비중 등을 함께 고려한 다층적인 지표 구성이 필요하다. 또한 지표를 해석할 때는 모집단의 정의와 시점을 명확히 하고, 사용 목적에 맞는 방식으로 계산하고 활용하는 기준을 사전에 정해두는 것이 중요하다.</p>
 <p data-ke-size="size16">완벽한 지표는 없지만, 공정한 지표는 만들 수 있다. 이번 분석이 조직의 상태를 보다 정확히 이해하고, 구성원들과의 소통에서도 신뢰할 수 있는 데이터 기반 설명이 가능하도록 돕는 하나의 기준이 되기를 바란다.</p>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>

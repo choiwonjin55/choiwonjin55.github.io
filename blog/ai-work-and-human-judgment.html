@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI의 답이 합리적으로 보여도 따져봐야 한다 | Blog</title>
   <meta name="description" content="많은 데이터를 학습한 AI가 합리적인 답을 내놓을 것이라는 믿음과 그 결과를 사람이 검증해야 하는 이유에 대한 생각." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/ai-work-and-human-judgment.html" />
+  <meta property="og:title" content="AI의 답이 합리적으로 보여도 따져봐야 한다" />
+  <meta property="og:description" content="많은 데이터를 학습한 AI가 합리적인 답을 내놓을 것이라는 믿음과 그 결과를 사람이 검증해야 하는 이유에 대한 생각." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/ai-work-and-human-judgment.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2026-08-17" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI의 답이 합리적으로 보여도 따져봐야 한다" />
+  <meta name="twitter:description" content="많은 데이터를 학습한 AI가 합리적인 답을 내놓을 것이라는 믿음과 그 결과를 사람이 검증해야 하는 이유에 대한 생각." />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>AI의 답이 합리적으로 보여도 따져봐야 한다</h1>
       <div class="post-meta">
-        <span>2026-08-17</span>
+        <time datetime="2026-08-17">2026-08-17</time>
         <span class="post-badge">AI</span>
       </div>
+<div class="post-tags" aria-label="태그"><span class="post-tag">AI</span><span class="post-tag">LLM</span><span class="post-tag">AI 활용</span><span class="post-tag">정보 검증</span></div>
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <h2>들어가며</h2>
 <p>AI는 많은 데이터를 학습했기 때문에 합리적이고 합당한 답을 내놓을 것이라고 믿기 쉽다. 문장이 자연스럽고 설명이 논리적이면 충분한 자료를 검토한 뒤 내린 판단처럼 느껴진다.</p>
 <p>하지만 AI의 답은 학습 데이터와 개발사의 정책, 국가의 규제, 질문에 사용한 언어에 영향을 받을 수 있다. 학습한 데이터가 많더라도 어떤 자료를 포함하고 제외했는지에 따라 답변의 범위와 방향은 달라진다.</p>
@@ -51,10 +70,13 @@
 <li>David Pierson·Berry Wang, <a href="https://www.nytimes.com/2026/08/17/world/asia/china-ai-data-chatbots.html" target="_blank" rel="noopener noreferrer">China Wants to Shape What the World’s A.I. Knows</a>, The New York Times, 2026년 8월 17일.</li>
 </ul>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>

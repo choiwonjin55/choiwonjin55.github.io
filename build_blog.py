@@ -6,6 +6,8 @@ import os
 import re
 from pathlib import Path
 
+from social_metadata import BLOG_DESCRIPTION, post_description, post_image, render_social_metadata
+
 ROOT = Path(__file__).resolve().parent
 POSTS_DIR = ROOT / "posts"
 OUT_DIR = ROOT / "blog"
@@ -258,8 +260,30 @@ def build_post(post_path: Path) -> dict[str, str]:
     if not category:
         category = categorize(title, desc, tags, content_html)
 
+    share_image, share_image_alt = post_image(meta)
+    social_tags = render_social_metadata(
+        title=title, description=post_description(meta, content_html, title),
+        path=f"/blog/{slug}.html", page_type="article", published=date,
+        image=share_image, image_alt=share_image_alt,
+    )
+
+    # Keep wide imported tables and code keyboard-scrollable within the article.
+    content_html = re.sub(
+        r"(<table\b.*?</table>)",
+        r'<div class="post-table" role="region" aria-label="표 (가로 스크롤)" tabindex="0">\1</div>',
+        content_html,
+        flags=re.S | re.I,
+    )
+    content_html = re.sub(r"<pre(?=[\s>])", '<pre tabindex="0"', content_html)
     category_badge = (
         f'<span class="post-badge">{html.escape(category)}</span>' if category else ""
+    )
+    tag_list = [tag.strip() for tag in tags.split(",") if tag.strip()]
+    tags_html = (
+        '<div class="post-tags" aria-label="태그">'
+        + "".join(f'<span class="post-tag">{html.escape(tag)}</span>' for tag in tag_list)
+        + '</div>'
+        if tag_list else ""
     )
 
     page = f"""<!doctype html>
@@ -269,38 +293,43 @@ def build_post(post_path: Path) -> dict[str, str]:
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
   <title>{html.escape(title)} | Blog</title>
   <meta name=\"description\" content=\"{html.escape(desc)}\" />
+{social_tags}
   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />
   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />
   <link href=\"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap\" rel=\"stylesheet\" />
   <link rel=\"stylesheet\" href=\"../styles.css\" />
 </head>
-<body>
-  <div class=\"bg-grid\"></div>
+<body class=\"blog-page blog-post\">
+  <a class=\"skip-link\" href=\"#main-content\">본문으로 건너뛰기</a>
   <header class=\"nav\">
-    <div class=\"logo\">Wonjin Choi</div>
-    <nav>
+    <a class=\"logo\" href=\"../index.html\">Wonjin</a>
+    <nav aria-label=\"주 메뉴\">
       <a href=\"../index.html\">Home</a>
-      <a href=\"./index.html\">Blog</a>
+      <a href=\"./index.html\" aria-current=\"location\">Blog</a>
+      <a href=\"../index-en.html\" lang=\"en\" hreflang=\"en\" aria-label=\"영문 홈페이지\">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id=\"main-content\" tabindex=\"-1\">
     <section class=\"blog-hero\">
-      <p class=\"eyebrow\">Writing</p>
       <h1>{html.escape(title)}</h1>
       <div class=\"post-meta\">
-        <span>{html.escape(date)}</span>
+        <time datetime=\"{html.escape(date)}\">{html.escape(date)}</time>
         {category_badge}
       </div>
+{tags_html}
     </section>
 
-    <article class=\"post-body card\">
+    <article class=\"post-body\">
       {content_html}
     </article>
+    <nav class=\"post-back\" aria-label=\"글 탐색\">
+      <a href=\"./index.html\">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class=\"footer\">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>
@@ -331,7 +360,9 @@ def build_index(posts: list[dict[str, str]]) -> None:
     )
 
     filters_html = "".join(
-        f"<button class=\"filter-btn\" data-filter=\"{html.escape(cat)}\">{html.escape(cat)} ({count})</button>"
+        f'<button type="button" class="filter-btn" data-filter="{html.escape(cat)}" '
+        f'aria-pressed="false" aria-controls="post-list">{html.escape(cat)} '
+        f'<span class="filter-count">{count}</span></button>'
         for cat, count in sorted_categories
     )
 
@@ -339,20 +370,27 @@ def build_index(posts: list[dict[str, str]]) -> None:
   <script>
     const filterButtons = document.querySelectorAll('.filter-btn');
     const posts = document.querySelectorAll('.post-row');
+    const yearGroups = document.querySelectorAll('.post-year-group');
+    const filterStatus = document.querySelector('.filter-status');
 
     filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        filterButtons.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
+        filterButtons.forEach((b) => {
+          const selected = b === btn;
+          b.classList.toggle('active', selected);
+          b.setAttribute('aria-pressed', String(selected));
+        });
         const filter = btn.dataset.filter;
+        let visibleCount = 0;
         posts.forEach((post) => {
           const category = post.dataset.category || '';
-          if (filter === 'all' || category === filter) {
-            post.style.display = '';
-          } else {
-            post.style.display = 'none';
-          }
+          post.hidden = filter !== 'all' && category !== filter;
+          if (!post.hidden) visibleCount += 1;
         });
+        yearGroups.forEach((group) => {
+          group.hidden = !group.querySelector('.post-row:not([hidden])');
+        });
+        filterStatus.textContent = `${filter === 'all' ? '전체' : filter} 글 ${visibleCount}개`;
       });
     });
   </script>
@@ -362,37 +400,39 @@ def build_index(posts: list[dict[str, str]]) -> None:
     current_year = None
     for post in posts:
         date = post.get("date", "")
-        year = date[:4] if len(date) >= 4 else ""
+        year = date[:4] if len(date) >= 4 else "날짜 미상"
         category = post.get("category", "")
 
-        if year and year != current_year:
+        if year != current_year:
+            if current_year is not None:
+                items.append("</section>")
             current_year = year
-            items.append(f"<h2 class=\"post-year\">{html.escape(year)}</h2>")
+            year_id = f"year-{len(items)}"
+            items.append(
+                f'<section class="post-year-group" aria-labelledby="{year_id}">'
+                f'<h2 class="post-year" id="{year_id}">{html.escape(year)}</h2>'
+            )
 
         title = html.escape(post["title"])
         slug = html.escape(post["slug"])
         date_html = html.escape(date)
         category_attr = html.escape(category)
-        tag_badges = ""
-        raw_tags = post.get("tags", "")
-        if raw_tags:
-            tag_list = [t.strip() for t in raw_tags.split(",") if t.strip()]
-            if tag_list:
-                tag_badges = "<span class=\"post-tags\">" + "".join(
-                    f"<span class=\"post-tag\">{html.escape(tag)}</span>" for tag in tag_list
-                ) + "</span>"
         items.append(
             f"""
             <article class=\"post-row\" data-category=\"{category_attr}\">
-              <div class=\"post-title-row\">
+              <h3 class=\"post-title-row\">
                 <a class=\"post-title\" href=\"./{slug}.html\">{title}</a>
-                {tag_badges}
-              </div>
-              <span class=\"post-date\">{date_html}</span>
+              </h3>
+              <time class=\"post-date\" datetime=\"{date_html}\">{date_html}</time>
             </article>"""
         )
 
+    if current_year is not None:
+        items.append("</section>")
     body = "\n".join(items) or "<p class=\"post-empty\">아직 글이 없습니다. 첫 글을 작성해 보세요.</p>"
+    social_tags = render_social_metadata(
+        title="Research & Notes · Wonjin", description=BLOG_DESCRIPTION, path="/blog/",
+    )
 
     page = f"""<!doctype html>
 <html lang=\"ko\">
@@ -401,40 +441,42 @@ def build_index(posts: list[dict[str, str]]) -> None:
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
   <title>Blog | Wonjin Choi</title>
   <meta name=\"description\" content=\"데이터 사이언티스트 최원진의 글 목록\" />
+{social_tags}
   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />
   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />
   <link href=\"https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap\" rel=\"stylesheet\" />
   <link rel=\"stylesheet\" href=\"../styles.css\" />
 </head>
-<body>
-  <div class=\"bg-grid\"></div>
+<body class=\"blog-page blog-index\">
+  <a class=\"skip-link\" href=\"#main-content\">본문으로 건너뛰기</a>
   <header class=\"nav\">
-    <div class=\"logo\">Wonjin Choi</div>
-    <nav>
+    <a class=\"logo\" href=\"../index.html\">Wonjin</a>
+    <nav aria-label=\"주 메뉴\">
       <a href=\"../index.html\">Home</a>
-      <a href=\"./index.html\">Blog</a>
+      <a href=\"./index.html\" aria-current=\"page\">Blog</a>
+      <a href=\"../index-en.html\" lang=\"en\" hreflang=\"en\" aria-label=\"영문 홈페이지\">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id=\"main-content\" tabindex=\"-1\">
     <section class=\"blog-hero\">
-      <p class=\"eyebrow\">Writing</p>
       <h1>Research & Notes</h1>
       <p class=\"hero-desc\">실험, 프로젝트 회고, 데이터 사이언스 인사이트를 기록합니다.</p>
     </section>
 
-    <section class=\"post-filters\">
-      <button class=\"filter-btn active\" data-filter=\"all\">전체</button>
+    <div class=\"post-filters\" role=\"group\" aria-label=\"글 카테고리\">
+      <button type=\"button\" class=\"filter-btn active\" data-filter=\"all\" aria-pressed=\"true\" aria-controls=\"post-list\">전체 <span class=\"filter-count\">{len(posts)}</span></button>
       {filters_html}
-    </section>
+    </div>
+    <p class=\"filter-status\" role=\"status\">전체 글 {len(posts)}개</p>
 
-    <section class=\"post-list\">
+    <section class=\"post-list\" id=\"post-list\" aria-label=\"글 목록\">
       {body}
     </section>
   </main>
 
   <footer class=\"footer\">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 
 {script}

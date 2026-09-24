@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>데이터에 흐름을 더해주는 시계열 데이터 | Blog</title>
   <meta name="description" content="서론시계열 데이터는 다른 데이터와 달리 시간이라는 요소가 반드시 함께 포함된 데이터다. 단순히 값 하나만 놓고 보는 것이 아니라, 언제 발생했는지가 함께 주어지기 때문에 데이터에 흐름이 생긴다. 나는 데이터를 볼 때 시계열 데이터를 선호하는 편인데, 그 이유는 이 시간의 흐름 덕분에 데이터를 해석하고 생각해볼 수 있는 여지가 훨씬 많아지기 때문이다. 1. 비교할 수 있다 데이터 값이 높다거나 낮다고 말하려면 반드시 기준점이 필요하다. 나의 달리기 속도가 빠른지 느린지를 판단하려면, 다른 사람의 달리기 속도와 비교해야 하는 것처럼 말이다. 시계열 데이터는 그 기준점을 자연스럽게 제공해준다. 이전 시점과 현재 시점, 혹은 다음 시점의 데이터와 비교하면서 값이 증가했는지 감소했는지를 판단할 수 있다. 단순한 .." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/tistory-200.html" />
+  <meta property="og:title" content="데이터에 흐름을 더해주는 시계열 데이터" />
+  <meta property="og:description" content="서론시계열 데이터는 다른 데이터와 달리 시간이라는 요소가 반드시 함께 포함된 데이터다. 단순히 값 하나만 놓고 보는 것이 아니라, 언제 발생했는지가 함께 주어지기 때문에 데이터에 흐름이 생긴다…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/tistory-200.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2025-12-21" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="데이터에 흐름을 더해주는 시계열 데이터" />
+  <meta name="twitter:description" content="서론시계열 데이터는 다른 데이터와 달리 시간이라는 요소가 반드시 함께 포함된 데이터다. 단순히 값 하나만 놓고 보는 것이 아니라, 언제 발생했는지가 함께 주어지기 때문에 데이터에 흐름이 생긴다…" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>데이터에 흐름을 더해주는 시계열 데이터</h1>
       <div class="post-meta">
-        <span>2025-12-21</span>
+        <time datetime="2025-12-21">2025-12-21</time>
         <span class="post-badge">데이터분석</span>
       </div>
+
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <h2 data-ke-size="size26">서론</h2>
 <p data-ke-size="size16">시계열 데이터는 다른 데이터와 달리 시간이라는 요소가 반드시 함께 포함된 데이터다. 단순히 값 하나만 놓고 보는 것이 아니라, 언제 발생했는지가 함께 주어지기 때문에 데이터에 흐름이 생긴다. 나는 데이터를 볼 때 시계열 데이터를 선호하는 편인데, 그 이유는 이 시간의 흐름 덕분에 데이터를 해석하고 생각해볼 수 있는 여지가 훨씬 많아지기 때문이다.</p>
 <p data-ke-size="size16"> </p>
@@ -49,10 +68,13 @@
 <p data-ke-size="size16"><a href="https://www.nytimes.com/2025/12/20/business/dealbook/charts-2025-economy.html" rel="noopener noreferrer" target="_blank">https://www.nytimes.com/2025/12/20/business/dealbook/charts-2025-economy.html</a></p>
 <p data-ke-size="size16">(The new york times, From A.I. to Tariffs, 14 Charts That Explain 2025)</p>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>
