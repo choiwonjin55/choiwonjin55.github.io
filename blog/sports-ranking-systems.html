@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>스포츠 랭킹은 왜 종목마다 다를까 | Blog</title>
   <meta name="description" content="체스의 레이팅, 테니스의 포인트 누적, 격투기의 투표형 랭킹을 비교하며 스포츠별 랭킹 방식의 배경을 살펴본 글." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/sports-ranking-systems.html" />
+  <meta property="og:title" content="스포츠 랭킹은 왜 종목마다 다를까" />
+  <meta property="og:description" content="체스의 레이팅, 테니스의 포인트 누적, 격투기의 투표형 랭킹을 비교하며 스포츠별 랭킹 방식의 배경을 살펴본 글." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/sports-ranking-systems.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2026-03-30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="스포츠 랭킹은 왜 종목마다 다를까" />
+  <meta name="twitter:description" content="체스의 레이팅, 테니스의 포인트 누적, 격투기의 투표형 랭킹을 비교하며 스포츠별 랭킹 방식의 배경을 살펴본 글." />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>스포츠 랭킹은 왜 종목마다 다를까</h1>
       <div class="post-meta">
-        <span>2026-03-30</span>
+        <time datetime="2026-03-30">2026-03-30</time>
         <span class="post-badge">데이터분석</span>
       </div>
+<div class="post-tags" aria-label="태그"><span class="post-tag">랭킹</span><span class="post-tag">스포츠</span></div>
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <h2>서론</h2>
 <p>스포츠에서 랭킹은 단순한 숫자 이상이다. 랭킹에 따라 대회에 초청받기도 하고, 좋은 시드를 받아 상대적으로 유리한 대진을 배정받을 수도 있다. 그만큼 랭킹을 정하는 방식 역시 중요하다.</p>
 <p>이번 글에서는 랭킹 방식이 어떻게 구성되어 있는지 자체보다, 각 스포츠가 왜 그런 방식을 채택했는지를 더 주의 깊게 살펴보려 한다. 랭킹 시스템은 단순히 강한 선수를 가려내는 도구가 아니라, 그 스포츠의 특징과 운영 방식을 보여주는 구조이기도 하기 때문이다.</p>
@@ -55,10 +74,13 @@
 <p>결국 랭킹 시스템은 단순히 강함을 측정하는 도구가 아니다. 해당 스포츠가 얼마나 자주 경기를 치르는지, 어떤 형식으로 대회가 열리는지, 선수들이 어떤 리스크를 감수하는지에 따라 랭킹 방식도 달라진다.</p>
 <p>체스가 레이팅을 택한 이유, 테니스와 배드민턴이 포인트 누적 방식을 쓰는 이유, 격투 종목이 투표형 랭킹을 운영하는 이유는 모두 여기에 있다. 랭킹은 숫자처럼 보이지만, 사실은 스포츠의 특성과 운영 철학, 그리고 랭킹에 필요한 데이터를 얼마나 쉽고 다양하게 쌓을 수 있는지가 압축된 결과물이라고 볼 수 있다.</p>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>

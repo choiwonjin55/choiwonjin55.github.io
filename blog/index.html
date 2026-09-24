@@ -5,510 +5,482 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog | Wonjin Choi</title>
   <meta name="description" content="데이터 사이언티스트 최원진의 글 목록" />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/" />
+  <meta property="og:title" content="Research &amp; Notes · Wonjin" />
+  <meta property="og:description" content="데이터 분석과 AI, 경제, 일상에 관한 생각을 기록합니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Research &amp; Notes · Wonjin" />
+  <meta name="twitter:description" content="데이터 분석과 AI, 경제, 일상에 관한 생각을 기록합니다." />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-index">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="page">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>Research & Notes</h1>
       <p class="hero-desc">실험, 프로젝트 회고, 데이터 사이언스 인사이트를 기록합니다.</p>
     </section>
 
-    <section class="post-filters">
-      <button class="filter-btn active" data-filter="all">전체</button>
-      <button class="filter-btn" data-filter="AI">AI (26)</button><button class="filter-btn" data-filter="경제">경제 (15)</button><button class="filter-btn" data-filter="데이터분석">데이터분석 (14)</button><button class="filter-btn" data-filter="생각">생각 (1)</button>
-    </section>
+    <div class="post-filters" role="group" aria-label="글 카테고리">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true" aria-controls="post-list">전체 <span class="filter-count">56</span></button>
+      <button type="button" class="filter-btn" data-filter="AI" aria-pressed="false" aria-controls="post-list">AI <span class="filter-count">26</span></button><button type="button" class="filter-btn" data-filter="경제" aria-pressed="false" aria-controls="post-list">경제 <span class="filter-count">15</span></button><button type="button" class="filter-btn" data-filter="데이터분석" aria-pressed="false" aria-controls="post-list">데이터분석 <span class="filter-count">14</span></button><button type="button" class="filter-btn" data-filter="생각" aria-pressed="false" aria-controls="post-list">생각 <span class="filter-count">1</span></button>
+    </div>
+    <p class="filter-status" role="status">전체 글 56개</p>
 
-    <section class="post-list">
-      <h2 class="post-year">2026</h2>
+    <section class="post-list" id="post-list" aria-label="글 목록">
+      <section class="post-year-group" aria-labelledby="year-0"><h2 class="post-year" id="year-0">2026</h2>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./ai-work-and-human-judgment.html">AI의 답이 합리적으로 보여도 따져봐야 한다</a>
-                <span class="post-tags"><span class="post-tag">AI</span><span class="post-tag">LLM</span><span class="post-tag">AI 활용</span><span class="post-tag">정보 검증</span></span>
-              </div>
-              <span class="post-date">2026-08-17</span>
+              </h3>
+              <time class="post-date" datetime="2026-08-17">2026-08-17</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./ai-add-and-remove.html">AI를 잘 쓰는 일은 자료를 더하고 빼는 일이다</a>
-                <span class="post-tags"><span class="post-tag">AI</span><span class="post-tag">LLM</span><span class="post-tag">AI 활용</span><span class="post-tag">글쓰기</span></span>
-              </div>
-              <span class="post-date">2026-08-08</span>
+              </h3>
+              <time class="post-date" datetime="2026-08-08">2026-08-08</time>
             </article>
 
             <article class="post-row" data-category="생각">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./football-field-misunderstanding.html">축구장 몇 개라는 말에서 생긴 오해</a>
-                <span class="post-tags"><span class="post-tag">축구장</span><span class="post-tag">비유</span><span class="post-tag">오해</span><span class="post-tag">생각</span></span>
-              </div>
-              <span class="post-date">2026-06-29</span>
+              </h3>
+              <time class="post-date" datetime="2026-06-29">2026-06-29</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./sports-ranking-systems.html">스포츠 랭킹은 왜 종목마다 다를까</a>
-                <span class="post-tags"><span class="post-tag">랭킹</span><span class="post-tag">스포츠</span></span>
-              </div>
-              <span class="post-date">2026-03-30</span>
+              </h3>
+              <time class="post-date" datetime="2026-03-30">2026-03-30</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tidytuesday-01-salmonid-mortality.html">TidyTuesday #01 - 노르웨이 연어류 폐사 데이터에서 본 종별 사망률 패턴</a>
-                <span class="post-tags"><span class="post-tag">TidyTuesday</span><span class="post-tag">Python</span><span class="post-tag">pandas</span><span class="post-tag">matplotlib</span><span class="post-tag">시각화</span></span>
-              </div>
-              <span class="post-date">2026-03-19</span>
+              </h3>
+              <time class="post-date" datetime="2026-03-19">2026-03-19</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./2026-03-18-tistory205.html">토큰 포비아 : LLM 시대의 새로운 불안</a>
-                <span class="post-tags"><span class="post-tag">AI</span><span class="post-tag">LLM</span><span class="post-tag">토큰</span><span class="post-tag">불안</span></span>
-              </div>
-              <span class="post-date">2026-03-18</span>
+              </h3>
+              <time class="post-date" datetime="2026-03-18">2026-03-18</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-204.html">문제를 해결하는 관점</a>
-                <span class="post-tags"><span class="post-tag">문제해결</span><span class="post-tag">가설</span><span class="post-tag">검증</span><span class="post-tag">의사결정</span></span>
-              </div>
-              <span class="post-date">2026-03-01</span>
+              </h3>
+              <time class="post-date" datetime="2026-03-01">2026-03-01</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-203.html">포털 검색에서 AI 검색으로 전환되는 흐름</a>
-                <span class="post-tags"><span class="post-tag">AI</span><span class="post-tag">글쓰기</span><span class="post-tag">SEO</span></span>
-              </div>
-              <span class="post-date">2026-02-18</span>
+              </h3>
+              <time class="post-date" datetime="2026-02-18">2026-02-18</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-201.html">정답을 맞히는 것이 아니라, 좁혀가는 것 ― A.I. 닥터와 데이터의 닮은 점</a>
-                
-              </div>
-              <span class="post-date">2026-01-19</span>
+              </h3>
+              <time class="post-date" datetime="2026-01-19">2026-01-19</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-202.html">대부분 맞지만 그만큼 믿기 어려워진 정보</a>
-                
-              </div>
-              <span class="post-date">2026-01-19</span>
+              </h3>
+              <time class="post-date" datetime="2026-01-19">2026-01-19</time>
             </article>
-<h2 class="post-year">2025</h2>
+</section>
+<section class="post-year-group" aria-labelledby="year-12"><h2 class="post-year" id="year-12">2025</h2>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-200.html">데이터에 흐름을 더해주는 시계열 데이터</a>
-                
-              </div>
-              <span class="post-date">2025-12-21</span>
+              </h3>
+              <time class="post-date" datetime="2025-12-21">2025-12-21</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-199.html">데이터 고갈 시대에 필요한 LLM 학습 전략</a>
-                
-              </div>
-              <span class="post-date">2025-11-16</span>
+              </h3>
+              <time class="post-date" datetime="2025-11-16">2025-11-16</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-198.html">GPT스러운 글쓰기가 부담스러운 이유</a>
-                
-              </div>
-              <span class="post-date">2025-11-06</span>
+              </h3>
+              <time class="post-date" datetime="2025-11-06">2025-11-06</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-197.html">중급자의 공부는 외롭다.</a>
-                
-              </div>
-              <span class="post-date">2025-10-26</span>
+              </h3>
+              <time class="post-date" datetime="2025-10-26">2025-10-26</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-196.html">신규 직원 채용은 계속된다.</a>
-                
-              </div>
-              <span class="post-date">2025-10-08</span>
+              </h3>
+              <time class="post-date" datetime="2025-10-08">2025-10-08</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-195.html">프랜차이즈가 독자적인 앱을 만드는 이유</a>
-                
-              </div>
-              <span class="post-date">2025-10-07</span>
+              </h3>
+              <time class="post-date" datetime="2025-10-07">2025-10-07</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-194.html">다음 세대의 스마트 장비 생각해보기</a>
-                
-              </div>
-              <span class="post-date">2025-10-01</span>
+              </h3>
+              <time class="post-date" datetime="2025-10-01">2025-10-01</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-193.html">클래시 로얄이 새 플레이어를 끌어들이는 요소들</a>
-                
-              </div>
-              <span class="post-date">2025-09-21</span>
+              </h3>
+              <time class="post-date" datetime="2025-09-21">2025-09-21</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-192.html">고객센터 경험의 불편함과 LLM으로 제시하는 대안</a>
-                
-              </div>
-              <span class="post-date">2025-08-24</span>
+              </h3>
+              <time class="post-date" datetime="2025-08-24">2025-08-24</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-191.html">기업이 LLM을 사용하는 방법</a>
-                
-              </div>
-              <span class="post-date">2025-08-12</span>
+              </h3>
+              <time class="post-date" datetime="2025-08-12">2025-08-12</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-190.html">GLP-1 기반 식욕 억제 약물 확산과 외식 업계의 변화 가능성</a>
-                
-              </div>
-              <span class="post-date">2025-08-09</span>
+              </h3>
+              <time class="post-date" datetime="2025-08-09">2025-08-09</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-189.html">게임의 데이터 기반 밸런싱과 경제적 이익을 확보하는 게임사</a>
-                
-              </div>
-              <span class="post-date">2025-07-26</span>
+              </h3>
+              <time class="post-date" datetime="2025-07-26">2025-07-26</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-188.html">Youtube와 Netflix 비교하기</a>
-                
-              </div>
-              <span class="post-date">2025-07-13</span>
+              </h3>
+              <time class="post-date" datetime="2025-07-13">2025-07-13</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-187.html">빅테크의 AI 인재 채용 경쟁</a>
-                
-              </div>
-              <span class="post-date">2025-07-05</span>
+              </h3>
+              <time class="post-date" datetime="2025-07-05">2025-07-05</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-186.html">두바이 초콜릿 열풍, Fix의 성공과 한계 분석</a>
-                
-              </div>
-              <span class="post-date">2025-06-03</span>
+              </h3>
+              <time class="post-date" datetime="2025-06-03">2025-06-03</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-185.html">스포츠 구단의 가치 올리는 방법</a>
-                
-              </div>
-              <span class="post-date">2025-05-12</span>
+              </h3>
+              <time class="post-date" datetime="2025-05-12">2025-05-12</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-184.html">내가 시계를 자주 보는 그 시간, 데이터로 파헤쳐본 인지의 함정</a>
-                
-              </div>
-              <span class="post-date">2025-05-11</span>
+              </h3>
+              <time class="post-date" datetime="2025-05-11">2025-05-11</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-182.html">머스크의 시대는 끝났을까? 테슬라의 시간은 남아 있다</a>
-                
-              </div>
-              <span class="post-date">2025-05-06</span>
+              </h3>
+              <time class="post-date" datetime="2025-05-06">2025-05-06</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-180.html">케이크 예약 페이지와 구글 스프레드시트 연동</a>
-                
-              </div>
-              <span class="post-date">2025-05-05</span>
+              </h3>
+              <time class="post-date" datetime="2025-05-05">2025-05-05</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-181.html">타겟(Target)으로 알아보는 오프라인 대형 매장의 위기와 극복 방안</a>
-                
-              </div>
-              <span class="post-date">2025-05-05</span>
+              </h3>
+              <time class="post-date" datetime="2025-05-05">2025-05-05</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-179.html">케이크 예약 페이지 만들기</a>
-                
-              </div>
-              <span class="post-date">2025-05-01</span>
+              </h3>
+              <time class="post-date" datetime="2025-05-01">2025-05-01</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-178.html">트럼프의 관세는 미국에서 제조업을 키울 수 있을까?</a>
-                
-              </div>
-              <span class="post-date">2025-04-27</span>
+              </h3>
+              <time class="post-date" datetime="2025-04-27">2025-04-27</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-177.html">좋은 LLM 찾기 - 벤치마크 기준으로</a>
-                
-              </div>
-              <span class="post-date">2025-04-23</span>
+              </h3>
+              <time class="post-date" datetime="2025-04-23">2025-04-23</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-176.html">지표 생성(근속년수)</a>
-                
-              </div>
-              <span class="post-date">2025-04-07</span>
+              </h3>
+              <time class="post-date" datetime="2025-04-07">2025-04-07</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-175.html">테슬라와 BYD의 전기자동차 경쟁</a>
-                
-              </div>
-              <span class="post-date">2025-04-06</span>
+              </h3>
+              <time class="post-date" datetime="2025-04-06">2025-04-06</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-174.html">ChatGPT-4o의 이미지 생성 기능, 무엇이 달라졌고, 무엇이 문제인가?</a>
-                
-              </div>
-              <span class="post-date">2025-04-01</span>
+              </h3>
+              <time class="post-date" datetime="2025-04-01">2025-04-01</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-173.html">빅테크의 AI 투자 조정, 실제 감소일까?</a>
-                
-              </div>
-              <span class="post-date">2025-03-02</span>
+              </h3>
+              <time class="post-date" datetime="2025-03-02">2025-03-02</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-172.html">스타벅스의 중국 시장 분석과 로컬 경쟁자</a>
-                
-              </div>
-              <span class="post-date">2025-02-27</span>
+              </h3>
+              <time class="post-date" datetime="2025-02-27">2025-02-27</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-171.html">ChatGPT 심층 리서치(Deep Research) 사용 후기: 빠른 자료 조사와 신뢰도 높은 정보 얻기</a>
-                
-              </div>
-              <span class="post-date">2025-02-23</span>
+              </h3>
+              <time class="post-date" datetime="2025-02-23">2025-02-23</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-170.html">ChatGPT 모델 o1, o3, 4o 비교 분석</a>
-                
-              </div>
-              <span class="post-date">2025-02-17</span>
+              </h3>
+              <time class="post-date" datetime="2025-02-17">2025-02-17</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-169.html">패스트 패션 알아보기(유니클로를 중심으로)</a>
-                
-              </div>
-              <span class="post-date">2025-02-15</span>
+              </h3>
+              <time class="post-date" datetime="2025-02-15">2025-02-15</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-168.html">ChatGPT Pro 1일차 사용후기</a>
-                
-              </div>
-              <span class="post-date">2025-02-13</span>
+              </h3>
+              <time class="post-date" datetime="2025-02-13">2025-02-13</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-167.html">구글의 AI 활용(구글 지도)</a>
-                
-              </div>
-              <span class="post-date">2025-01-19</span>
+              </h3>
+              <time class="post-date" datetime="2025-01-19">2025-01-19</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-165.html">중산층이 되기 어려운 사회</a>
-                
-              </div>
-              <span class="post-date">2025-01-12</span>
+              </h3>
+              <time class="post-date" datetime="2025-01-12">2025-01-12</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-166.html">LMStudio로 오픈소스 LLM 시작하기</a>
-                
-              </div>
-              <span class="post-date">2025-01-12</span>
+              </h3>
+              <time class="post-date" datetime="2025-01-12">2025-01-12</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-164.html">빅테크가 주목하는 원자력 에너지</a>
-                
-              </div>
-              <span class="post-date">2025-01-08</span>
+              </h3>
+              <time class="post-date" datetime="2025-01-08">2025-01-08</time>
             </article>
 
             <article class="post-row" data-category="경제">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-163.html">유튜브로 배우는 경제와 비즈니스</a>
-                
-              </div>
-              <span class="post-date">2025-01-05</span>
+              </h3>
+              <time class="post-date" datetime="2025-01-05">2025-01-05</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-162.html">지우개를 잘 잃어버리는 이유(데이터 수집, 분석)</a>
-                
-              </div>
-              <span class="post-date">2025-01-01</span>
+              </h3>
+              <time class="post-date" datetime="2025-01-01">2025-01-01</time>
             </article>
-<h2 class="post-year">2024</h2>
+</section>
+<section class="post-year-group" aria-labelledby="year-52"><h2 class="post-year" id="year-52">2024</h2>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-161.html">지우개를 잘 잃어버리는 이유</a>
-                
-              </div>
-              <span class="post-date">2024-12-29</span>
+              </h3>
+              <time class="post-date" datetime="2024-12-29">2024-12-29</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-160.html">데이터로 세상 알아보기</a>
-                
-              </div>
-              <span class="post-date">2024-12-28</span>
+              </h3>
+              <time class="post-date" datetime="2024-12-28">2024-12-28</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-158.html">라마 3.3 출시: 3.1, 3.2와의 차이점과 새로운 가능성</a>
-                
-              </div>
-              <span class="post-date">2024-12-15</span>
+              </h3>
+              <time class="post-date" datetime="2024-12-15">2024-12-15</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-159.html">알리바바 큐원(Qwen) 2.5: 새로운 오픈소스 LLM</a>
-                
-              </div>
-              <span class="post-date">2024-12-15</span>
+              </h3>
+              <time class="post-date" datetime="2024-12-15">2024-12-15</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-156.html">ChatGPT o1: 새로운 AI 모델의 등장과 그 의미</a>
-                
-              </div>
-              <span class="post-date">2024-10-14</span>
+              </h3>
+              <time class="post-date" datetime="2024-10-14">2024-10-14</time>
             </article>
 
             <article class="post-row" data-category="데이터분석">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-155.html">Python, R을 모두 쓰는 데이터 분석가에게 좋은 Positron 사용 후기</a>
-                
-              </div>
-              <span class="post-date">2024-10-03</span>
+              </h3>
+              <time class="post-date" datetime="2024-10-03">2024-10-03</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-154.html">LLama 3.2의 출시: 가정용 PC에서도 가능해진 LLM</a>
-                
-              </div>
-              <span class="post-date">2024-09-30</span>
+              </h3>
+              <time class="post-date" datetime="2024-09-30">2024-09-30</time>
             </article>
 
             <article class="post-row" data-category="AI">
-              <div class="post-title-row">
+              <h3 class="post-title-row">
                 <a class="post-title" href="./tistory-152.html">EXAONE 사용 후기</a>
-                
-              </div>
-              <span class="post-date">2024-08-13</span>
+              </h3>
+              <time class="post-date" datetime="2024-08-13">2024-08-13</time>
             </article>
+</section>
     </section>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 
 
   <script>
     const filterButtons = document.querySelectorAll('.filter-btn');
     const posts = document.querySelectorAll('.post-row');
+    const yearGroups = document.querySelectorAll('.post-year-group');
+    const filterStatus = document.querySelector('.filter-status');
 
     filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        filterButtons.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
+        filterButtons.forEach((b) => {
+          const selected = b === btn;
+          b.classList.toggle('active', selected);
+          b.setAttribute('aria-pressed', String(selected));
+        });
         const filter = btn.dataset.filter;
+        let visibleCount = 0;
         posts.forEach((post) => {
           const category = post.dataset.category || '';
-          if (filter === 'all' || category === filter) {
-            post.style.display = '';
-          } else {
-            post.style.display = 'none';
-          }
+          post.hidden = filter !== 'all' && category !== filter;
+          if (!post.hidden) visibleCount += 1;
         });
+        yearGroups.forEach((group) => {
+          group.hidden = !group.querySelector('.post-row:not([hidden])');
+        });
+        filterStatus.textContent = `${filter === 'all' ? '전체' : filter} 글 ${visibleCount}개`;
       });
     });
   </script>

@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChatGPT-4o의 이미지 생성 기능, 무엇이 달라졌고, 무엇이 문제인가? | Blog</title>
   <meta name="description" content="새로운 모델 GPT-4o의 도입 (DALL·E 3에서 업그레이드)OpenAI는 2025년 3월 말 ChatGPT의 이미지 생성 엔진을 대폭 개선하며, 기존에 사용되던 DALL·E 3 모델을 GPT-4o로 교체했습니다. GPT-4o는 원래 GPT-4 기반의 멀티모달(multimodal) 모델로, 텍스트뿐만 아니라 이미지를 직접 생성 및 편집할 수 있도록 훈련되었습니다. 이번 업그레이드를 통해 ChatGPT는 내장 모델로 이미지를 만들어내므로, DALL·E 3를 별도로 호출하던 이전보다 일관되고 자연스러운 이미지 생성 경험을 제공하게 되었습니다. 다만 GPT-4o 모델은 DALL·E 3보다 생성 속도가 약간 느리지만, 그만큼 더 정확하고 세밀한 이미지를 생성하는 것이 특징입니다. 또한 GPT-4o는 기존 이.." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/tistory-174.html" />
+  <meta property="og:title" content="ChatGPT-4o의 이미지 생성 기능, 무엇이 달라졌고, 무엇이 문제인가?" />
+  <meta property="og:description" content="새로운 모델 GPT-4o의 도입 (DALL·E 3에서 업그레이드)OpenAI는 2025년 3월 말 ChatGPT의 이미지 생성 엔진을 대폭 개선하며, 기존에 사용되던 DALL·E 3 모델을 GPT-4o로 교체했습니다…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/tistory-174.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2025-04-01" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ChatGPT-4o의 이미지 생성 기능, 무엇이 달라졌고, 무엇이 문제인가?" />
+  <meta name="twitter:description" content="새로운 모델 GPT-4o의 도입 (DALL·E 3에서 업그레이드)OpenAI는 2025년 3월 말 ChatGPT의 이미지 생성 엔진을 대폭 개선하며, 기존에 사용되던 DALL·E 3 모델을 GPT-4o로 교체했습니다…" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>ChatGPT-4o의 이미지 생성 기능, 무엇이 달라졌고, 무엇이 문제인가?</h1>
       <div class="post-meta">
-        <span>2025-04-01</span>
+        <time datetime="2025-04-01">2025-04-01</time>
         <span class="post-badge">AI</span>
       </div>
+
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <h1>새로운 모델 GPT-4o의 도입 (DALL·E 3에서 업그레이드)</h1>
 <p data-ke-size="size16">OpenAI는 2025년 3월 말 ChatGPT의 이미지 생성 엔진을 대폭 개선하며, 기존에 사용되던 DALL·E 3 모델을 GPT-4o로 교체했습니다. GPT-4o는 원래 GPT-4 기반의 멀티모달(multimodal) 모델로, 텍스트뿐만 아니라 이미지를 직접 생성 및 편집할 수 있도록 훈련되었습니다. 이번 업그레이드를 통해 ChatGPT는 내장 모델로 이미지를 만들어내므로, DALL·E 3를 별도로 호출하던 이전보다 일관되고 자연스러운 이미지 생성 경험을 제공하게 되었습니다. 다만 GPT-4o 모델은 DALL·E 3보다 생성 속도가 약간 느리지만, 그만큼 더 정확하고 세밀한 이미지를 생성하는 것이 특징입니다. 또한 GPT-4o는 기존 이미지를 업로드 받아 부분 변환(In-painting) 하거나 이미지 속 요소를 수정하는 고급 편집 기능까지 지원하여 활용 범위가 크게 넓어졌습니다.</p>
 <h1>주요 기술적 개선점: 정밀한 표현과 일관성</h1>
@@ -61,10 +80,13 @@
 <p data-ke-size="size16"> </p>
 <p data-ke-size="size16"> </p>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>

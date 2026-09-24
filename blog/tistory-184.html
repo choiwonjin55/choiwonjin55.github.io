@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>내가 시계를 자주 보는 그 시간, 데이터로 파헤쳐본 인지의 함정 | Blog</title>
   <meta name="description" content="1. 문제 정의요즘 이상하게도 오후 4시 44분이라는 시간을 자주 마주치게 된다. 처음에는 단순한 우연이라 생각했지만, 어느 순간부터 시계를 볼 때마다 유독 그 시간이 눈에 들어오는 느낌이 들기 시작했다. 실제로 특정 시간대를 더 자주 보고 있는 걸까? 아니면 뇌가 어떤 패턴을 기억하고 있는 걸까? 이를 확인해보기로 했다. 2. 가설 설정(1) 인지 편향 가설 한 번 어떤 숫자를 의식하게 되면, 뇌가 그 숫자에 더 민감하게 반응하고 잘 기억하게 되는 경향이 있다. 이와 같은 현상은 &#x27;확증 편향&#x27;과 유사하다. (2) 주의력 하락 시간대 가설 평일 오후 4~5시는 퇴근 직전으로 집중력이 저하되고 지루함이 몰려올 수 있는 시간대다. 이때 시계를 자주 보게 되는 것은 아닐까? 실제로 ‘4시 44분’을 본 기억은.." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/tistory-184.html" />
+  <meta property="og:title" content="내가 시계를 자주 보는 그 시간, 데이터로 파헤쳐본 인지의 함정" />
+  <meta property="og:description" content="1. 문제 정의요즘 이상하게도 오후 4시 44분이라는 시간을 자주 마주치게 된다. 처음에는 단순한 우연이라 생각했지만, 어느 순간부터 시계를 볼 때마다 유독 그 시간이 눈에 들어오는 느낌이 들기 시작했다. 실제로 특정 시간대를 더 자주 보고 있는 걸까?…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/tistory-184.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2025-05-11" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="내가 시계를 자주 보는 그 시간, 데이터로 파헤쳐본 인지의 함정" />
+  <meta name="twitter:description" content="1. 문제 정의요즘 이상하게도 오후 4시 44분이라는 시간을 자주 마주치게 된다. 처음에는 단순한 우연이라 생각했지만, 어느 순간부터 시계를 볼 때마다 유독 그 시간이 눈에 들어오는 느낌이 들기 시작했다. 실제로 특정 시간대를 더 자주 보고 있는 걸까?…" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>내가 시계를 자주 보는 그 시간, 데이터로 파헤쳐본 인지의 함정</h1>
       <div class="post-meta">
-        <span>2025-05-11</span>
+        <time datetime="2025-05-11">2025-05-11</time>
         <span class="post-badge">데이터분석</span>
       </div>
+
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <h3 data-ke-size="size23">1. 문제 정의</h3>
 <p data-ke-size="size16">요즘 이상하게도 오후 4시 44분이라는 시간을 자주 마주치게 된다. 처음에는 단순한 우연이라 생각했지만, 어느 순간부터 시계를 볼 때마다 유독 그 시간이 눈에 들어오는 느낌이 들기 시작했다. 실제로 특정 시간대를 더 자주 보고 있는 걸까? 아니면 뇌가 어떤 패턴을 기억하고 있는 걸까? 이를 확인해보기로 했다.</p>
 <p data-ke-size="size16"> </p>
@@ -53,10 +72,13 @@
 <h3 data-ke-size="size23">4. 결론</h3>
 <p data-end="111" data-ke-size="size16" data-start="27">이번 분석에서는 4~5시 사이에 휴대폰 화면을 유의미하게 자주 켠 패턴은 확인되지 않았고, 오히려 퇴근 이후인 6시 이후에 화면을 자주 켠 것으로 나타났다. 따라서 이번 결과를 바탕으로 보면, 주의력 하락 시간대 가설보다는 인지 편향 가설이나 의미 있는 숫자에 대한 인지적 민감성 가설이 더 가능성이 높은 설명이라고 판단된다. <br/><br/>다만, 데이터를 수집하는 과정에서 정말로 시간을 보기 위해 화면을 켠 경우와 단순히 앱 사용이나 알림 확인을 위한 경우를 구분하지 못한 점은 한계로 남는다. 만약 이러한 맥락을 구분하거나, 화면 켜짐의 목적에 따라 데이터를 분류할 수 있었다면 보다 정교한 분석과 해석이 가능했을 것이다. 이외에도 앱 사용 로그, 화면 켜짐 후 머문 시간 등 부가적인 정보가 함께 있었다면, 실제 ‘시계 확인 행동’을 더 정확하게 추정할 수 있었을 것이다.</p>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>

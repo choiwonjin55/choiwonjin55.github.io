@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>데이터 고갈 시대에 필요한 LLM 학습 전략 | Blog</title>
   <meta name="description" content="LLM의 발전 속도는 매우 빠르지만, 때로는 기대에 비해 느리다고 느껴질 때가 있다. GPU, AI 인프라, 모델 구조 등이 발전을 견인한다고 하지만, 이번에는 학습에 사용되는 데이터 측면에서 문제를 이야기해보고자 한다. LLM에 있어서 데이터는 필수적인 구성요소다. 모델은 주어진 데이터를 통해 패턴을 학습하고, 이를 바탕으로 새로운 상황에서 추론할 수 있게 된다. 그동안 LLM이 비약적으로 발전할 수 있었던 것은 다양한 출처의 데이터를 단기간에 대량으로 수집해 학습했기 때문이다. 그러나 이제는 더 좋은 데이터를 무한정 모으는 것이 점점 어려워지고 있다. 데이터 고갈1. 학습 가능한 데이터의 한계현재 인터넷에 공개된 일반 상식이나 정보는 대부분 AI 기업이 이미 확보한 상태다. 하지만 직장인을 대체할 .." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/tistory-199.html" />
+  <meta property="og:title" content="데이터 고갈 시대에 필요한 LLM 학습 전략" />
+  <meta property="og:description" content="LLM의 발전 속도는 매우 빠르지만, 때로는 기대에 비해 느리다고 느껴질 때가 있다. GPU, AI 인프라, 모델 구조 등이 발전을 견인한다고 하지만, 이번에는 학습에 사용되는 데이터 측면에서 문제를 이야기해보고자 한다. LLM에 있어서 데이터는 필수적인 구성요소다…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/tistory-199.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2025-11-16" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="데이터 고갈 시대에 필요한 LLM 학습 전략" />
+  <meta name="twitter:description" content="LLM의 발전 속도는 매우 빠르지만, 때로는 기대에 비해 느리다고 느껴질 때가 있다. GPU, AI 인프라, 모델 구조 등이 발전을 견인한다고 하지만, 이번에는 학습에 사용되는 데이터 측면에서 문제를 이야기해보고자 한다. LLM에 있어서 데이터는 필수적인 구성요소다…" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>데이터 고갈 시대에 필요한 LLM 학습 전략</h1>
       <div class="post-meta">
-        <span>2025-11-16</span>
+        <time datetime="2025-11-16">2025-11-16</time>
         <span class="post-badge">AI</span>
       </div>
+
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <p data-end="161" data-ke-size="size16" data-start="34">LLM의 발전 속도는 매우 빠르지만, 때로는 기대에 비해 느리다고 느껴질 때가 있다. GPU, AI 인프라, 모델 구조 등이 발전을 견인한다고 하지만, 이번에는 학습에 사용되는 데이터 측면에서 문제를 이야기해보고자 한다. LLM에 있어서 데이터는 필수적인 구성요소다. 모델은 주어진 데이터를 통해 패턴을 학습하고, 이를 바탕으로 새로운 상황에서 추론할 수 있게 된다. 그동안 LLM이 비약적으로 발전할 수 있었던 것은 다양한 출처의 데이터를 단기간에 대량으로 수집해 학습했기 때문이다. 그러나 이제는 더 좋은 데이터를 무한정 모으는 것이 점점 어려워지고 있다.</p>
 <p data-ke-size="size16"> </p>
 <p data-ke-size="size16"> </p>
@@ -52,10 +71,13 @@
 <p data-ke-size="size16"> </p>
 <p data-ke-size="size16"> </p>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>

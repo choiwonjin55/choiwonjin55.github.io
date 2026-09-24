@@ -5,32 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EXAONE 사용 후기 | Blog</title>
   <meta name="description" content="LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다.  예제 코드가 잘 되어있으니 바로 쓸 수 있었다.  참고 사항- 개인 계정의 토큰으로 로그인이 필요했다. 실행 결과 (서버컴으로 할때는 되었는데, 예시를 보여줄려고 집컴으로 했더니 안된다..ㅠ)내가 서버컴으로 했을때의 경험을 이야기하면,1. 말을 잘 생성한다는 느낌을 받았다. 2. 같은 질문을 입력하면 똑같은 대답이 나온다.- chatgpt같은 다른 LLM 모델과 다른 이질적인 느낌이 들었다. - 질문에 마침표 몇개만 추가해도 비슷하지만 다른 결과가 나옴-(추가) 아마도 LLM 캐시로 인해서 같은 답이 나오는 것 같음3. 할루시네이션을 막기위해 노력한 것은 보임- 특정 잘못된 질문을 해봐도 사실과 거짓을 잘 분류해서 알려줌- 그.." />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/tistory-152.html" />
+  <meta property="og:title" content="EXAONE 사용 후기" />
+  <meta property="og:description" content="LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다. 예제 코드가 잘 되어있으니 바로 쓸 수 있었다. 참고 사항- 개인 계정의 토큰으로 로그인이 필요했다…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/tistory-152.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2024-08-13" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EXAONE 사용 후기" />
+  <meta name="twitter:description" content="LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다. 예제 코드가 잘 되어있으니 바로 쓸 수 있었다. 참고 사항- 개인 계정의 토큰으로 로그인이 필요했다…" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
-<body>
-  <div class="bg-grid"></div>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
   <header class="nav">
-    <div class="logo">Wonjin Choi</div>
-    <nav>
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
       <a href="../index.html">Home</a>
-      <a href="./index.html">Blog</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="blog-hero">
-      <p class="eyebrow">Writing</p>
       <h1>EXAONE 사용 후기</h1>
       <div class="post-meta">
-        <span>2024-08-13</span>
+        <time datetime="2024-08-13">2024-08-13</time>
         <span class="post-badge">AI</span>
       </div>
+
     </section>
 
-    <article class="post-body card">
+    <article class="post-body">
       <div class="contents_style"><p data-ke-size="size16">LG AI 연구원에서 만든 EXAONE이 공개되었다고해서 한번 사용해보았다.</p>
 <p data-ke-size="size16"> </p>
 <p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-height="730" data-origin-width="1304"><span data-phocus="https://blog.kakaocdn.net/dna/c5D9QE/btsI3dITehj/AAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pK4yjRsyL2X4YjpGrFh0X%2Fi4RYo%3D" data-url="https://blog.kakaocdn.net/dna/c5D9QE/btsI3dITehj/AAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pK4yjRsyL2X4YjpGrFh0X%2Fi4RYo%3D"><img data-origin-height="730" data-origin-width="1304" height="730" loading="lazy" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" src="https://blog.kakaocdn.net/dna/c5D9QE/btsI3dITehj/AAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=pK4yjRsyL2X4YjpGrFh0X%2Fi4RYo%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fc5D9QE%2FbtsI3dITehj%2FAAAAAAAAAAAAAAAAAAAAAKKg0BIjUoPb2Z3pKVYH6znBFzt7GfBk0Fni73LN_ZKz%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1772290799%26allow_ip%3D%26allow_referer%3D%26signature%3DpK4yjRsyL2X4YjpGrFh0X%252Fi4RYo%253D" width="1304"/></span></figure>
@@ -60,10 +79,13 @@
 <p data-ke-size="size16">말을 생성하는 기본적인 성능에는 만족감을 느낌. </p>
 <p data-ke-size="size16">그러나 아직 chatgpt를 대신할 수 있다는 생각은 들지않았음</p></div>
     </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
   </main>
 
   <footer class="footer">
-    <span>© 2026 Wonjin Choi. Built for data-driven impact.</span>
+    <span>© 2026 Wonjin Choi</span>
   </footer>
 </body>
 </html>
