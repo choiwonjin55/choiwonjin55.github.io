@@ -275,8 +275,9 @@ def build_post(post_path: Path) -> dict[str, str]:
         flags=re.S | re.I,
     )
     content_html = re.sub(r"<pre(?=[\s>])", '<pre tabindex="0"', content_html)
+    badge_label = "공지" if meta.get("pinned") == "true" else category
     category_badge = (
-        f'<span class="post-badge">{html.escape(category)}</span>' if category else ""
+        f'<span class="post-badge">{html.escape(badge_label)}</span>' if badge_label else ""
     )
     tag_list = [tag.strip() for tag in tags.split(",") if tag.strip()]
     tags_html = (
@@ -345,10 +346,25 @@ def build_post(post_path: Path) -> dict[str, str]:
         "slug": slug,
         "category": category,
         "tags": tags,
+        "pinned": meta.get("pinned", "false"),
     }
 
 
-def build_index(posts: list[dict[str, str]]) -> None:
+def build_index(
+    posts: list[dict[str, str]], notice: dict[str, str] | None = None,
+) -> None:
+    notice_html = ""
+    if notice:
+        notice_html = f'''
+    <aside class="blog-notice" aria-label="블로그 공지">
+      <a class="blog-notice-link" href="./{html.escape(notice['slug'], quote=True)}.html">
+        <span class="blog-notice-label">공지</span>
+        <span class="blog-notice-title">{html.escape(notice['title'])}</span>
+        <span class="blog-notice-arrow" aria-hidden="true">→</span>
+      </a>
+    </aside>
+'''
+
     category_counts: dict[str, int] = {}
     for post in posts:
         category = post.get("category", "").strip()
@@ -461,9 +477,9 @@ def build_index(posts: list[dict[str, str]]) -> None:
   <main id=\"main-content\" tabindex=\"-1\">
     <section class=\"blog-hero\">
       <h1>Research & Notes</h1>
-      <p class=\"hero-desc\">실험, 프로젝트 회고, 데이터 사이언스 인사이트를 기록합니다.</p>
+      <p class=\"hero-desc\">데이터와 AI, 산업 트렌드에 대한 생각을 정리합니다.</p>
     </section>
-
+{notice_html}
     <div class=\"post-filters\" role=\"group\" aria-label=\"글 카테고리\">
       <button type=\"button\" class=\"filter-btn active\" data-filter=\"all\" aria-pressed=\"true\" aria-controls=\"post-list\">전체 <span class=\"filter-count\">{len(posts)}</span></button>
       {filters_html}
@@ -500,7 +516,8 @@ def main() -> None:
         posts.append(build_post(post_path))
 
     posts.sort(key=lambda p: p["date"], reverse=True)
-    build_index(posts)
+    notice = next((post for post in posts if post["pinned"] == "true"), None)
+    build_index([post for post in posts if post is not notice], notice=notice)
 
 
 if __name__ == "__main__":

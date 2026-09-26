@@ -485,6 +485,43 @@ main {
   border-bottom: 1px solid var(--line);
 }
 
+.blog-index .blog-notice {
+  margin: 0 0 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+
+.blog-index .blog-notice-link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 60px;
+  padding: 16px 20px;
+  border-radius: inherit;
+}
+
+.blog-index .blog-notice-label {
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.blog-index .blog-notice-title {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.blog-index .blog-notice-arrow {
+  color: var(--muted);
+}
+
+.blog-index .blog-notice-link:hover .blog-notice-title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .blog-page .filter-btn {
   display: inline-flex;
   align-items: center;
