@@ -100,7 +100,7 @@ main,
 
 main {
   max-width: var(--page-width);
-  padding: 20px var(--page-gutter) 48px;
+  padding: 20px var(--page-gutter) 32px;
 }
 
 .hero {
@@ -132,7 +132,7 @@ main {
 
 .hero-desc {
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   line-height: 1.85;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -265,7 +265,7 @@ main {
 .stack span,
 .tags span {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 .quote p {
@@ -275,7 +275,7 @@ main {
 }
 
 .section {
-  margin: 72px 0;
+  margin: 64px 0;
 }
 
 .section-title h2 {
@@ -342,6 +342,7 @@ main {
   margin: 0;
   padding-left: 20px;
   color: var(--muted);
+  font-size: 1.0625rem;
   line-height: 1.8;
 }
 
@@ -359,6 +360,15 @@ main {
 
 .card h3 {
   margin-top: 0;
+}
+
+.section .card > p:not(.period),
+.section .card > ul {
+  font-size: 1.0625rem;
+}
+
+.section .card > :last-child {
+  margin-bottom: 0;
 }
 
 .period {
@@ -401,15 +411,26 @@ main {
   margin: 0;
   padding-left: 18px;
   color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.75;
 }
 
-.contact {
-  margin-bottom: 40px;
+.section.contact {
+  margin-bottom: 16px;
 }
 
 .contact-card {
   display: grid;
-  gap: 14px;
+  gap: 24px;
+}
+
+.contact-card > div {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-card :is(h3, p) {
+  margin: 0;
 }
 
 .contact-links {
@@ -423,7 +444,7 @@ main {
 }
 
 .contact-note {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--muted);
 }
 
@@ -878,10 +899,13 @@ main {
     gap: 16px;
   }
   .section {
-    margin: 56px 0;
+    margin: 48px 0;
   }
-  .hero-desc {
-    font-size: 1rem;
+  .hero.compact {
+    margin-top: 24px;
+  }
+  .section .grid {
+    row-gap: 14px;
   }
   .hero-cta {
     flex-direction: column;
