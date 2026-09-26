@@ -22,7 +22,7 @@ Read [references/voice-and-style.md](references/voice-and-style.md) before draft
    - create an outline with explicit gaps when the user has not supplied enough personal experience or opinion
 4. Verify factual claims that are current, numerical, disputed, or important to the argument. Prefer primary sources and never invent a citation.
 5. Organize the article around one clear thread rather than forcing every post into the same template.
-6. Write or update the source file in `posts/`.
+6. Preserve the path of an existing draft. Put a new publishable source in `posts/`; use `drafts/` for a draft that should remain outside the build.
 7. Review voice, factual support, metadata, and renderer compatibility.
 8. Use `homepage-build` only when the request also includes publishing or refreshing generated output.
 
@@ -65,12 +65,15 @@ format: markdown
 Apply these rules:
 
 - Keep the filename date and front matter `date` identical.
+- The builder reads every `posts/*.md`; it has no draft flag or future-date exclusion. Keep unpublished drafts in `drafts/` until the user asks to include them in the blog.
 - Set an explicit ASCII `slug`; do not rely on the Korean fallback slugifier.
 - Choose an existing category deliberately: `AI`, `경제`, `데이터분석`, or `생각`.
 - Use a small, stable set of topic tags rather than sentence-like tags.
-- Use `format: markdown` for text-first posts containing only headings, paragraphs, unordered lists, and fenced code blocks.
-- Use `format: html` when the body needs clickable links, images, tables, captions, inline code styling, blockquotes, or other rich layout.
+- Use `format: markdown` for text-first posts containing headings, paragraphs, unordered lists, fenced code blocks, and simple `[label](https://example.com)` links. Only absolute HTTP(S) links are supported.
+- Use `format: html` when the body needs images, tables, captions, inline code styling, blockquotes, relative links, or other rich layout.
 - Write explicit HTML body tags when using `format: html`; do not mix unsupported Markdown into that body.
+- Front matter uses a simple one-line `key: value` parser, not full YAML: use plain values and comma-separated tags, without YAML quotes, lists, or multiline scalars.
+- Optional sharing overrides are `og_description`, `og_image`, and `og_image_alt`. A custom `og_image` must reference an existing PNG using a site-root path and requires `og_image_alt`; otherwise the shared default applies.
 
 ## Verification
 

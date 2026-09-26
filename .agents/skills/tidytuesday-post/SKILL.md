@@ -8,7 +8,7 @@ description: "Draft and structure TidyTuesday visualization posts for this homep
 ## Overview
 
 Use this skill when adding or revising a TidyTuesday practice post in this repo.
-Treat `posts/*.md` as the source of truth. Use `homepage-build` or `publish-blog-post` after writing the post if the generated HTML also needs to be refreshed.
+Treat `posts/*.md` as the source of truth. Use `homepage-build` after writing the post if the request includes refreshing generated HTML.
 If the dataset has not been fetched or profiled yet, use `tidytuesday-fetch` first.
 If the chart code or final image assets do not exist yet, use `tidytuesday-viz` first.
 
@@ -25,13 +25,14 @@ Good delegation targets:
 
 ## Repo Constraints
 
-- The markdown renderer in `build_blog.py` only supports headings, paragraphs, unordered lists, and fenced code blocks.
-- Markdown in this repo does not currently support links, images, tables, blockquotes, captions, or inline HTML.
+- The markdown renderer in `build_blog.py` supports headings, paragraphs, unordered lists, fenced code blocks, and simple `[label](https://example.com)` links with absolute HTTP(S) URLs.
+- Markdown in this repo does not support images, tables, blockquotes, captions, inline code styling, relative links, or inline HTML.
 - If the post needs chart images, figure captions, or richer layout, prefer `format: html`.
 - In `format: html`, write the body with explicit HTML tags such as `<h2>`, `<p>`, `<ul>`, `<figure>`, and `<pre><code>`.
 - Always set `slug` explicitly using ASCII. The fallback slugifier removes Korean and may collapse to `post`.
 - Keep `category: 데이터분석` unless the user explicitly wants a new category strategy.
-- Always include `TidyTuesday` in `tags` so the series uses a consistent tag badge on the blog index.
+- Include `TidyTuesday` in `tags` for consistent series metadata and badges on individual post pages. The current blog index shows title and date without tag badges.
+- Keep unpublished drafts in `drafts/`, preserving an existing draft's path. Every `posts/*.md` is included in the build, regardless of its date or a draft flag.
 
 ## File Naming
 
@@ -53,16 +54,19 @@ format: html
 ---
 ```
 
+Front matter uses a simple one-line `key: value` parser, not full YAML. Use plain values and comma-separated tags; avoid YAML quotes, lists, or multiline scalars.
+Optional sharing overrides are `og_description`, `og_image`, and `og_image_alt`. A custom image requires an existing PNG at a site-root path plus alternative text.
+
 ## Format Choice
 
-- Use `format: markdown` only for text-first notes with simple lists and fenced code blocks.
+- Use `format: markdown` for text-first notes with simple lists, fenced code blocks, and HTTP(S) source links.
 - Use `format: html` for the normal TidyTuesday workflow when code and visualization output should appear together.
-- If using local chart exports, store them under `blog/assets/tidytuesday/` and reference them from the generated page with paths like `./assets/tidytuesday/2026-03-20-cars-main.png`.
+- If using local chart exports, follow the visualization skill's `blog/assets/tidytuesday/<week-folder-name>/` layout and reference them from the generated page as `./assets/tidytuesday/<week-folder-name>/chart-01-main.png`.
 - Do not assume the build script copies image assets. Place image files where the generated HTML can already reach them.
 
 ## Post Structure
 
-Use this section order unless the user asks for a different narrative:
+Use the following as a starting point; combine or omit sections when that makes the analysis clearer:
 
 1. Dataset
 2. EDA
@@ -107,7 +111,7 @@ For `format: html`, keep the markup simple and consistent with the current blog 
 
 <h2>Visualization</h2>
 <figure>
-  <img src="./assets/tidytuesday/2026-03-20-cars-main.png" alt="Main chart" />
+  <img src="./assets/tidytuesday/WEEK-FOLDER/chart-01-main.png" alt="Describe the chart's comparison" />
   <figcaption>Show one representative chart first.</figcaption>
 </figure>
 
@@ -135,7 +139,8 @@ For `format: html`, keep the markup simple and consistent with the current blog 
 </ul>
 ```
 
-For `format: markdown`, keep the same section order but omit images and captions.
+Replace the example image path with the actual exported asset. Escape `&`, `<`, and `>` in HTML code blocks so the source code is displayed faithfully.
+For `format: markdown`, adapt the same outline but omit images and captions.
 
 ## Writing Rules
 
@@ -157,7 +162,7 @@ For `format: markdown`, keep the same section order but omit images and captions
 - Keep the tone natural. Avoid both diary-style filler and copy-like punchlines.
 - Use tags for the toolchain and theme, for example `TidyTuesday, R, ggplot2, tidyverse, visualization`.
 - If the post includes multiple charts, keep one main chart in the main flow and keep the rest compact.
-- If the main chart suggests seasonality or another repeated pattern, add one compact summary figure so the reader can confirm the pattern at a glance.
+- If a repeated pattern is central to the argument and hard to read in the main chart, consider a compact summary figure or table.
 - When using multiple figures, a good sequence is main chart -> compact summary -> structure/composition chart.
 - If the summary is only a small matrix such as 2 species x 4 seasons, prefer a compact table over an over-labeled chart.
 - Avoid meta writing such as `차트 대신 표로 정리했다`. Describe what the reader is seeing and what the values mean instead.
@@ -166,8 +171,8 @@ For `format: markdown`, keep the same section order but omit images and captions
 
 - Use `tidytuesday-fetch` when the requested week is not yet saved under `data/tidytuesday/`.
 - Use `tidytuesday-viz` when the post needs an exported chart image or a plotting script first.
-- Use `homepage-build` when the whole blog output should be regenerated.
-- Use `publish-blog-post` when only one new or edited post needs to be reflected manually.
+- Use `homepage-build` for generated output, including a single changed post.
+- Use `publish-blog-post` only when explicitly invoked and the build cannot run for an environment reason unrelated to the post.
 - Use `homepage-edit` if the user asks for better figure, image, or post-body styling.
 
 ## Verification

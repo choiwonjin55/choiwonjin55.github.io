@@ -15,7 +15,7 @@ Keep responsibilities split:
 - `tidytuesday-fetch`: fetch and profile the dataset
 - `tidytuesday-viz`: design and export charts
 - `tidytuesday-post`: write the blog post
-- `homepage-build` or `publish-blog-post`: refresh generated blog output
+- `homepage-build`: refresh generated blog output when requested
 
 ## Subagents
 
@@ -41,6 +41,7 @@ Read these first:
 - `manifest.json`
 - `notes/summary.md`
 - `notes/columns.md`
+- `readme.md` and relevant dictionaries or metric definitions in `raw/`
 - relevant `raw/*.csv`
 
 ## Workspace Contract
@@ -73,8 +74,10 @@ Rules:
 Use the bundled initializer before starting a new week:
 
 ```bash
-py -3 .agents/skills/tidytuesday-viz/scripts/init_viz.py data/tidytuesday/2026/2026-03-17-salmonid-mortality-data
+python3 .agents/skills/tidytuesday-viz/scripts/init_viz.py data/tidytuesday/2026/2026-03-17-salmonid-mortality-data
 ```
+
+Run from the repository root with the actual fetched week path. On Windows, use `py -3` if appropriate.
 
 ## Toolchain Rule
 
@@ -127,3 +130,4 @@ After generating visuals, confirm:
 - at least one figure exists in `viz/figures/`
 - the final blog asset exists under `blog/assets/tidytuesday/<week-folder-name>/`
 - the chosen chart matches the story you intend to write
+- inspect each exported figure for clipping, overlapping labels, Korean font rendering, and readability at its intended blog width

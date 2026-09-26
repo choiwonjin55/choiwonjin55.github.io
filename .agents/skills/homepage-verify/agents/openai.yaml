@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify Homepage"
+  short_description: "Check affected site pages, output, and browser behavior."
+  default_prompt: "Use $homepage-verify to check the affected homepage and blog pages, run relevant validations, and report findings with evidence."

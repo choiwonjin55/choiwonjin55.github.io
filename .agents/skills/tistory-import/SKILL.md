@@ -13,7 +13,7 @@ The canonical import path is `import_tistory.py`.
 ## Workflow
 
 1. Inspect the current import script before changing scraping rules.
-2. Run the importer when the goal is to refresh the local archive from Tistory.
+2. When refreshing the archive, first stage the import in a temporary output directory by setting the imported module's `OUT_DIR` before calling `main()`. Compare the result with existing imported sources before replacing them.
 3. Keep the generated files in `posts/` consistent with the imported metadata.
 4. Rebuild the blog after importing so `blog/` reflects the new source files.
 
@@ -23,6 +23,7 @@ The canonical import path is `import_tistory.py`.
 - Imported `posts/*tistory-*.md` files are source files and should stay tracked in git after review.
 - Keep the cutoff date logic aligned with the importer's current behavior.
 - Treat imports as destructive for existing `posts/*tistory-*.md`; `purge_existing()` removes prior imported files before writing new ones.
+- `main()` purges before its first network fetch. Keep the live archive intact until the staged import succeeds, and preserve local changes before replacing imported sources. A failed or unexpectedly empty import must not replace the archive.
 - Do not hand-edit imported post bodies unless the imported HTML itself needs cleanup.
 - Prefer deterministic filename and slug handling so the build step stays stable.
 - The importer depends on `requests` and `bs4`, and it needs network access to fetch Tistory pages.
@@ -47,3 +48,4 @@ After import, check that:
 - the imported HTML content is intact enough for the build step
 - the next blog build renders the imported posts correctly
 - the resulting git diff contains the source `posts/` changes before any generated `blog/` output is committed
+- source validation and sharing-metadata checks pass using `homepage-build`

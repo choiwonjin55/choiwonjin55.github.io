@@ -30,8 +30,14 @@ The important files are `index.html`, `index-en.html`, `styles.css`, and `app.js
 - `index-en.html` for mirrored English content changes
 - `styles.css` for layout, spacing, typography, color, and responsiveness
 - `app.js` for interactive behavior or motion logic
+- `build_blog.py` for generated blog index or post markup; use `homepage-build` after changing it
+- `social_metadata.py` for shared link-preview settings; refresh homepage metadata with `python3 scripts/update_home_social_metadata.py` when those settings change
+
+Do not manually edit `blog/index.html`, generated post pages, or the managed social-metadata blocks in the homepage HTML. Update their generator or settings instead.
 
 ## Verification
+
+Use [homepage-verify](../homepage-verify/SKILL.md) for shared-layout or interaction checks across affected page types. Select checks by the change rather than running a full-site review for every edit.
 
 After edits, confirm:
 
@@ -40,4 +46,5 @@ After edits, confirm:
 - spacing and hierarchy remain readable on narrow screens
 - no blog-specific styling accidentally leaks into the homepage
 - `blog/index.html` and at least one generated `blog/*.html` page still render correctly, since they share `styles.css`
+- when sharing metadata changes, `python3 scripts/check_social_metadata.py` reports no errors
 - if useful, preview the site locally before finalizing changes
