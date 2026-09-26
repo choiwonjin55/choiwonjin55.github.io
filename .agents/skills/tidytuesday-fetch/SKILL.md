@@ -14,7 +14,7 @@ Keep responsibilities split:
 
 - `tidytuesday-fetch`: obtain and profile the dataset locally
 - `tidytuesday-post`: turn a chosen week into a blog post
-- `homepage-build` or `publish-blog-post`: refresh generated blog output
+- `homepage-build`: refresh generated blog output when requested
 
 ## Subagents
 
@@ -46,23 +46,26 @@ Rules:
 - Save original downloaded files in `raw/` without rewriting them.
 - Save small machine-generated previews in `preview/`.
 - Save human-readable summaries in `notes/`.
-- Keep publishable chart images out of this workspace. Final blog assets belong in `blog/assets/tidytuesday/`.
+- Keep working chart exports in the week's `viz/figures/`; copy final public assets to `blog/assets/tidytuesday/<week-folder-name>/`.
 
 ## Script
 
 Use the bundled script:
 
 ```bash
-py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py
+python3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py
 ```
 
 Common variants:
 
 ```bash
-py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --week 2026-03-17
-py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --target-date 2026-03-19
-py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --force
+python3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --week 2026-03-17
+python3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --target-date 2026-03-19
+python3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --week 2026-03-17 --force
 ```
+
+Run from the repository root. On Windows, use `py -3` if that is the installed Python launcher.
+`--force` refreshes downloaded `raw/`, generated `preview/`, `readme.md`, `source_urls.txt`, `manifest.json`, and the generated notes `summary.md` / `columns.md`. It preserves `viz/` and other user notes. Downloads and profiling finish in a temporary directory before the existing workspace is updated.
 
 ## What The Script Produces
 
@@ -72,7 +75,7 @@ py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --force
 - `preview/*.head.csv`: small head previews for CSV and TSV files
 - `notes/columns.md`: per-file columns and sample values
 - `notes/summary.md`: a concise week summary with row counts and paths
-- keep any extra official files that ship with the week, such as `intro.md`, `meta.yaml`, or dataset-specific `*.md` dictionaries
+- keep any extra official files that ship with the week under `raw/`, such as `intro.md`, `meta.yaml`, or dataset-specific `*.md` dictionaries
 
 ## When To Use
 
@@ -85,7 +88,7 @@ py -3 .agents/skills/tidytuesday-fetch/scripts/fetch_latest.py --force
 
 - Use `tidytuesday-viz` after the week folder exists and you want actual chart code or exported figures.
 - Use `tidytuesday-post` after the week folder exists and the dataset is understood.
-- Before charting or writing, read `readme.md` and any available `intro.md`, `meta.yaml`, or `*_data.md` files to recover official metric definitions and source wording.
+- Before charting or writing, read `readme.md` and relevant `raw/intro.md`, `raw/meta.yaml`, or `raw/*_data.md` files to recover official metric definitions and source wording.
 - If the user wants chart ideas, read `notes/summary.md`, `notes/columns.md`, and `manifest.json` before proposing plots.
 - If the user wants public figures, export them later to `blog/assets/tidytuesday/`.
 
@@ -95,6 +98,6 @@ After fetching, confirm:
 
 - the chosen week is not in the future relative to the requested date
 - `manifest.json` exists
-- every downloaded file listed in `source_urls.txt` exists locally
+- `readme.md` and every downloaded file listed in `manifest.json` exist locally; `source_urls.txt` also includes repository and README provenance links
 - CSV or TSV files have matching `preview/*.head.csv` files
 - `notes/summary.md` includes row counts and file paths

@@ -7,6 +7,7 @@ import json
 import re
 import shutil
 import sys
+import tempfile
 import unicodedata
 from pathlib import Path
 from typing import Iterable
@@ -62,7 +63,10 @@ def parse_args() -> argparse.Namespace:
         default="data/tidytuesday",
         help="Output root for fetched datasets. Default: data/tidytuesday",
     )
-    parser.add_argument("--force", action="store_true", help="Overwrite an existing local copy.")
+    parser.add_argument(
+        "--force", action="store_true",
+        help="Refresh downloaded data and generated summaries, preserving viz/ and custom notes.",
+    )
     return parser.parse_args()
 
 
@@ -196,7 +200,8 @@ def profile_delimited_file(path: Path, delimiter: str) -> dict[str, object]:
     }
 
 
-def build_notes(week_dir: Path, week: str, title: str, readme_url: str, files_meta: list[dict[str, object]]) -> None:
+def build_notes(week_dir: Path, week: str, title: str, readme_url: str, files_meta: list[dict[str, object]], *, output_dir: Path | None = None) -> None:
+    output_dir = output_dir or week_dir
     summary_lines = [
         f"# {title}",
         "",
@@ -211,7 +216,7 @@ def build_notes(week_dir: Path, week: str, title: str, readme_url: str, files_me
         if item.get("rows") is not None:
             line += f": {item['rows']} rows"
         summary_lines.append(line)
-    write_text(week_dir / "notes" / "summary.md", "\n".join(summary_lines) + "\n")
+    write_text(output_dir / "notes" / "summary.md", "\n".join(summary_lines) + "\n")
 
     column_lines = [f"# {title} Columns", ""]
     for item in files_meta:
@@ -226,7 +231,7 @@ def build_notes(week_dir: Path, week: str, title: str, readme_url: str, files_me
             examples = ", ".join(f"`{example}`" for example in col["examples"]) or "(no example values)"
             column_lines.append(f"- `{col['name']}`: missing `{col['missing']}`, examples {examples}")
         column_lines.append("")
-    write_text(week_dir / "notes" / "columns.md", "\n".join(column_lines).strip() + "\n")
+    write_text(output_dir / "notes" / "columns.md", "\n".join(column_lines).strip() + "\n")
 
 
 def main() -> int:
@@ -248,18 +253,38 @@ def main() -> int:
 
     out_root = Path(args.out_root)
     week_dir = out_root / week[:4] / f"{week}-{slug}"
-    if week_dir.exists():
-        if args.force:
-            shutil.rmtree(week_dir)
+    if week_dir.exists() and not args.force:
+        raise SystemExit(f"{week_dir} already exists. Use --force to refresh downloaded data.")
+
+    # Stage downloads and profiles before touching an existing analysis workspace.
+    week_dir.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".tidytuesday-", dir=week_dir.parent) as temp_dir:
+        staging = Path(temp_dir)
+        download_week(staging, week_dir, week, title, slug, target_date, files, readme_entry, readme_text)
+        if not week_dir.exists():
+            staging.rename(week_dir)
         else:
-            raise SystemExit(f"{week_dir} already exists. Use --force to overwrite.")
+            # These paths belong to the fetcher; viz/ and custom notes belong to the user.
+            for name in ("raw", "preview"):
+                destination = week_dir / name
+                if destination.exists():
+                    shutil.rmtree(destination)
+                (staging / name).rename(destination)
+            for name in ("readme.md", "source_urls.txt", "manifest.json", "notes/summary.md", "notes/columns.md"):
+                destination = week_dir / name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                (staging / name).replace(destination)
 
-    week_dir.mkdir(parents=True, exist_ok=True)
-    (week_dir / "raw").mkdir(exist_ok=True)
-    (week_dir / "preview").mkdir(exist_ok=True)
-    (week_dir / "notes").mkdir(exist_ok=True)
+    print(str(week_dir))
+    return 0
 
-    write_text(week_dir / "readme.md", readme_text)
+
+def download_week(staging: Path, week_dir: Path, week: str, title: str, slug: str,
+                  target_date: dt.date, files: list[dict[str, str]],
+                  readme_entry: dict[str, str], readme_text: str) -> None:
+    for name in ("raw", "preview", "notes"):
+        (staging / name).mkdir(exist_ok=True)
+    write_text(staging / "readme.md", readme_text)
 
     source_urls = [
         f"repo=https://github.com/rfordatascience/tidytuesday",
@@ -271,7 +296,7 @@ def main() -> int:
         name = entry["name"]
         if name.lower() == "readme.md":
             continue
-        destination = week_dir / "raw" / name
+        destination = staging / "raw" / name
         content = request_bytes(entry["download_url"])
         write_bytes(destination, content)
         source_urls.append(f"{name}={entry['download_url']}")
@@ -279,7 +304,7 @@ def main() -> int:
         suffix = destination.suffix.lower()
         file_meta: dict[str, object] = {
             "name": name,
-            "path": str(destination),
+            "path": str(week_dir / "raw" / name),
             "source_url": entry["download_url"],
             "type": suffix.lstrip(".") or "file",
         }
@@ -290,14 +315,14 @@ def main() -> int:
                 {
                     "rows": profile["rows"],
                     "columns": profile["columns"],
-                    "preview_file": profile["preview_file"],
+                    "preview_file": str(week_dir / "preview" / Path(str(profile["preview_file"])).name),
                     "column_profiles": profile["column_profiles"],
                 }
             )
         files_meta.append(file_meta)
 
-    write_text(week_dir / "source_urls.txt", "\n".join(source_urls) + "\n")
-    build_notes(week_dir, week, title, readme_entry["html_url"], files_meta)
+    write_text(staging / "source_urls.txt", "\n".join(source_urls) + "\n")
+    build_notes(week_dir, week, title, readme_entry["html_url"], files_meta, output_dir=staging)
 
     manifest = {
         "week": week,
@@ -318,10 +343,7 @@ def main() -> int:
             for item in files_meta
         ],
     }
-    write_text(week_dir / "manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-
-    print(str(week_dir))
-    return 0
+    write_text(staging / "manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
 
 
 if __name__ == "__main__":
