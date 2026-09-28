@@ -6,8 +6,10 @@ _tmp_docx/
 _tmp_posts/
 _resume_text.txt
 
-# Large local analysis inputs that are not part of the published site
-data/tidytuesday/
+# Analysis belongs in the separate private repository
+/data/
+/analysis/
+/notebooks/
 
 # Python cache
 __pycache__/
