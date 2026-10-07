@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write TidyTuesday Post"
+  short_description: "Draft a TidyTuesday visualization post for this homepage blog."
+  default_prompt: "Use $tidytuesday-post to create or revise a TidyTuesday blog post in posts/, including the right metadata, section structure, and format choice."

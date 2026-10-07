@@ -151,10 +151,29 @@
   <li><code>losses</code> 구성은 두 종 모두 <code>dead</code> 중심이지만 세부 비중은 조금 다르다. <code>discarded</code> 비중은 <code>rainbowtrout 6.72%</code>, <code>salmon 4.72%</code>이고, <code>escaped</code>는 두 종 모두 <code>0.1%</code> 안팎이다. 국가 단위에서는 <code>rainbowtrout</code> 쪽이 상대적으로 더 복합적인 <code>losses</code> 구성을 가진다.</li>
 </ul>
 
-<h2>Source</h2>
+<h2>Code</h2>
+<pre tabindex="0"><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("monthly_mortality_data.csv", parse_dates=["date"])
+country = df[df["geo_group"] == "country"].copy()
+
+for species in ["salmon", "rainbowtrout"]:
+    subset = country[country["species"] == species].sort_values("date")
+    ax.fill_between(subset["date"], subset["q1"], subset["q3"], alpha=0.18)
+    ax.plot(subset["date"], subset["median"], linewidth=2.4, label=species)
+</code></pre>
+<p>실행 가능한 전체 코드: <code>data/tidytuesday/2026/2026-03-17-salmonid-mortality-data/viz/code/01_country_mortality_trend.py</code></p>
+
+<p><code>losses</code> 구성 비율 차트 코드: <code>data/tidytuesday/2026/2026-03-17-salmonid-mortality-data/viz/code/02_country_loss_composition.py</code></p>
+
+<h2>Reproducibility</h2>
 <ul>
   <li>Week: <code>2026-03-17</code></li>
-  <li>Data: TidyTuesday, Norwegian Veterinary Institute</li>
+  <li>Source: TidyTuesday, Norwegian Veterinary Institute</li>
+  <li>Local workspace: <code>data/tidytuesday/2026/2026-03-17-salmonid-mortality-data/</code></li>
+  <li>EDA note: <code>data/tidytuesday/2026/2026-03-17-salmonid-mortality-data/viz/notes/eda.md</code></li>
+  <li>Next charts: 지역별 mortality 비교</li>
 </ul>
     </article>
     <nav class="post-back" aria-label="글 탐색">

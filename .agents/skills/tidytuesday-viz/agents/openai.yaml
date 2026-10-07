@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build TidyTuesday Visuals"
+  short_description: "Create chart plans, plotting code, and exported figures for a fetched week."
+  default_prompt: "Use $tidytuesday-viz to create a main chart for a fetched TidyTuesday week and export the final image for the blog."
