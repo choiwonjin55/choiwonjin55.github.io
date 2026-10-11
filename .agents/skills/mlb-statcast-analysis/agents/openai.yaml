@@ -1,0 +1,4 @@
+interface:
+  display_name: "MLB Statcast Analysis"
+  short_description: "Audit MLB contact data and compare outcomes visually."
+  default_prompt: "Use $mlb-statcast-analysis to investigate my MLB Statcast question with missingness checks, velocity-angle comparisons, and interactive outcome charts."

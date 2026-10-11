@@ -169,7 +169,8 @@ def markdown_inline_to_html(text: str) -> str:
         cursor = match.end()
 
     parts.append(html.escape(text[cursor:]))
-    return "".join(parts)
+    rendered = "".join(parts)
+    return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", rendered)
 
 
 def markdown_to_html(text: str) -> str:
@@ -177,6 +178,7 @@ def markdown_to_html(text: str) -> str:
     out = []
     in_code = False
     in_list = False
+    needs_frame_resize = False
 
     def close_list():
         nonlocal in_list
@@ -184,7 +186,10 @@ def markdown_to_html(text: str) -> str:
             out.append("</ul>")
             in_list = False
 
-    for line in lines:
+    line_index = 0
+    while line_index < len(lines):
+        line = lines[line_index]
+        line_index += 1
         if line.strip().startswith("```"):
             if not in_code:
                 close_list()
@@ -203,7 +208,27 @@ def markdown_to_html(text: str) -> str:
             close_list()
             continue
 
-        if line.startswith("### "):
+        if line.strip().startswith("|") and line_index < len(lines) and re.fullmatch(
+            r"\s*\|(?:\s*:?-+:?\s*\|)+\s*", lines[line_index]
+        ):
+            close_list()
+            rows = [[cell.strip() for cell in line.strip().strip("|").split("|")]]
+            line_index += 1
+            while line_index < len(lines) and lines[line_index].strip().startswith("|"):
+                rows.append([cell.strip() for cell in lines[line_index].strip().strip("|").split("|")])
+                line_index += 1
+            out.append("<table><thead><tr>" + "".join("<th>" + markdown_inline_to_html(cell) + "</th>" for cell in rows[0]) +
+                       "</tr></thead><tbody>" + "".join("<tr>" + "".join("<td>" + markdown_inline_to_html(cell) + "</td>" for cell in row) + "</tr>" for row in rows[1:]) + "</tbody></table>")
+        elif re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", line.strip()):
+            close_list()
+            image = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", line.strip())
+            out.append('<figure><img src="' + html.escape(image[2], quote=True) + '" alt="' +
+                       html.escape(image[1], quote=True) + '" loading="lazy"></figure>')
+        elif re.fullmatch(r"<iframe\b[^>]*>\s*</iframe>", line.strip(), re.I):
+            close_list()
+            out.append(line.strip())
+            needs_frame_resize |= bool(re.search(r'src="[^"\s]*statcast-dashboard\.html"', line, re.I))
+        elif line.startswith("### "):
             close_list()
             out.append(f"<h3>{markdown_inline_to_html(line[4:].strip())}</h3>")
         elif line.startswith("## "):
@@ -225,6 +250,17 @@ def markdown_to_html(text: str) -> str:
     if in_code:
         out.append("</code></pre>")
     close_list()
+    if needs_frame_resize:
+        out.append('''<script>
+window.addEventListener('message',event=>{
+ const frame=document.querySelector('iframe[src*="statcast-dashboard.html"]');
+ const value=event.data;
+ if(frame&&event.source===frame.contentWindow&&value&&value.type==='mlb-statcast-height'
+    &&Number.isFinite(value.height)&&value.height>=200&&value.height<=5000){
+  frame.style.height=value.height+'px';
+ }
+});
+</script>''')
     return "\n".join(out)
 
 

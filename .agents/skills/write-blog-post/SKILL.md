@@ -22,7 +22,7 @@ Read [references/voice-and-style.md](references/voice-and-style.md) before draft
    - create an outline with explicit gaps when the user has not supplied enough personal experience or opinion
 4. Verify factual claims that are current, numerical, disputed, or important to the argument. Prefer primary sources and never invent a citation.
 5. Organize the article around one clear thread rather than forcing every post into the same template.
-6. Preserve the path of an existing draft. Put a new publishable source in `posts/`; use `drafts/` for a draft that should remain outside the build.
+6. For a published article, edit its existing `posts/*.md` file as the single source of truth. Use `drafts/` only for unpublished work that should remain outside the build. When consolidating a draft into a post, preserve the latest author edits, metadata, and asset links before removing the redundant draft.
 7. Review voice, factual support, metadata, and renderer compatibility.
 8. Use `homepage-build` only when the request also includes publishing or refreshing generated output.
 
@@ -30,9 +30,11 @@ Read [references/voice-and-style.md](references/voice-and-style.md) before draft
 
 Choose a structure that matches the material:
 
-- Personal observation: concrete experience or observation -> question -> examples and reasoning -> modest conclusion
-- Explanatory analysis: question and context -> evidence or comparison -> interpretation -> limits -> conclusion
+- Personal observation: concrete experience or observation -> context -> examples and reasoning -> modest conclusion
+- Explanatory analysis: topic and purpose -> evidence or comparison -> interpretation -> limits -> conclusion
 - Practical reflection: problem -> available choices -> decision criteria -> lesson or next action
+
+For this author's blog, use noun-phrase titles and headings rather than complete sentences ending in `~다` or `~습니다`. Openings should state the topic, observation, or purpose. Do not open with a rhetorical question or add question-form headings unless the user explicitly requests them. This title preference is separate from the body's `~다` style.
 
 Use section headings when they help navigation. Do not add numbered sections merely to make a short article look complete.
 
@@ -69,8 +71,8 @@ Apply these rules:
 - Set an explicit ASCII `slug`; do not rely on the Korean fallback slugifier.
 - Choose an existing category deliberately: `AI`, `경제`, `데이터분석`, or `생각`.
 - Use a small, stable set of topic tags rather than sentence-like tags.
-- Use `format: markdown` for text-first posts containing headings, paragraphs, unordered lists, fenced code blocks, and simple `[label](https://example.com)` links. Only absolute HTTP(S) links are supported.
-- Use `format: html` when the body needs images, tables, captions, inline code styling, blockquotes, relative links, or other rich layout.
+- Prefer `format: markdown` for author-editable posts: headings, paragraphs, unordered lists, fenced code blocks, bold text, pipe tables, standalone Markdown images, and absolute HTTP(S) links are supported. Embed an interactive graph as a complete one-line `<iframe src="..." ...></iframe>`; keep its HTML file at the established asset path. Markdown image and iframe paths resolve relative to the generated `blog/` page.
+- Use `format: html` only for layout or syntax the Markdown builder does not support, such as custom captions, blockquotes, inline code styling, relative text links, or arbitrary raw HTML. Do not require HTML format solely for tables, images, or interactive graph iframes.
 - Write explicit HTML body tags when using `format: html`; do not mix unsupported Markdown into that body.
 - Front matter uses a simple one-line `key: value` parser, not full YAML: use plain values and comma-separated tags, without YAML quotes, lists, or multiline scalars.
 - Optional sharing overrides are `og_description`, `og_image`, and `og_image_alt`. A custom `og_image` must reference an existing PNG using a site-root path and requires `og_image_alt`; otherwise the shared default applies.

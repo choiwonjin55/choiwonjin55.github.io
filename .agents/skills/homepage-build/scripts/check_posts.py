@@ -103,10 +103,12 @@ def validate_sources() -> tuple[list[str], list[str], set[str]]:
         if post_format == "markdown":
             if body.count("```") % 2:
                 errors.append(f"{label}: unclosed fenced code block")
-            if MARKDOWN_IMAGE_RE.search(body):
-                errors.append(f"{label}: markdown images are unsupported; use format: html")
+            for raw_src in MARKDOWN_IMAGE_RE.findall(body):
+                asset_path = local_asset_path(raw_src)
+                if asset_path is not None and not asset_path.exists():
+                    errors.append(f"{label}: referenced local image does not exist: {raw_src}")
 
-        if post_format == "html":
+        if post_format in ALLOWED_FORMATS:
             for raw_src in HTML_SRC_RE.findall(body):
                 asset_path = local_asset_path(raw_src)
                 if asset_path is not None and not asset_path.exists():

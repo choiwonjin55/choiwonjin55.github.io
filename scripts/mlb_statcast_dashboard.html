@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>타구 속도와 발사각에 따른 비거리·홈런·안타 확률</title>
+<style>
+:root{color-scheme:light;--ink:#162b36;--muted:#64747d;--line:#dbe4e8;--blue:#167a93;--paper:#f4f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Malgun Gothic",system-ui,sans-serif;line-height:1.65}main{max-width:1120px;margin:0 auto;padding:38px 24px 20px}h1{font-size:clamp(25px,4vw,38px);line-height:1.3;margin:8px 0 14px}h2{font-size:20px;margin:0 0 18px}p{margin:8px 0 16px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--blue)}.muted{color:var(--muted);font-size:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:22px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat{padding:18px;background:#eff6f7;border-radius:12px}.stat strong{display:block;font-size:30px;line-height:1.5;font-variant-numeric:tabular-nums}.stat span{font-size:13px;color:var(--muted)}.controls{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:20px}.controls label{font-size:15px;font-weight:700}.controls input{width:100%;accent-color:var(--blue);margin-top:13px}.controls output{float:right;color:var(--blue);font-variant-numeric:tabular-nums}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 8px}.tabs button{border:1px solid var(--line);background:white;border-radius:24px;padding:8px 14px;color:var(--ink);cursor:pointer;font:inherit;font-size:14px}.tabs button[aria-pressed="true"]{background:var(--blue);color:white;border-color:var(--blue)}canvas{width:100%;height:auto;display:block;touch-action:manipulation}.legend{display:flex;align-items:center;gap:12px;max-width:420px;margin:4px auto 12px;font-size:13px}.legend i{display:block;height:10px;flex:1;border-radius:6px;background:linear-gradient(90deg,#f4f9fa,#319bbb,#143856)}.notice{padding:12px 16px;border-left:3px solid var(--blue);background:#f4f8f9;border-radius:4px;font-size:14px;margin-top:16px}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap}th{background:#f2f7f8}.links{display:flex;gap:18px;flex-wrap:wrap}a{color:var(--blue)}@media(max-width:650px){main{padding:24px 14px 20px}.card{padding:18px}.controls{grid-template-columns:1fr;gap:14px}.stats{grid-template-columns:1fr}.stat strong{font-size:27px}}
+</style></head><body><main>
+<div class="eyebrow">2026 MLB · STATCAST · EV / LA</div>
+<h1>속도·각도별 예상 결과</h1>
+<section class="card" aria-label="속도·각도별 예상 결과">
+<div class="controls">
+<label for="speed">타구 속도 <output id="speedlabel"></output><input id="speed" type="range" min="40" max="118" step="1" value="100"></label>
+<label for="angle">발사각 <output id="anglelabel"></output><input id="angle" type="range" min="-50" max="80" step="1" value="25"></label>
+</div>
+<div class="stats" aria-live="polite"><div class="stat"><span>예상 비거리</span><strong id="distance"></strong></div><div class="stat"><span>예상 홈런 확률</span><strong id="hr"></strong></div><div class="stat"><span>예상 안타 확률 · 홈런 포함</span><strong id="hit"></strong></div></div>
+<p class="muted" id="support"></p>
+<div class="tabs" aria-label="지도 지표 선택"><button data-field="distance" aria-pressed="true">비거리</button><button data-field="hr" aria-pressed="false">홈런 확률</button><button data-field="hit" aria-pressed="false">안타 확률</button><button data-field="count" aria-pressed="false">표본 수</button></div>
+<canvas id="map" width="1000" height="520" aria-label="타구 속도와 발사각에 따른 예측 지도">그래프를 표시하려면 JavaScript를 활성화하세요.</canvas>
+<div class="legend"><span id="legendmin">0 m</span><i></i><span id="legendmax">150 m</span></div>
+<p class="muted">흰 점: 선택한 조건 · 회색: 표본 부족</p>
+</section>
+<section class="card"><h2>속도별 최대 비거리와 확률</h2><div class="tablewrap"><table><thead><tr><th>타구 속도</th><th>예상 비거리</th><th>홈런 확률</th><th>안타 확률</th></tr></thead><tbody id="optima"></tbody></table></div></section>
+</main><script>
+const data=__PAYLOAD__;
+const el=id=>document.getElementById(id), canvas=el('map'),ctx=canvas.getContext('2d');
+let field='distance';
+const plot={left:78,top:24,width:870,height:420,xmin:40,xmax:120,ymin:-50,ymax:80};
+const idx=(s,a)=>(a+90)*101+(s-20);
+const pct=x=>(x*100).toFixed(1)+'%';
+const peakFields=['distance_all_batted_m_peak','p_home_run_peak','p_hit_peak'];
+const peakValues=Object.fromEntries(peakFields.map(key=>[key,Math.max(...data.optima.map(r=>r[key]))]));
+const peakCell=(r,key,label)=>r[key]===peakValues[key]?'<strong>'+label+'</strong>':label;
+el('optima').innerHTML=data.optima.map(r=>'<tr><td>'+r.ev_mph+' mph</td><td>'+peakCell(r,'distance_all_batted_m_peak',r.distance_all_batted_m_peak.toFixed(1)+' m')+'</td><td>'+peakCell(r,'p_home_run_peak',pct(r.p_home_run_peak))+'</td><td>'+peakCell(r,'p_hit_peak',pct(r.p_hit_peak))+'</td></tr>').join('');
+function color(v){let t=Math.max(0,Math.min(1,v)),a=[244,249,250],b=[49,155,187],c=[20,56,86],p=t<.55?a:b,q=t<.55?b:c,u=t<.55?t/.55:(t-.55)/.45;return 'rgb('+p.map((v,j)=>Math.round(v+(q[j]-v)*u)).join(',')+')';}
+function draw(){ctx.fillStyle='#fff';ctx.fillRect(0,0,1000,520);const cw=plot.width/(plot.xmax-plot.xmin+1),ch=plot.height/(plot.ymax-plot.ymin+1);for(let a=plot.ymin;a<=plot.ymax;a++){for(let s=plot.xmin;s<=plot.xmax;s++){let i=idx(s,a),v=field==='count'?Math.log10(1+data.support[i])/Math.log10(2001):data[field][i]/(field==='distance'?150:1);ctx.fillStyle=field!=='count'&&data.support[i]<50?'#e7ecee':color(v);ctx.fillRect(plot.left+(s-plot.xmin)*cw,plot.top+(plot.ymax-a)*ch,cw+.5,ch+.5);}}ctx.font='14px "Malgun Gothic",sans-serif';ctx.fillStyle='#64747d';ctx.textAlign='center';for(let s=40;s<=120;s+=10){let x=plot.left+(s-plot.xmin+.5)*cw;ctx.fillText(s,x,plot.top+plot.height+24);}ctx.textAlign='right';for(let a=-40;a<=80;a+=20){let y=plot.top+(plot.ymax-a+.5)*ch;ctx.fillText(a,plot.left-14,y+5);}ctx.strokeStyle='#c8d3d8';ctx.lineWidth=1;ctx.strokeRect(plot.left,plot.top,plot.width,plot.height);ctx.fillStyle='#162b36';ctx.textAlign='center';ctx.fillText('타구 속도 (mph)',plot.left+plot.width/2,plot.top+plot.height+57);ctx.save();ctx.translate(24,plot.top+plot.height/2);ctx.rotate(-Math.PI/2);ctx.fillText('발사각 (°)',0,0);ctx.restore();let s=+el('speed').value,a=+el('angle').value,x=plot.left+(s-plot.xmin+.5)*cw,y=plot.top+(plot.ymax-a+.5)*ch;ctx.strokeStyle='#fff';ctx.lineWidth=4;ctx.beginPath();ctx.arc(x,y,7,0,Math.PI*2);ctx.stroke();ctx.strokeStyle='#111';ctx.lineWidth=1.5;ctx.stroke();el('legendmin').textContent=field==='distance'?'0 m':field==='count'?'0개':'0%';el('legendmax').textContent=field==='distance'?'150 m':field==='count'?'2,000개 이상 · 로그 눈금':'100%';}
+function update(){let s=+el('speed').value,a=+el('angle').value,i=idx(s,a),ok=data.support[i]>=50;el('speedlabel').textContent=s+' mph / '+(s*1.609344).toFixed(1)+' km/h';el('anglelabel').textContent=a+'°';el('distance').textContent=ok?data.distance[i].toFixed(1)+' m':'표본 부족';el('hr').textContent=ok?pct(data.hr[i]):'표본 부족';el('hit').textContent=ok?pct(data.hit[i]):'표본 부족';el('support').textContent='주변 타구 '+data.support[i].toLocaleString()+'개';draw();}
+el('speed').addEventListener('input',update);el('angle').addEventListener('input',update);
+document.querySelectorAll('[data-field]').forEach(b=>b.addEventListener('click',()=>{field=b.dataset.field;document.querySelectorAll('[data-field]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));draw();}));
+canvas.addEventListener('click',event=>{let r=canvas.getBoundingClientRect(),x=(event.clientX-r.left)*1000/r.width,y=(event.clientY-r.top)*520/r.height;if(x<plot.left||x>plot.left+plot.width||y<plot.top||y>plot.top+plot.height)return;el('speed').value=Math.min(118,Math.max(40,Math.round(plot.xmin+(x-plot.left)/plot.width*(plot.xmax-plot.xmin))));el('angle').value=Math.min(80,Math.max(-50,Math.round(plot.ymax-(y-plot.top)/plot.height*(plot.ymax-plot.ymin))));update();});
+update();
+
+// Match the embedded frame to the content, including responsive layout changes.
+function fitFrame(){
+ const height=Math.ceil(document.querySelector('main').getBoundingClientRect().height);
+ if(window.parent!==window)window.parent.postMessage({type:'mlb-statcast-height',height},'*');
+ try{const frame=window.frameElement;if(frame)frame.style.height=height+'px';}catch(error){}
+}
+new ResizeObserver(()=>requestAnimationFrame(fitFrame)).observe(document.querySelector('main'));
+window.addEventListener('load',fitFrame);
+if(document.fonts)document.fonts.ready.then(fitFrame);
+fitFrame();
+</script></body></html>

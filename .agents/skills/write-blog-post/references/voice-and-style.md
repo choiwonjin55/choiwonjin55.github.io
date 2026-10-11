@@ -17,6 +17,8 @@ Read the most relevant one or two posts before a substantial draft. Do not load 
 - Let the author sound thoughtful and exploratory rather than omniscient.
 - Prefer plain statements such as `생각했다`, `느꼈다`, and `생각한다` when they accurately reflect the supplied draft.
 - Use a concrete observation or example to carry the argument.
+- Begin with a statement of the topic, observation, or purpose; do not turn openings or titles into questions unless explicitly requested.
+- Use noun-phrase titles and headings. Do not end them with sentence endings such as `~다` or `~습니다`; keep this separate from the body prose style.
 - Keep conclusions proportionate to the evidence. Preserve uncertainty when the author is unsure.
 - Favor short, readable paragraphs with one main idea each.
 

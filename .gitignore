@@ -8,6 +8,7 @@ _resume_text.txt
 
 # Large local analysis inputs that are not part of the published site
 data/tidytuesday/
+data/mlb/
 
 # Python cache
 __pycache__/
