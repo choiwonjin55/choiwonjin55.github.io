@@ -10,6 +10,7 @@ Use this reference to preserve the author's voice, not to copy sentences from ol
 - `posts/2026-08-08-ai-add-and-remove.md`: reflective AI essay with a clear thesis and restrained conclusion
 
 Read the most relevant one or two posts before a substantial draft. Do not load the full archive by default.
+When the user asks to match recent writing, prioritize the latest one or two relevant posts; use the representative list as supporting context.
 
 ## Voice
 
@@ -21,6 +22,7 @@ Read the most relevant one or two posts before a substantial draft. Do not load 
 - Use noun-phrase titles and headings. Do not end them with sentence endings such as `~다` or `~습니다`; keep this separate from the body prose style.
 - Keep conclusions proportionate to the evidence. Preserve uncertainty when the author is unsure.
 - Favor short, readable paragraphs with one main idea each.
+- State claims and explanations directly in simple sentences. Preserve distinctions, conditions, and uncertainty that matter to the argument.
 
 ## Editing Contract
 
@@ -35,7 +37,7 @@ Read the most relevant one or two posts before a substantial draft. Do not load 
 - decorative quotation marks used only for emphasis
 - polished advertising language, slogans, or forced punchlines
 - generic openings about rapid change, modern society, or growing importance
-- repeated `단순히 A가 아니라 B` constructions and other formulaic contrasts
+- formulaic contrasts such as `~해도 ~는 아니다`, `A가 아니라 B`, and `단순히 A가 아니라 B` used to emphasize a claim; state the claim directly while retaining meaningful comparisons and qualifications
 - claims that an example `시사한다` or presents a `새로운 패러다임` unless the source genuinely supports that wording
 - several paragraphs that restate the title or conclusion
 - excessive headings, numbered lists, or summaries added only to make the article look comprehensive
@@ -49,4 +51,5 @@ Read the draft once as the author might:
 1. Identify any sentence that could appear unchanged in almost any AI-generated article.
 2. Replace it with a concrete statement from the supplied material or remove it.
 3. Check that the most personal or distinctive sentence was not polished away.
-4. Stop editing when further smoothing would reduce the author's voice.
+4. Check for claims, questions, and summaries that repeat the same meaning. Keep the clearest wording while preserving conditions, uncertainty, and examples that serve distinct purposes.
+5. Stop editing when further smoothing would reduce the author's voice.

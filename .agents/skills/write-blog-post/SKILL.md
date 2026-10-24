@@ -38,6 +38,8 @@ For this author's blog, use noun-phrase titles and headings rather than complete
 
 Use section headings when they help navigation. Do not add numbered sections merely to make a short article look complete.
 
+Check whether each section addresses a distinct question or adds evidence. Merge sections that repeat the same claim, and use a short transition instead of a separate heading when that is enough. Choose the number of sections to fit the article.
+
 ## Content Rules
 
 - Keep the user's lived experience, opinion, and uncertainty intact.
