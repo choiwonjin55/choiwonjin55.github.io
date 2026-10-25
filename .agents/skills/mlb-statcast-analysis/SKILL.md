@@ -1,6 +1,6 @@
 ---
 name: mlb-statcast-analysis
-description: "Analyze MLB Statcast batted-ball data: audit missingness, compare exit velocity and launch angle with distance and hit/home-run outcomes, investigate player examples, and create interactive charts. Use for MLB analysis plans, execution, or revisions in this repository; use write-blog-post for article prose and homepage-build for site generation."
+description: "Analyze MLB Statcast batted-ball data and official situational batting records: audit data, compare contact outcomes and batting averages, investigate player examples, and create interactive charts. Use for MLB analysis plans, execution, or revisions in this repository; use write-blog-post for article prose and homepage-build for site generation."
 ---
 
 # MLB Statcast Analysis
@@ -18,14 +18,24 @@ Analyze the baseball question the user is asking. Use the author's established p
 
 - Prefer direct programmatic access to official Baseball Savant/Statcast CSV downloads and MLB Stats API records. The user should not need to visit a page to download data. Verify provider documentation, current schema, units, coverage, and endpoints before collecting.
 - Define season, actual covered dates, game types, and observation unit explicitly. Do not treat an ongoing season's future dates as observed data.
+- Distinguish batted-ball, plate-appearance, at-bat, and player-season analyses before choosing inclusion rules. Official batting-average analyses retain strikeouts and hit bunts in at-bats; walks, hit-by-pitches, sacrifice flies, sacrifice bunts, and catcher interference are excluded from official at-bats. Do not carry contact-analysis bunt exclusions or velocity/angle complete-case rules into official batting records.
 - For velocity/angle analyses, start with individual in-play batted balls in regular-season games. Strikeouts and walks are outside this observation unit; they are not additional cleaning exclusions. Keep them when separately analyzing plate appearances or season records.
-- Keep bunts as a separate flagged group and exclude them from the main contact comparison by default. Check how the source identifies bunts instead of assuming a perfect flag. Exclude foul balls and games outside the agreed population.
+- For contact analyses, keep bunts as a separate flagged group and exclude them from the main contact comparison by default. Check how the source identifies bunts instead of assuming a perfect flag. Exclude foul balls from the in-play sample and games outside the agreed population.
 - Preserve original responses, precision, row identifiers, and acquisition metadata. Use bins to show sample support and summarize comparisons, not to round away individual observations before fitting.
 - Audit missingness before choosing treatment unless the user has already authorized a rule. An audit-only request stops before cleaning or modeling. Show raw/in-scope counts, relevant column and joint missingness, outcome/time/player patterns, duplicates, and usable counts by target.
 - For this author's contact analyses, excluding rows with missing required values is an accepted preference when the affected share is small. Assess the scale first, report the impact, and reuse an already authorized decision. Do not turn this into automatic deletion of all rows with any missing column.
 - Keep distance and probability eligibility separate: a row missing distance may still support hit/home-run analysis. Preserve raw data and export derived rows plus exclusion reasons.
 
 The available `dataset-collect-clean` skill can help with acquisition and cleaning. Its personal installation is optional; the requirements above must remain usable after this skill is shared through Git.
+
+## Official batting records and situational comparisons
+
+- Check returned record counts against the API's reported total and verify player-season identifiers are unique within each split. Reconcile player totals with team totals for the same season, game type, and situation, including H, AB, PA, strikeouts, walks, hit-by-pitches, sacrifice flies, sacrifice bunts, and catcher interference where available. Investigate mismatches before using the records.
+- Inspect traded-player records: use the all-team season aggregate once, without also adding its team-level rows. Cross-check traded-player examples against individual-player responses. Count unique completed games by game ID when checking schedule coverage; resumed games can appear more than once.
+- Preserve players with absent situational records in the inventory, distinguish absent records from explicit zero counts, and report their effect on eligibility. Do not automatically replace an absent RISP record with zero. Check integer count ranges, H <= AB <= PA, and that situational hits and at-bats and their complementary counts are consistent with the overall totals.
+- Calculate batting averages from original integer H/AB rather than the API's rounded AVG. Define the comparison, denominator, eligibility, and weighting explicitly: an equal-weight mean of player differences and a pooled, at-bat-weighted comparison answer different questions. Determine positive, negative, or equal differences before display rounding; integer cross-products can compare H/AB exactly.
+- Distinguish RISP minus overall average from RISP minus non-RISP average: the overall record includes RISP. With total hits/at-bats H/N and RISP hits/at-bats H_R/n_R, define D = H_R/n_R - H/N and C = H_R/n_R - (H-H_R)/(N-n_R). Where both subsets have positive at-bats, verify D = ((N-n_R)/N) * C; do not present them as interchangeable measures.
+- Before attributing a situational difference to performance, inspect whether the statistic's counting rules contribute to it. For example, compare official H/AB with H/(AB+SF) to assess the effect of excluding sacrifice flies. Label the latter as an alternative calculation, preserve the original eligible player cohort and weighting, and change the intended counting rule alone. Report the original difference, recalculated difference, and their change without treating the arithmetic change as a causal estimate of player behavior.
 
 ## Outcomes, comparisons, and models
 
