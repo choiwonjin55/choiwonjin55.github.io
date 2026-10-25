@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>타율과 득타율의 차이 | Blog</title>
+  <meta name="description" content="2026년 MLB 타율과 득타율의 차이를 희생플라이, 투수 상태, 주자에 따른 땅볼 결과로 살펴본 분석" />
+  <link rel="canonical" href="https://choiwonjin55.github.io/blog/mlb-2026-risp-average-gap.html" />
+  <meta property="og:title" content="타율과 득타율의 차이" />
+  <meta property="og:description" content="2026년 MLB 타율과 득타율의 차이를 희생플라이, 투수 상태, 주자에 따른 땅볼 결과로 살펴본 분석" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://choiwonjin55.github.io/blog/mlb-2026-risp-average-gap.html" />
+  <meta property="og:site_name" content="Wonjin" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <meta property="article:published_time" content="2026-10-23" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="타율과 득타율의 차이" />
+  <meta name="twitter:description" content="2026년 MLB 타율과 득타율의 차이를 희생플라이, 투수 상태, 주자에 따른 땅볼 결과로 살펴본 분석" />
+  <meta name="twitter:image" content="https://choiwonjin55.github.io/assets/og/blog-v1.png" />
+  <meta name="twitter:image:alt" content="Wonjin — Research &amp; Notes. 데이터와 AI, 그리고 일상의 기록." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="blog-page blog-post">
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+  <header class="nav">
+    <a class="logo" href="../index.html">Wonjin</a>
+    <nav aria-label="주 메뉴">
+      <a href="../index.html">Home</a>
+      <a href="./index.html" aria-current="location">Blog</a>
+      <a href="../index-en.html" lang="en" hreflang="en" aria-label="영문 홈페이지">EN</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="blog-hero">
+      <h1>타율과 득타율의 차이</h1>
+      <div class="post-meta">
+        <time datetime="2026-10-23">2026-10-23</time>
+        <span class="post-badge">데이터분석</span>
+      </div>
+<div class="post-tags" aria-label="태그"><span class="post-tag">MLB</span><span class="post-tag">데이터분석</span><span class="post-tag">득타율</span><span class="post-tag">시각화</span></div>
+    </section>
+
+    <article class="post-body">
+      <p>득점권 타율(득타율)과 그냥 일반적인 타율은 다른 지표가 될지 알아보자. 득점권 타율은 단지 주자가 득점권에 있을 때 수집된 타격 결과라고 생각할 수도 있다. 아니면 더 결정적일 상황일때 작용하는 타자의 성적으로 생각할 수도 있다. 주자가 득점권에 있다는 이유로 성적이 달라지는지 알아보자.</p>
+<h2>타율과 득타율의 차이</h2>
+<p>2026년 타율과 득타율 차이를 비교했다.</p>
+<figure><img src="../assets/mlb-clutch-2026/average-gap.png" alt="2026년 선수별 득타율과 전체 타율 차이의 분포 및 실제 평균과 우연으로 예상한 평균 범위 비교" loading="lazy"></figure>
+<p>선수들의 차이를 평균 내면 득타율이 타율보다 <strong>0.009 높았다.</strong></p>
+<p>안타가 득점권에서 우연히 더 나오거나 덜 나오는 경우와도 비교했다. 이때 선수들의 평균 차이가 어느 정도까지 생길 수 있는지 살펴봤다.</p>
+<div class="post-table" role="region" aria-label="표 (가로 스크롤)" tabindex="0"><table><thead><tr><th>비교 항목</th><th>득타율 − 전체 타율의 평균</th></tr></thead><tbody><tr><td>실제 2026년</td><td><strong>+0.009</strong></td></tr><tr><td>우연으로 예상한 평균 차이의 95% 범위</td><td><strong>−0.005~+0.005</strong></td></tr></tbody></table></div>
+<p>실제 타율과 득타율의 차이는 있었다!</p>
+<p>차이가 생길 수 있는 이유로 세 가지를 생각하고, 각각 따로 살펴봤다.</p>
+<ul>
+<li>희생플라이를 타수에서 제외하는 타율 계산 방식</li>
+<li>주자가 쌓일 당시의 투수 상태</li>
+<li>주자에 따른 수비 위치 변화</li>
+</ul>
+<h2>희생플라이를 아웃으로 계산한 차이</h2>
+<p>희생플라이는 아웃이지만 타율 계산에서는 타수에 포함되지 않는다. 주자가 홈으로 들어와야 하므로 득점권에서 발생한다. 따라서 이 아웃을 빼주는 영향은 전체 타율보다 득타율이 더 높게 나타날 수 있다.</p>
+<p>희생플라이를 일반 아웃처럼 타수에 넣어, 같은 선수들의 전체 타율과 득타율을 다시 계산했다.</p>
+<div class="post-table" role="region" aria-label="표 (가로 스크롤)" tabindex="0"><table><thead><tr><th>시즌</th><th>기존 평균 차이</th><th>희생플라이를 아웃으로 계산한 평균 차이</th><th>계산 변경 후 95% 신뢰구간</th></tr></thead><tbody><tr><td>2025년</td><td><strong>+0.012</strong></td><td><strong>+0.006</strong></td><td>+0.001~+0.010</td></tr><tr><td>2026년</td><td><strong>+0.009</strong></td><td><strong>+0.003</strong></td><td>−0.002~+0.008</td></tr></tbody></table></div>
+<p>득타율이 높게 나타나는 데에는 희생플라이를 타수에서 제외하는 계산 방식이 꽤 영향을 주고 있었다.</p>
+<p>2026년에는 희생플라이를 아웃으로 계산하면, <strong>득타율이 타율과 비슷했다.</strong> 단, 2025년에는 차이가 있었고 득점권에서는 팀배팅을 위해 희생플라이를 더 노렸을 수도 있다.</p>
+<h2>투수 상태에 따른 차이</h2>
+<p>투수 상태가 득점권 성적에 영향을 줄 수 있는지도 살펴봤다. 주자가 쌓여 있다는 것은 투수 상태가 상대적으로 좋지 않다는 신호일 수도 있다고 생각했다. 그런 투수가 계속 던진다면 뒤의 타자도 안타를 치기 쉬울 수 있다.</p>
+<p>2026년 기존 투수가 계속 던지는 타석과 구원 투수가 등판해 처음 상대하는 타석을 비교했다.</p>
+<figure><img src="../assets/mlb-clutch-2026/pitcher-context.png" alt="투수 교체 여부에 따른 득점권·비득점권 성적과 타자·투수 차이를 반영한 비교" loading="lazy"></figure>
+<div class="post-table" role="region" aria-label="표 (가로 스크롤)" tabindex="0"><table><thead><tr><th>상대 투수</th><th>비득점권 타율</th><th>득타율</th><th>득점권 − 비득점권 차이</th></tr></thead><tbody><tr><td>기존 투수가 계속 던진 경우</td><td>0.250</td><td>0.261</td><td><strong>+0.011</strong></td></tr><tr><td>구원 투수가 처음 상대한 타석</td><td>0.245</td><td>0.248</td><td><strong>+0.003</strong></td></tr></tbody></table></div>
+<p>기존 투수가 계속 던질 때는 득점권 성적이 더 높았고, 교체 직후에는 차이가 뚜렷하지 않았다. 다만 투수 교체할때는 타자에 맞게 교체를 하니 상대적으로 투수에 유리한 상황이었다.</p>
+<h2>주자에 따른 수비 위치 변화</h2>
+<p>주자가 발생하게 되면 견제나 홈 승부를 위해 수비 위치가 달라지고 제약이 생기는 것도 득타율과 타율의 차이에 영향을 줄 수 있다. 비슷한 땅볼이지만 주자가 있을 때 더 자주 안타가 되는지 비교했다.</p>
+<p>2026년 땅볼을 주자 없음·1루만·득점권으로 나눠 비교해보았다.</p>
+<figure><img src="../assets/mlb-clutch-2026/groundball-context.png" alt="비슷한 조건의 땅볼에서 주자 없음 대비 1루만·득점권 상황의 안타 비율 차이와 95% 신뢰구간" loading="lazy"></figure>
+<div class="post-table" role="region" aria-label="표 (가로 스크롤)" tabindex="0"><table><thead><tr><th>주자 상황 비교</th><th>땅볼 안타 비율 차이</th><th>95% 신뢰구간</th></tr></thead><tbody><tr><td>1루만 − 주자 없음</td><td><strong>+0.056</strong></td><td>+0.038~+0.074</td></tr><tr><td>득점권 − 주자 없음</td><td><strong>+0.036</strong></td><td>+0.019~+0.053</td></tr></tbody></table></div>
+<p>비슷한 땅볼도 주자가 있을 때 더 자주 안타가 되었다. 수비 위치 변화가 영향을 줬을 가능성이 있어보인다.</p>
+<h2>마무리</h2>
+<p>2026년 선수들의 득타율은 타율보다 평균 <strong>0.009 높았지만, 희생플라이를 아웃으로 계산하면 차이는 0.003로 줄었다.</strong> 타율 계산 방식이 평균 차이의 상당 부분을 설명하고 있었다.</p>
+<p>희생플라이를 반영한 뒤 남은 평균 차이가 우연한 변동과 뚜렷하게 구분되지 않았다. 투수가 계속 던질 때 득점권 성적은 꽤 높아졌다. 땅볼만 따로 보면, 주자가 있을 때 안타가 되는 비율은 더 높았다.</p>
+<h3>데이터 출처</h3>
+<p><a href="https://statsapi.mlb.com/api/v1/stats?stats=statSplits&amp;group=hitting&amp;season=2026&amp;sitCodes=risp&amp;sportIds=1&amp;gameType=R&amp;playerPool=ALL&amp;limit=10000" target="_blank" rel="noopener noreferrer">MLB 공식 Stats API</a>의 2025·2026년 정규시즌 기록을 사용했다.</p>
+<p>땅볼의 속도·각도·타구 좌표는 <a href="https://baseballsavant.mlb.com/csv-docs" target="_blank" rel="noopener noreferrer">Baseball Savant Statcast</a>의 2026년 정규시즌 자료를 사용했다.</p>
+    </article>
+    <nav class="post-back" aria-label="글 탐색">
+      <a href="./index.html">← 모든 글 보기</a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Wonjin Choi</span>
+  </footer>
+</body>
+</html>

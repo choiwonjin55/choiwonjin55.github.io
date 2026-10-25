@@ -1,0 +1,62 @@
+{
+  "definition": "Official H/AB in RISP minus overall; strict positive via integer cross-products",
+  "eligibility": "Overall AB >=300 and RISP AB >=75, separately in each season",
+  "yearly": {
+    "2025": {
+      "n": 238,
+      "positive": 146,
+      "equal": 0,
+      "negative": 92,
+      "positive_share": 0.6134453781512605
+    },
+    "2026": {
+      "n": 237,
+      "positive": 136,
+      "equal": 0,
+      "negative": 101,
+      "positive_share": 0.5738396624472574
+    }
+  },
+  "paired": {
+    "n": 163,
+    "matrix_sign_order": [
+      -1,
+      0,
+      1
+    ],
+    "matrix": [
+      [
+        25,
+        0,
+        32
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        45,
+        0,
+        61
+      ]
+    ],
+    "positive_2025": 106,
+    "positive_2026": 93,
+    "retained_positive": 61,
+    "positive_retention": 0.5754716981132075,
+    "negative_2025": 57,
+    "negative_to_positive": 32,
+    "negative_to_positive_rate": 0.5614035087719298,
+    "random_expected_retention": 0.5705521472392638,
+    "positive_retention_upper_p": 0.4962135479286265,
+    "binary_association_fisher_two_sided_p": 0.8698132212238726
+  },
+  "source_hashes": {
+    "data\\mlb\\clutch-2026\\raw\\2025-players-season.json": "a1e6455e8758ea0350b07bbcfe0126d1f5e71b56616ff819211677e7a1094935",
+    "data\\mlb\\clutch-2026\\raw\\2025-players-risp.json": "fb265078b94d1a96c9cb901c98a35a348066ce1c4c48c2cddcdac7c034199086",
+    "data\\mlb\\clutch-2026\\raw\\2026-players-season.json": "1c7b86415b27d2fa6724d69ab88c947d5b839583e429f33a475d8a2fa375aabf",
+    "data\\mlb\\clutch-2026\\raw\\2026-players-risp.json": "3ab466c22d393954035bd11a5cfbc397dd3661a62c8170b2b865dfc8d2a8fd69",
+    "scripts\\mlb_clutch_signs.py": "3e66306e885109a0f1f938855cf7b173136f295dd9eb3ceb971bd1213c69356d"
+  }
+}

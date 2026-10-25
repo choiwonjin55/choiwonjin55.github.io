@@ -1,0 +1,208 @@
+{
+  "scope": "Original eligible 237 hitters; innings 1-9; exclude bunt candidates, mid-PA changes, unmatched PBP, missing required values, and coordinates at/behind home plate. No imputation.",
+  "outcome": "hits / ground balls; fielding errors and choices remain non-hits",
+  "matching": {
+    "widths": [
+      5,
+      5,
+      10
+    ],
+    "bin_origin": 0,
+    "intervals": "left-closed, right-open",
+    "min_per_state_in_stratum": 2,
+    "eligible_complete_n": 34731,
+    "matched_n": 12456,
+    "coverage": 0.3586421352682042,
+    "common_strata": 744
+  },
+  "cells": [
+    {
+      "state": 0,
+      "label": "주자 없음",
+      "n": 6408,
+      "hits": 1695,
+      "rate": 0.2645131086142322
+    },
+    {
+      "state": 1,
+      "label": "1루만",
+      "n": 2787,
+      "hits": 879,
+      "rate": 0.3153928955866523
+    },
+    {
+      "state": 2,
+      "label": "득점권",
+      "n": 3261,
+      "hits": 943,
+      "rate": 0.2891750996626802
+    }
+  ],
+  "adjusted": {
+    "n": 12456,
+    "games": 2415,
+    "iterations": 195,
+    "method": "Linear probability model with stratum, batter, and fielding-team fixed effects, continuous speed/angle/direction and quadratic interactions; game-cluster robust CI",
+    "comparisons": [
+      {
+        "name": "first_only_minus_empty",
+        "estimate": 0.05627221772926923,
+        "se": 0.009161643638575499,
+        "ci95": [
+          0.03830671844528596,
+          0.07423771701325249
+        ],
+        "p": 9.492133622135557e-10
+      },
+      {
+        "name": "risp_minus_empty",
+        "estimate": 0.036057637123283526,
+        "se": 0.008716140703793963,
+        "ci95": [
+          0.01896574556424278,
+          0.05314952868232427
+        ],
+        "p": 3.641073411499421e-05
+      },
+      {
+        "name": "risp_minus_first_only",
+        "estimate": -0.020214580605985702,
+        "se": 0.010310004247393168,
+        "ci95": [
+          -0.04043195439080649,
+          2.793178835090032e-06
+        ],
+        "p": 0.050031635130482775
+      }
+    ]
+  },
+  "event_counts": {
+    "field_out": 6751,
+    "single": 3229,
+    "grounded_into_double_play": 977,
+    "force_out": 854,
+    "double": 264,
+    "field_error": 205,
+    "fielders_choice": 86,
+    "fielders_choice_out": 55,
+    "triple": 24,
+    "double_play": 11
+  },
+  "sensitivity": [
+    {
+      "matching": {
+        "widths": [
+          5,
+          10,
+          10
+        ],
+        "bin_origin": 0,
+        "intervals": "left-closed, right-open",
+        "min_per_state_in_stratum": 2,
+        "eligible_complete_n": 34731,
+        "matched_n": 19913,
+        "coverage": 0.5733494572572054,
+        "common_strata": 840
+      },
+      "adjusted": {
+        "n": 19913,
+        "games": 2429,
+        "iterations": 191,
+        "method": "Linear probability model with stratum, batter, and fielding-team fixed effects, continuous speed/angle/direction and quadratic interactions; game-cluster robust CI",
+        "comparisons": [
+          {
+            "name": "first_only_minus_empty",
+            "estimate": 0.05022588870106891,
+            "se": 0.007287787769154896,
+            "ci95": [
+              0.03593496314148101,
+              0.06451681426065681
+            ],
+            "p": 6.9962781869944706e-12
+          },
+          {
+            "name": "risp_minus_empty",
+            "estimate": 0.034228263670082054,
+            "se": 0.006825072303608553,
+            "ci95": [
+              0.020844696074646243,
+              0.047611831265517865
+            ],
+            "p": 5.684247981725107e-07
+          },
+          {
+            "name": "risp_minus_first_only",
+            "estimate": -0.015997625030986853,
+            "se": 0.008265387373548665,
+            "ci95": [
+              -0.032205566235926616,
+              0.00021031617395291316
+            ],
+            "p": 0.053045420227132434
+          }
+        ]
+      }
+    },
+    {
+      "matching": {
+        "widths": [
+          3,
+          5,
+          10
+        ],
+        "bin_origin": 0,
+        "intervals": "left-closed, right-open",
+        "min_per_state_in_stratum": 2,
+        "eligible_complete_n": 34731,
+        "matched_n": 7442,
+        "coverage": 0.21427543117099998,
+        "common_strata": 545
+      },
+      "adjusted": {
+        "n": 7442,
+        "games": 2317,
+        "iterations": 196,
+        "method": "Linear probability model with stratum, batter, and fielding-team fixed effects, continuous speed/angle/direction and quadratic interactions; game-cluster robust CI",
+        "comparisons": [
+          {
+            "name": "first_only_minus_empty",
+            "estimate": 0.07053161670188803,
+            "se": 0.012345265060937161,
+            "ci95": [
+              0.04632269008949273,
+              0.09474054331428332
+            ],
+            "p": 1.2507487452225802e-08
+          },
+          {
+            "name": "risp_minus_empty",
+            "estimate": 0.039041062921211435,
+            "se": 0.011417914104125336,
+            "ci95": [
+              0.016650661155919573,
+              0.0614314646865033
+            ],
+            "p": 0.0006387349138331638
+          },
+          {
+            "name": "risp_minus_first_only",
+            "estimate": -0.03149055378067659,
+            "se": 0.013767817003924921,
+            "ci95": [
+              -0.0584890888316206,
+              -0.00449201872973258
+            ],
+            "p": 0.02227055501895547
+          }
+        ]
+      }
+    }
+  ],
+  "interpretation": "Association for comparable ground balls. Starting fielder positions unobserved; no causal attribution to defense.",
+  "source_hashes": {
+    "data\\mlb\\clutch-2026\\groundball-context\\audit.json": "f65f5bc6b459a1bf1e901d61ac786f68954470dfa1db598ef6678ba0afe82ebd",
+    "data\\mlb\\clutch-2026\\groundball-context\\candidate-ground-balls.csv.gz": "b478d60053c19f16dd6145077968d99d6e9d0b2e5abcb9168867e02cf83d5850",
+    "scripts\\mlb_groundball_context.py": "f80fe0b075aa46c151d2f90892eaaa8dfee5aaa1ba8b6e540b0c64ecdcd110b7",
+    "scripts\\mlb_pitcher_context_analysis.py": "746cab6f133351740269dc4d5de478d3d974ecd618bb3d78342c29030db3efbe"
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "spec": {
+    "season": 2026,
+    "outcome": "H/AB",
+    "sacrifice_flies": "Excluded from official at-bats; no correction from cause 1 applied",
+    "primary_batters": 237,
+    "fresh": "First PA faced by a relief pitcher in a game; exclude changes during PA",
+    "controls": "Batter/pitcher FE, outs, inning, batting side advantage, home batting, first-base occupancy, pre-PA score, month",
+    "standard_errors": "Game-cluster sandwich, conservative finite-sample FE degrees correction",
+    "models": "Linear probability models with two-way absorbed fixed effects",
+    "causality": "Observational comparisons; pitcher change is not randomized."
+  },
+  "audit": {
+    "raw_pa": 183849,
+    "primary_ab": 107503,
+    "context_invalid_pa": 0,
+    "mid_pa_changes": 47,
+    "starter_first": 4858,
+    "mid_pa_batter_changes": 23,
+    "context_invalid_by_event": {}
+  },
+  "raw_primary": {
+    "cells": [
+      {
+        "fresh_reliever": 0,
+        "risp": 0,
+        "n": 74097,
+        "hits": 18512,
+        "official_ab": 74097,
+        "sf": 0,
+        "official_avg": 0.2498346761677261
+      },
+      {
+        "fresh_reliever": 0,
+        "risp": 1,
+        "n": 24236,
+        "hits": 6326,
+        "official_ab": 24236,
+        "sf": 0,
+        "official_avg": 0.2610166694173956
+      },
+      {
+        "fresh_reliever": 1,
+        "risp": 0,
+        "n": 7567,
+        "hits": 1854,
+        "official_ab": 7567,
+        "sf": 0,
+        "official_avg": 0.24501123298533103
+      },
+      {
+        "fresh_reliever": 1,
+        "risp": 1,
+        "n": 1603,
+        "hits": 397,
+        "official_ab": 1603,
+        "sf": 0,
+        "official_avg": 0.2476606363069245
+      }
+    ],
+    "continuing_risp_difference": 0.011181993249669508,
+    "continuing_risp_difference_95": [
+      0.004709644022408587,
+      0.017521136966061435
+    ],
+    "fresh_risp_difference": 0.0026494033215934687,
+    "fresh_risp_difference_95": [
+      -0.02079949153504982,
+      0.02678591085406992
+    ],
+    "fresh_minus_continuing_risp_difference": -0.00853258992807604,
+    "fresh_minus_continuing_risp_difference_95": [
+      -0.03211074661780589,
+      0.017030361731824397
+    ],
+    "games": 2429,
+    "ci": "5000 game-cluster bootstrap replicates"
+  },
+  "models": {
+    "identity": {
+      "n": 107503,
+      "games": 2429,
+      "fixed_effects": [
+        "batter",
+        "pitcher"
+      ],
+      "absorption_iterations": 1,
+      "controls": [
+        "risp",
+        "fresh_reliever",
+        "risp_x_fresh",
+        "out1",
+        "out2",
+        "home",
+        "opposite_hand",
+        "reliever",
+        "on_first",
+        "inning_2",
+        "inning_3",
+        "inning_4",
+        "inning_5",
+        "inning_6",
+        "inning_7",
+        "inning_8",
+        "inning_9",
+        "score_-4",
+        "score_-3",
+        "score_-2",
+        "score_-1",
+        "score_1",
+        "score_2",
+        "score_3",
+        "score_4",
+        "month_04",
+        "month_05",
+        "month_06",
+        "month_07",
+        "month_08",
+        "month_09"
+      ],
+      "continuing_risp_difference": {
+        "estimate": 0.007695684362652352,
+        "se": 0.0034163265026251346,
+        "ci95": [
+          0.0009964679086687314,
+          0.014394900816635973
+        ],
+        "p": 0.024372093300029162
+      },
+      "fresh_risp_difference": {
+        "estimate": 0.006305146973878764,
+        "se": 0.012655644762669765,
+        "ci95": [
+          -0.018511832189178692,
+          0.03112212613693622
+        ],
+        "p": 0.6183823726856325
+      },
+      "fresh_minus_continuing_difference": {
+        "estimate": -0.0013905373887735876,
+        "se": 0.012969156584074005,
+        "ci95": [
+          -0.026822294896598674,
+          0.0240412201190515
+        ],
+        "p": 0.9146242604531378
+      }
+    }
+  },
+  "opponent_quality": {
+    "cells": [
+      {
+        "fresh_reliever": 0,
+        "risp": 0,
+        "n": 74097,
+        "opponent_other_game_rate": 0.24281802309049408
+      },
+      {
+        "fresh_reliever": 0,
+        "risp": 1,
+        "n": 24236,
+        "opponent_other_game_rate": 0.242779787453233
+      },
+      {
+        "fresh_reliever": 1,
+        "risp": 0,
+        "n": 7567,
+        "opponent_other_game_rate": 0.23711301937688964
+      },
+      {
+        "fresh_reliever": 1,
+        "risp": 1,
+        "n": 1603,
+        "opponent_other_game_rate": 0.23662296511893313
+      }
+    ],
+    "prior_ab": 50,
+    "prior_rate": 0.24397994232500045,
+    "missing_other_game_samples": 384,
+    "definition": "Pitcher official H/AB from all OTHER games; 50-AB league-mean shrinkage."
+  },
+  "diagnostics": {
+    "pitcher_game_fe": {
+      "n": 107503,
+      "games": 2429,
+      "fixed_effects": [
+        "batter",
+        "pitcher_game"
+      ],
+      "absorption_iterations": 1,
+      "controls": [
+        "risp",
+        "fresh_reliever",
+        "risp_x_fresh",
+        "out1",
+        "out2",
+        "opposite_hand",
+        "on_first",
+        "inning_2",
+        "inning_3",
+        "inning_4",
+        "inning_5",
+        "inning_6",
+        "inning_7",
+        "inning_8",
+        "inning_9",
+        "score_-4",
+        "score_-3",
+        "score_-2",
+        "score_-1",
+        "score_1",
+        "score_2",
+        "score_3",
+        "score_4"
+      ],
+      "continuing_risp_difference": {
+        "estimate": -0.08023412437608198,
+        "se": 0.004446986134332183,
+        "ci95": [
+          -0.08895440408554864,
+          -0.07151384466661531
+        ],
+        "p": 2.1771553487529472e-68
+      },
+      "fresh_risp_difference": {
+        "estimate": -0.024192528998236373,
+        "se": 0.018162540906947796,
+        "ci95": [
+          -0.05980820940714322,
+          0.011423151410670476
+        ],
+        "p": 0.18298476044484865
+      },
+      "fresh_minus_continuing_difference": {
+        "estimate": 0.0560415953778456,
+        "se": 0.018249779156486016,
+        "ci95": [
+          0.020254845864075943,
+          0.09182834489161526
+        ],
+        "p": 0.0021584417251342444
+      }
+    },
+    "pitcher_game_fe_not_used_for_inference": true,
+    "reason": "Conditioning on the same stint outcome totals biases a context generated by prior outcomes; use predetermined recent form instead.",
+    "independent_null_previous_outcome_test": {
+      "true_effect": 0,
+      "unadjusted_slope": 0.002839410650170331,
+      "same_stint_fe_slope": -0.19826759061833688,
+      "stints": 20000,
+      "scored_observations_per_stint": 5,
+      "seed": 20261024
+    }
+  },
+  "sensitivities": {
+    "all_batters": {
+      "n": 157078,
+      "model": {
+        "n": 157078,
+        "games": 2429,
+        "fixed_effects": [
+          "batter",
+          "pitcher"
+        ],
+        "absorption_iterations": 1,
+        "controls": [
+          "risp",
+          "fresh_reliever",
+          "risp_x_fresh",
+          "out1",
+          "out2",
+          "home",
+          "opposite_hand",
+          "reliever",
+          "on_first",
+          "inning_2",
+          "inning_3",
+          "inning_4",
+          "inning_5",
+          "inning_6",
+          "inning_7",
+          "inning_8",
+          "inning_9",
+          "score_-4",
+          "score_-3",
+          "score_-2",
+          "score_-1",
+          "score_1",
+          "score_2",
+          "score_3",
+          "score_4",
+          "month_04",
+          "month_05",
+          "month_06",
+          "month_07",
+          "month_08",
+          "month_09"
+        ],
+        "continuing_risp_difference": {
+          "estimate": 0.006092189299716668,
+          "se": 0.002764512706395262,
+          "ci95": [
+            0.0006711415761753289,
+            0.011513237023258006
+          ],
+          "p": 0.027638172210902857
+        },
+        "fresh_risp_difference": {
+          "estimate": 0.002018971564107042,
+          "se": 0.010123861838308736,
+          "ci95": [
+            -0.017833329365836217,
+            0.021871272494050298
+          ],
+          "p": 0.841945427758225
+        },
+        "fresh_minus_continuing_difference": {
+          "estimate": -0.004073217735609626,
+          "se": 0.010391701042614774,
+          "ci95": [
+            -0.024450735679538555,
+            0.016304300208319304
+          ],
+          "p": 0.6951160124069222
+        }
+      }
+    },
+    "with_extra_innings": {
+      "n": 108747,
+      "model": {
+        "n": 108747,
+        "games": 2429,
+        "fixed_effects": [
+          "batter",
+          "pitcher"
+        ],
+        "absorption_iterations": 1,
+        "controls": [
+          "risp",
+          "fresh_reliever",
+          "risp_x_fresh",
+          "out1",
+          "out2",
+          "home",
+          "opposite_hand",
+          "reliever",
+          "on_first",
+          "inning_2",
+          "inning_3",
+          "inning_4",
+          "inning_5",
+          "inning_6",
+          "inning_7",
+          "inning_8",
+          "inning_9",
+          "score_-4",
+          "score_-3",
+          "score_-2",
+          "score_-1",
+          "score_1",
+          "score_2",
+          "score_3",
+          "score_4",
+          "month_04",
+          "month_05",
+          "month_06",
+          "month_07",
+          "month_08",
+          "month_09"
+        ],
+        "continuing_risp_difference": {
+          "estimate": 0.009500895713410949,
+          "se": 0.003381464214343966,
+          "ci95": [
+            0.002870042167684857,
+            0.01613174925913704
+          ],
+          "p": 0.004998507986252952
+        },
+        "fresh_risp_difference": {
+          "estimate": 0.016969864465885026,
+          "se": 0.011823098901933195,
+          "ci95": [
+            -0.006214540959077825,
+            0.040154269890847874
+          ],
+          "p": 0.15132632052298428
+        },
+        "fresh_minus_continuing_difference": {
+          "estimate": 0.007468968752474076,
+          "se": 0.012198689298442002,
+          "ci95": [
+            -0.016451947472120074,
+            0.031389884977068225
+          ],
+          "p": 0.5404122789542125
+        }
+      }
+    }
+  },
+  "recent_form_model": {
+    "n": 73286,
+    "games": 2429,
+    "fixed_effects": [
+      "batter",
+      "pitcher"
+    ],
+    "absorption_iterations": 1,
+    "controls": [
+      "risp",
+      "out1",
+      "out2",
+      "home",
+      "opposite_hand",
+      "reliever",
+      "on_first",
+      "inning_2",
+      "inning_3",
+      "inning_4",
+      "inning_5",
+      "inning_6",
+      "inning_7",
+      "inning_8",
+      "inning_9",
+      "score_-4",
+      "score_-3",
+      "score_-2",
+      "score_-1",
+      "score_1",
+      "score_2",
+      "score_3",
+      "score_4",
+      "month_04",
+      "month_05",
+      "month_06",
+      "month_07",
+      "month_08",
+      "month_09",
+      "recent5_reach_rate"
+    ],
+    "continuing_risp_difference": {
+      "estimate": 0.007014015867221838,
+      "se": 0.004306830626367879,
+      "ci95": [
+        -0.0014314270886882172,
+        0.015459458823131893
+      ],
+      "p": 0.1035318098094886
+    },
+    "recent5_reach_rate_effect": {
+      "estimate": -0.0028899103683270363,
+      "se": 0.009509775252573899,
+      "ci95": [
+        -0.02153802342098038,
+        0.015758202684326303
+      ],
+      "p": 0.7612389563013483
+    }
+  },
+  "source_hashes": {
+    "data\\mlb\\clutch-2026\\pitcher-context\\manifest.json": "c78e687b412340f30926fb30962da2eb434b4ca352da3cd7416324ed752bc169",
+    "data\\mlb\\clutch-2026\\pitcher-context\\audit.json": "82adb8b4d2951f32a1a6bcf4fddd134db7901d0d9ed23dd6f03a6b0c7897b0d2",
+    "data\\mlb\\clutch-2026\\pitcher-context\\special-at-bats.json": "41f107a5e35da6fe1fcee3594df0daedc037134f1aead21923fea805c1ad3f93",
+    "data\\mlb\\clutch-2026\\pitcher-context\\plate-appearances.csv.gz": "f01a75f7df61a653e1a533b312477992484d1bf946da6273756b02539684201d",
+    "scripts\\mlb_pitcher_context_analysis.py": "746cab6f133351740269dc4d5de478d3d974ecd618bb3d78342c29030db3efbe",
+    "scripts\\mlb_pitcher_context_collect.py": "604f6fd7f9208b85ec48fb9925f0a537c5e2af262c289b293789fba593d0169f"
+  }
+}
