@@ -1,6 +1,6 @@
 ---
 title: 타율과 득타율의 차이
-date: 2026-10-23
+date: 2026-10-25
 description: 2026년 MLB 타율과 득타율의 차이를 희생플라이, 투수 상태, 주자에 따른 땅볼 결과로 살펴본 분석
 slug: mlb-2026-risp-average-gap
 category: 데이터분석

@@ -51,7 +51,7 @@ def main():
         previous_output = build_blog.OUT_DIR
         try:
             build_blog.OUT_DIR = temporary
-            for name in ('2026-10-23-mlb-clutch.md', '2026-10-23-mlb-clutch-persistence.md'):
+            for name in ('2026-10-25-mlb-clutch.md', '2026-10-25-mlb-clutch-persistence.md'):
                 build_blog.build_post(ROOT / 'posts' / name)
         finally:
             build_blog.OUT_DIR = previous_output

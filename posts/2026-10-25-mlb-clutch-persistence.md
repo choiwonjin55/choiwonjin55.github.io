@@ -1,6 +1,6 @@
 ---
 title: 득점권 타율이 높은 선수 추적하기
-date: 2026-10-23
+date: 2026-10-25
 description: 2023~2026년 MLB 기록으로 타율보다 득점권 타율이 높았던 선수들이 다음 시즌에도 같은 모습을 보이는지 살펴봤다.
 analysis_period: 2023~2026 MLB
 slug: mlb-2026-clutch-persistence
