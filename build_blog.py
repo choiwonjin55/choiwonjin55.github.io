@@ -179,6 +179,7 @@ def markdown_to_html(text: str) -> str:
     in_code = False
     in_list = False
     needs_frame_resize = False
+    needs_war_resize = False
 
     def close_list():
         nonlocal in_list
@@ -228,6 +229,7 @@ def markdown_to_html(text: str) -> str:
             close_list()
             out.append(line.strip())
             needs_frame_resize |= bool(re.search(r'src="[^"\s]*statcast-dashboard\.html"', line, re.I))
+            needs_war_resize |= bool(re.search(r'src="[^"\s]*mlb-war-wins-dashboard\.html"', line, re.I))
         elif line.startswith("### "):
             close_list()
             out.append(f"<h3>{markdown_inline_to_html(line[4:].strip())}</h3>")
@@ -260,6 +262,23 @@ window.addEventListener('message',event=>{
   frame.style.height=value.height+'px';
  }
 });
+</script>''')
+    if needs_war_resize:
+        out.append('''<script>
+(()=>{
+ const frames=[...document.querySelectorAll('iframe[src*="mlb-war-wins-dashboard.html"]')];
+ window.addEventListener('message',event=>{
+  const frame=frames.find(item=>event.source===item.contentWindow),value=event.data;
+  if(frame&&value&&value.type==='mlb-war-wins-height'&&Number.isFinite(value.height)
+     &&value.height>=200&&value.height<=6000){
+   if(Math.abs(frame.clientHeight-value.height)>1)frame.style.height=value.height+'px';
+  }
+ });
+ for(const frame of frames){
+  const request=()=>frame.contentWindow?.postMessage({type:'mlb-war-wins-resize'},'*');
+  frame.addEventListener('load',request);request();
+ }
+})();
 </script>''')
     return "\n".join(out)
 

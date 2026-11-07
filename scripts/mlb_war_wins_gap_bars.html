@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MLB 150개 팀·시즌의 승수 차이</title>
+<style>
+:root{color-scheme:light;--paper:#fbfaf7;--ink:#23343d;--muted:#687a82;--teal:#157b8c;--orange:#df744d}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 "Malgun Gothic",system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:24px}h1{font-size:clamp(21px,4vw,30px);line-height:1.4;margin:0 0 16px;letter-spacing:-.04em}.legend{display:flex;gap:10px 24px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:14px}.legend span::before{content:"";display:inline-block;width:18px;height:9px;background:var(--teal);margin-right:6px}.legend .model::before{height:0;border-top:3px solid var(--orange);background:none;vertical-align:middle}.legend .interval::before{background:#b6bfc1;opacity:.6}.chart-scroll{overflow-x:auto;width:100%}svg{display:block;width:100%;min-width:900px;height:auto}svg text{font:13px "Malgun Gothic",system-ui,sans-serif;fill:var(--muted)}.gap-bar{cursor:pointer;fill:var(--teal)}.gap-bar:hover,.gap-bar:focus-visible,.gap-bar.selected{fill:var(--orange);outline:none;stroke:var(--ink);stroke-width:1}.detail{min-height:4em;margin-top:12px;font-size:14px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.detail strong{color:var(--teal)}@media(max-width:600px){main{padding:18px 14px}.legend{gap:6px 14px}.detail{font-size:13px}}
+</style>
+<style>.detail:empty{display:none}</style>
+</head>
+<body><main>
+<h1>2022~2026 MLB · 승수 차이</h1>
+<div class="legend"><span>실제 차이</span><span class="model">이항모형 순위별 중앙값</span><span class="interval">이항모형 순위별 95% 구간</span></div>
+<div class="chart-scroll"><svg id="gaps" viewBox="0 0 1200 570" role="img" aria-label="150개 팀·시즌의 승수 차이 막대와 이항모형의 순위별 차이"></svg></div>
+<div id="detail" class="detail" aria-live="polite"></div>
+</main>
+<script>
+"use strict";
+const payload=__GAP_PAYLOAD__;
+const svg=document.getElementById('gaps'),detail=document.getElementById('detail');
+const NS='http://www.w3.org/2000/svg';
+const add=(tag,attrs,text,parent=svg)=>{const el=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(text!==undefined)el.textContent=text;parent.append(el);return el;};
+const ranks=payload.simulation.ranks,rows=payload.rows;
+const low=Math.floor(Math.min(...ranks.map(r=>r.lower),...rows.map(r=>r.fwar_error))/5)*5;
+const high=Math.ceil(Math.max(...ranks.map(r=>r.upper),...rows.map(r=>r.fwar_error))/5)*5;
+const x=rank=>72+(rank-.5)/150*1100,y=value=>495-(value-low)/(high-low)*465;
+for(let value=low;value<=high;value+=5){add('line',{x1:72,x2:1172,y1:y(value),y2:y(value),stroke:value===0?'#839397':'#e3e5e1'});add('text',{x:60,y:y(value)+4,'text-anchor':'end'},value);}
+for(const rank of [1,25,50,75,100,125,150])add('text',{x:x(rank),y:523,'text-anchor':'middle'},rank);
+add('text',{x:622,y:558,'text-anchor':'middle'},'승수 차이 순위 (작은 순)');
+add('text',{transform:'translate(20 265) rotate(-90)','text-anchor':'middle'},'실제 − WAR 기반 승수 (승)');
+const path=(items,key)=>items.map((r,i)=>(i?'L':'M')+x(r.rank)+','+y(r[key])).join(' ');
+const interval=path(ranks,'upper')+' '+[...ranks].reverse().map(r=>'L'+x(r.rank)+','+y(r.lower)).join(' ')+' Z';
+add('path',{d:interval,fill:'#b6bfc1',opacity:.35});
+const signed=value=>(value>=0?'+':'')+value.toFixed(2);
+function show(row,bar){
+ svg.querySelectorAll('.selected').forEach(el=>el.classList.remove('selected'));bar.classList.add('selected');
+ detail.replaceChildren();const heading=document.createElement('strong');heading.textContent=`${row.season} ${row.team}`;
+ detail.append(heading,document.createElement('br'),document.createTextNode(`실제 ${row.wins}승 · WAR 기반 ${row.fwar_expected.toFixed(2)}승 · 차이 ${signed(row.fwar_error)}승`));
+ detail.dataset.key=`${row.season}-${row.team_id}`;
+}
+for(const row of rows){
+ const key=`${row.season}-${row.team_id}`,label=`${row.season} ${row.code} · ${signed(row.fwar_error)}승`;
+ const bar=add('rect',{x:x(row.rank)-2.8,y:Math.min(y(0),y(row.fwar_error)),width:5.6,height:Math.max(.6,Math.abs(y(0)-y(row.fwar_error))),class:'gap-bar',tabindex:0,role:'button','data-key':key,'data-rank':row.rank,'aria-label':label});
+ add('title',{},label,bar);bar.addEventListener('click',()=>show(row,bar));
+ bar.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();show(row,bar);}});
+}
+add('path',{d:path(ranks,'median'),fill:'none',stroke:'#df744d','stroke-width':2.5,'pointer-events':'none'});
+</script>
+</body></html>
